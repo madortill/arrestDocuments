@@ -2,8 +2,9 @@
     <div id="app">
       <img src="@/assets/media/bahad13icon.svg" alt="bahad13icon" class="bahad13-icon">
       <img src="@/assets/media/madorTil.svg" alt="madorTil" class="mador-til">
-      <open-screen v-if="!isStart" class="open-screen"  @start="nextPage"></open-screen>
-      <suspect-info v-if="isStart" class="suspect-info"></suspect-info>
+      <open-screen v-if="page === 0" class="open-screen"  @start="nextPage"></open-screen>
+      <suspect-info v-if="page === 1" class="suspect-info" @next="toInterrogation"></suspect-info>
+      <interrogation-room v-if="page === 2"></interrogation-room>
     </div>
 
 </template>
@@ -11,22 +12,27 @@
 <script>
 import OpenScreen from '@/components/OpenScreen.vue';
 import SuspectInfo from '@/components/SuspectInfo.vue';
+import InterrogationRoom from '@/components/InterrogationRoom.vue';
 
 
 export default {
   name: "app",
   components: {
     OpenScreen,
-    SuspectInfo
+    SuspectInfo,
+    InterrogationRoom,
   },
   data() {
       return {
-          isStart: false,
+          page: 0,
       };
   },
   methods: {
     nextPage() {
-      this.isStart = true;
+      this.page = 1;
+    },
+    toInterrogation() {
+      this.page = 2;
     }
   }
 }
@@ -41,13 +47,8 @@ export default {
   background-size: cover;
   direction: rtl;
   overflow: hidden;
-    background-color: #0E2C8E;
+  background-color: #0E2C8E;
 }
-/* .open-screen {
-  height: 100vh;
-  width: 100vw;
-} */
-.suspect-info
 html {
   font-size: calc(10px + 0.5vw);
 }
@@ -76,5 +77,6 @@ html {
     right: 1%;
     width: 6rem;
 }
+
 
 </style>

@@ -1,8 +1,7 @@
 <template>
     <div id="open-screen">
         <div class="container">
-            <p class="title">לומדת מילוי מסמכי מעצר</p>
-            <notebook @start="nextPage"></notebook>
+            <notebook @start="nextPage" class="notebook"></notebook>
             <!-- <div class="noteBookContainer">
                 <img src="@/assets/media/openingPage/noteBook.svg" alt="">
             </div> -->
@@ -48,13 +47,30 @@ export default {
     flex-direction: column;
     align-items: center;
 }
-.startBtn {
-    font-family: "dana";
-    direction: rtl;
-    font-size: 1.8rem;
-    margin-top: -10rem;
-    font-weight: bold;
-    transform: rotate(5.6deg);
-    
+.notebook {
+    margin-top: 7rem;
 }
+/* @media (max-width: 1444px) {
+    note {
+        width: ;
+    }
+} */
+/* @media (max-width: 940px) {
+    .notebook {
+        width: 30rem;
+        margin-top: 5.5rem;
+    }
+}
+@media (max-width: 540px) {
+    .notebook {
+        width: 25rem;
+        margin-top: 5.5rem;
+    }
+}
+@media (max-width: 400px) {
+    .notebook {
+        width: 20rem;
+        margin-top: 1rem;
+    }
+} */
 </style>
