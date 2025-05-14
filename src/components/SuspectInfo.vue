@@ -4,7 +4,7 @@
             <!-- <p>cfhcnhg</p> -->
             <img src="@/assets/media/suspectInfo/computer.svg" alt="computer" class="computer">
             <img src="@/assets/media/suspectInfo/suspect.svg" alt="computer" class="suspect">
-            <p class="continue-btn" @click="toInterrogation">הבא</p>
+            <p class="continue-btn" @click = "toInterrogation">הבא</p>
 
         </div>
         
