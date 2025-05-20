@@ -49,7 +49,20 @@ export default {
 }
 .notebook {
     margin-top: 7rem;
+    animation: upDown 1.7s infinite;
 }
+@keyframes upDown {
+        0% {
+            margin-top: 7rem;
+        }
+        50% {
+            margin-top: 6rem;
+        }
+        100% {
+            margin-top: 7rem;
+        }
+    }
+    
 /* @media (max-width: 1444px) {
     note {
         width: ;

@@ -56,6 +56,7 @@
   .documents {
     margin-top: 17rem;
     width: 8rem;
+    cursor: pointer;
     animation: zoom 1.5s 0.5s forwards;
   }
   @keyframes zoom {

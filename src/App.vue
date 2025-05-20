@@ -64,6 +64,10 @@ html {
   font-family: "abraham";
   src: url("@/assets/fonts/Abraham-Regular.ttf");
 }
+@font-face {
+  font-family: "alefBold";
+  src: url("@/assets/fonts/Alef-bold.ttf");
+}
 
 .bahad13-icon {
     position: fixed;

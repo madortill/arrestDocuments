@@ -9,7 +9,7 @@
 <line x1="366.298" y1="804.236" x2="471.799" y2="814.511" stroke="black" stroke-width="5"/>
 <rect x="173" y="347.574" width="90.3566" height="157.44" transform="rotate(-15.1237 173 347.574)" fill="black"/>
 <rect x="182" y="351.515" width="74.7973" height="145.071" transform="rotate(-15.1237 182 351.515)" fill="#D9D9D9"/>
-<rect x="358.335" y="683" width="145.718" height="199.285" transform="rotate(5.75106 358.335 683)" fill="white" fill-opacity="0.08"  @click="zoomDocuments"/>
+<rect x="358.335" y="683" width="145.718" height="199.285" transform="rotate(5.75106 358.335 683)" fill="white" fill-opacity="0.08"  @click="zoomDocuments" :class="{'mouse' : time === 0}" />
 </svg>
 
 
@@ -19,7 +19,9 @@
 export default {
   name: "table",
   data() {
-     
+     return {
+      time: 0,
+     };
   },
   methods: {
     zoomDocuments () {
@@ -31,5 +33,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .mouse {
+    cursor: pointer;
+  }
 </style>
