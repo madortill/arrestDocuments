@@ -27,7 +27,7 @@ export default {
     width: 100%;
     height: 100%;
     background-color: #846363;
-
+    overflow: hidden;
 }
 .part1 {
     position: absolute;
