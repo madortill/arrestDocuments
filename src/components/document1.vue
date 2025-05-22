@@ -5,7 +5,10 @@
         class="marking2"
         id="solider"
         @click="choose"
-        :class="{ chosen: chosen === 'solider' }"
+        :class="{
+          chosen: chosen === 'solider',
+          wrong: wrongChosen && chosen !== 'solider',
+        }"
       ></div>
       <div class="que1">
         <input
@@ -80,14 +83,25 @@
           type="text"
           class="input"
           v-model="userAnswers[i]"
+          :class="{ wrong: wrongUserAnswers[i] }"
         />
       </div>
       <div class="que3">
-        <input type="text" class="input3" v-model="reasonAnswer" />
+        <input
+          type="text"
+          class="input3"
+          v-model="reasonAnswer"
+          :class="{ wrong: wrongReason }"
+        />
       </div>
 
       <div class="que4">
-        <select v-model="answers.que4.time" class="input4" id="time4">
+        <select
+          v-model="answers.que4.time"
+          class="input4"
+          id="time4"
+          :class="{ wrong: wrongTimes.que4 }"
+        >
           <option v-for="time in timeOptions" :key="time" :value="time">
             {{ time }}
           </option>
@@ -109,7 +123,13 @@
         </select>
       </div>
       <div class="que4-text">
-        <input type="text" class="input" id="text4" v-model="roomUser" />
+        <input
+          type="text"
+          class="input"
+          id="text4"
+          v-model="roomUser"
+          :class="{ wrong: wrongRoom }"
+        />
       </div>
       <div class="que5">
         <select v-model="answers.que5.year" class="input4 input5">
@@ -127,7 +147,12 @@
             {{ day }}
           </option>
         </select>
-        <select v-model="answers.que5.time" class="input4 input5" id="time5">
+        <select
+          v-model="answers.que5.time"
+          class="input4 input5"
+          id="time5"
+          :class="{ wrong: wrongTimes.que5 }"
+        >
           <option v-for="time in timeOptions" :key="time" :value="time">
             {{ time }}
           </option>
@@ -149,7 +174,12 @@
             {{ day }}
           </option>
         </select>
-        <select v-model="answers.que6.time" class="input4 input6" id="time6">
+        <select
+          v-model="answers.que6.time"
+          class="input4 input6"
+          id="time6"
+          :class="{ wrong: wrongTimes.que6 }"
+        >
           <option v-for="time in timeOptions" :key="time" :value="time">
             {{ time }}
           </option>
@@ -178,7 +208,6 @@ export default {
       roomUser: "",
       userAnswers: Array(7).fill(""),
       userInfo: ["8859963", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
-      wrongCount: 0,
       page: 1,
       ranks: ["טוראי", "רב'ט", "סמל", "סמ'ר"],
       forses: [
@@ -210,6 +239,7 @@ export default {
       userInput22: "",
       userInput23: "",
       userInput41: "",
+      classes: [],
       chosen: "",
       isOpen: false,
       selectedHour: "",
@@ -240,6 +270,15 @@ export default {
           time: "",
         },
       },
+      wrongTimes: {
+        que4: false,
+        que5: false,
+        que6: false,
+      },
+      wrongUserAnswers: [],
+      wrongReason: false,
+      wrongRoom: false,
+      wrongChosen: false,
     };
   },
   created() {
@@ -269,6 +308,13 @@ export default {
     nextDoc() {
       let rightAns = 0;
 
+      if (!this.chosen) {
+        this.wrongChosen = true;
+        rightAns++;
+        return;
+      } else {
+        this.wrongChosen = false;
+      }
       const isValidID = this.checkInput(this.userInput11);
       const isValidName1 = !this.containsNumber(this.userInput12);
       const isValidName2 = !this.containsNumber(this.userInput13);
@@ -309,6 +355,17 @@ export default {
         this.answers.que5,
         this.answers.que6,
       ].every((ans) => ans.year && ans.month && ans.day && ans.time);
+
+      this.wrongUserAnswers = this.userAnswers.map((ans, i) => {
+        return ans.trim() !== this.userInfo[i];
+      });
+
+      this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
+      this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
+      this.wrongTimes.que6 = this.answers.que6.time !== "05:00";
+
+      this.wrongReason = this.reasonAnswer.trim() !== this.reason;
+      this.wrongRoom = this.roomUser.trim() !== this.roomText;
 
       if (rightAns === 5 && allAnswersFilled) {
         alert("כל השדות מלאים בצורה תקינה!");

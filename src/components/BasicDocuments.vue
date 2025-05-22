@@ -1,17 +1,17 @@
 <template>
     <div id="basic-documents">
-        <part-1-documents class="part1"></part-1-documents>
+        <document1 class="part1"></document1>
     </div>
 
 </template>
 
 <script>
-import Part1Documents from '@/components/Part1Documents.vue';
+import document1 from '@/components/document1.vue';
 
 export default {
   name: "basic-documents",
   components: {
-    Part1Documents
+    document1
   },
   data() {
      
