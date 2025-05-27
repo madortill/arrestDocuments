@@ -7,7 +7,6 @@
         @click="choose"
         :class="{
           chosen: chosen === 'solider',
-          wrong: wrongChosen && chosen !== 'solider',
         }"
       ></div>
       <div class="que1">
@@ -71,7 +70,7 @@
           v-model="userInput41"
           class="input"
           :class="
-            userInput41 === '' ? '' : { wrong: containsNumber(userInput13) }
+            userInput41 === '' ? '' : { wrong: containsNumber(userInput41) }
           "
         />
       </div>
@@ -106,17 +105,29 @@
             {{ time }}
           </option>
         </select>
-        <select v-model="answers.que4.year" class="input4">
+        <select
+          v-model="answers.que4.year"
+          class="input4"
+          :class="{ wrong: wrongDates.que4 }"
+        >
           <option v-for="year in yearsArr" :key="year" :value="year">
             {{ year }}
           </option>
         </select>
-        <select v-model="answers.que4.month" class="input4">
+        <select
+          v-model="answers.que4.month"
+          class="input4"
+          :class="{ wrong: wrongDates.que4 }"
+        >
           <option v-for="month in monthArr" :key="month" :value="month">
             {{ month }}
           </option>
         </select>
-        <select v-model="answers.que4.day" class="input4">
+        <select
+          v-model="answers.que4.day"
+          class="input4"
+          :class="{ wrong: wrongDates.que4 }"
+        >
           <option v-for="day in dayArr" :key="day" :value="day">
             {{ day }}
           </option>
@@ -132,17 +143,29 @@
         />
       </div>
       <div class="que5">
-        <select v-model="answers.que5.year" class="input4 input5">
+        <select
+          v-model="answers.que5.year"
+          class="input4 input5"
+          :class="{ wrong: wrongDates.que5 }"
+        >
           <option v-for="year in yearsArr" :key="year" :value="year">
             {{ year }}
           </option>
         </select>
-        <select v-model="answers.que5.month" class="input4 input5">
+        <select
+          v-model="answers.que5.month"
+          class="input4 input5"
+          :class="{ wrong: wrongDates.que5 }"
+        >
           <option v-for="month in monthArr" :key="month" :value="month">
             {{ month }}
           </option>
         </select>
-        <select v-model="answers.que5.day" class="input4 input5">
+        <select
+          v-model="answers.que5.day"
+          class="input4 input5"
+          :class="{ wrong: wrongDates.que5 }"
+        >
           <option v-for="day in dayArr" :key="day" :value="day">
             {{ day }}
           </option>
@@ -159,17 +182,29 @@
         </select>
       </div>
       <div class="que6">
-        <select v-model="answers.que6.year" class="input4 input6">
+        <select
+          v-model="answers.que6.year"
+          class="input4 input6"
+          :class="{ wrong: wrongDates.que6 }"
+        >
           <option v-for="year in yearsArr" :key="year" :value="year">
             {{ year }}
           </option>
         </select>
-        <select v-model="answers.que6.month" class="input4 input6">
+        <select
+          v-model="answers.que6.month"
+          class="input4 input6"
+          :class="{ wrong: wrongDates.que6 }"
+        >
           <option v-for="month in monthArr" :key="month" :value="month">
             {{ month }}
           </option>
         </select>
-        <select v-model="answers.que6.day" class="input4 input6">
+        <select
+          v-model="answers.que6.day"
+          class="input4 input6"
+          :class="{ wrong: wrongDates.que6 }"
+        >
           <option v-for="day in dayArr" :key="day" :value="day">
             {{ day }}
           </option>
@@ -185,17 +220,27 @@
           </option>
         </select>
       </div>
+      <img
+        src="@/assets/media/part1documents/signature1.svg"
+        alt="signature"
+        class="signature"
+        id="signature"
+        @click="sign"
+        :class="{
+          'chosen': signed,
+        }"
+      />
     </div>
 
     <button @click="nextDoc" class="button-next">לעמוד הבא</button>
 
-    <p class="detailBtn" @click="isOpen = !isOpen">פרטי העצור</p>
+    <!-- <p class="detailBtn" @click="isOpen = !isOpen">פרטי העצור</p>
     <img
       v-show="isOpen"
       src="@/assets/media/part1documents/details.svg"
       alt="details"
       class="details"
-    />
+    /> -->
   </div>
 </template>
 
@@ -209,7 +254,7 @@ export default {
       userAnswers: Array(7).fill(""),
       userInfo: ["8859963", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
       page: 1,
-      ranks: ["טוראי", "רב'ט", "סמל", "סמ'ר"],
+      ranks: ["טוראי", 'רב"ט', "סמל", "סמ'ר"],
       forses: [
         "היבשה",
         "האוויר",
@@ -241,8 +286,7 @@ export default {
       userInput41: "",
       classes: [],
       chosen: "",
-      isOpen: false,
-      selectedHour: "",
+      signed: false,
       selectedYear: "",
       selectedMonth: "",
       selectedDay: "",
@@ -269,6 +313,11 @@ export default {
           day: "",
           time: "",
         },
+      },
+      wrongDates: {
+        que4: false,
+        que5: false,
+        que6: false,
       },
       wrongTimes: {
         que4: false,
@@ -308,26 +357,24 @@ export default {
     nextDoc() {
       let rightAns = 0;
 
-      if (!this.chosen) {
-        this.wrongChosen = true;
-        rightAns++;
-        return;
-      } else {
-        this.wrongChosen = false;
-      }
+  
+  if (!this.signed && !this.chosen) {
+    alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם")
+} else {
+  rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
+}
       const isValidID = this.checkInput(this.userInput11);
       const isValidName1 = !this.containsNumber(this.userInput12);
       const isValidName2 = !this.containsNumber(this.userInput13);
       const isValidRoom = !this.containsNumber(this.userInput41);
       const allFilled = this.validateAllFields();
 
-      if (
-        !allFilled ||
-        !isValidID ||
-        !isValidName1 ||
-        !isValidName2 ||
-        !isValidRoom
-      ) {
+      if (!allFilled) {
+        alert("תמלאו את כל השדות כדי להמשיך.");
+        return;
+      }
+
+      if (!isValidID || !isValidName1 || !isValidName2 || !isValidRoom) {
         alert("יש למלא את כל השדות בצורה תקינה לפני המשך.");
         return;
       }
@@ -367,14 +414,47 @@ export default {
       this.wrongReason = this.reasonAnswer.trim() !== this.reason;
       this.wrongRoom = this.roomUser.trim() !== this.roomText;
 
-      if (rightAns === 5 && allAnswersFilled) {
-        alert("כל השדות מלאים בצורה תקינה!");
-        console.log(rightAns);
-        this.page += 1;
+      const correctDate1 = { year: "2025", month: "06", day: "05" };
+      const correctDate2 = { year: "2025", month: "06", day: "06" };
+
+      const q4 = this.answers.que4;
+      const q5 = this.answers.que5;
+      const q6 = this.answers.que6;
+
+      this.wrongDates.que4 = !(
+        q4.year === correctDate1.year &&
+        q4.month === correctDate1.month &&
+        q4.day === correctDate1.day
+      );
+      this.wrongDates.que5 = !(
+        q5.year === correctDate1.year &&
+        q5.month === correctDate1.month &&
+        q5.day === correctDate1.day
+      );
+      this.wrongDates.que6 = !(
+        q6.year === correctDate2.year &&
+        q6.month === correctDate2.month &&
+        q6.day === correctDate2.day
+      );
+
+      console.log(q4, correctDate1);
+
+      // ✅ הוספת ציון רק אם כל התאריכים תקינים
+      if (
+        !this.wrongDates.que4 &&
+        !this.wrongDates.que5 &&
+        !this.wrongDates.que6
+      ) {
+        rightAns++;
+      } else {
+        console.log("לא נכון!!!");
+      }
+      // שלב 2: בדיקה של התאמת תאריכים
+      if (rightAns === 7 && allAnswersFilled) {
+        alert("כל הכבוד! מילאת את כל התשובות נכון!");
+        this.$emit("next-doc");
       } else {
         alert("יש למלא את כל השדות ולוודא שכל התשובות נכונות.");
-        console.log(rightAns);
-        console.log(allAnswersFilled);
       }
     },
 
@@ -402,7 +482,7 @@ export default {
     days() {
       const days = [];
       for (let d = 1; d <= 31; d++) {
-        days.push(d.toString());
+        days.push(d.toString().padStart(2, "0"));
       }
       this.dayArr = days;
     },
@@ -410,7 +490,7 @@ export default {
     months() {
       const month = [];
       for (let m = 1; m <= 12; m++) {
-        month.push(m.toString());
+        month.push(m.toString().padStart(2, "0"));
       }
       this.monthArr = month;
     },
@@ -421,6 +501,10 @@ export default {
       if (currentId === "solider") {
         this.chosen = "solider";
       }
+    },
+    sign() {
+      this.signed = true;
+      console.log(this.signed)
     },
 
     // פונקציה לבדיקה אם המחרוזת מכילה מספר
@@ -453,33 +537,6 @@ export default {
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
-.details {
-  position: absolute;
-  bottom: 15rem;
-  width: 16rem;
-  right: 37rem;
-}
-.detailBtn {
-  position: absolute;
-  right: 41rem;
-  bottom: 35rem;
-  width: 5rem;
-  text-align: center;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  font-family: "rubik";
-  padding: 1rem;
-  background-color: #0e2c8e;
-  cursor: pointer;
-}
-.detailBtn:hover {
-  background-color: #0e277a;
-}
-.detailBtn:active {
-  background-color: #123199;
-}
 .marking1 {
   position: relative;
   top: 8.6rem;
@@ -501,6 +558,14 @@ export default {
   border-radius: 100%;
   opacity: 0;
   cursor: pointer;
+}
+.signature {
+  width: 3rem;
+  position: relative;
+  top: -17rem;
+  right: 28.5rem;
+  cursor: pointer;
+  opacity: 0;
 }
 .chosen {
   opacity: 1;
