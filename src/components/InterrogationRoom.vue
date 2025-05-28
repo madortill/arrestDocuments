@@ -1,7 +1,7 @@
 <template>
-    <div id="interrogation-room" :class="{'clicked' : isClick}">
+    <div id="interrogation-room" :class="{'clicked' : isBrown}">
         <basic-documents v-if="page === 1" @backToTable="showTable"></basic-documents>
-        <phone-documents v-if="page === 2"></phone-documents>
+        <phone-documents v-if="page === 2" @backToTable="showTable"></phone-documents>
       <div v-show="page === 0" class="table-container">
         <Table v-show="!isClick" class="table" @zoom="zoomDocuments" @phone="moveToDoc"></Table>
         <img src="@/assets/media/interrogationRoom/documents.svg" v-show="isClick" class="documents" @click="moveToDoc" alt="documents">
@@ -26,6 +26,7 @@
     data() {
       return {
         isClick: false,
+        isBrown: false,
         page: 0,
         object: 'phone',
       };
@@ -33,8 +34,10 @@
     methods: {
      zoomDocuments() {
         this.isClick = true;
+        this.isBrown = true;
      },
      moveToDoc() {
+      this.isBrown = true;
       if(this.object === "documents") {
         this.page = 1;
       } else if(this.object === "phone") {
@@ -48,6 +51,7 @@
      showTable(item) {
       this.page = 0;
       this.isClick = false;
+      this.isBrown = false;
       this.object = item;
      }
     },
