@@ -40,14 +40,15 @@ export default {
 
 <style>
 #app {
+  background-image: url("@/assets/media/Artboard 2.svg");
   background-size: 100vw 100vh;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   direction: rtl;
-  overflow: hidden;
-  background-color: #0E2C8E;
+  overflow-x: hidden;
+
 }
 html {
   font-size: calc(10px + 0.5vw);

@@ -73,9 +73,9 @@ export default {
     margin-left: 30rem;
 }
 .suspect {
-    margin-top: -30rem;
+    margin-top: -35rem;
     margin-right: 40rem;
-    width: 12rem;
+    width: 18rem;
 }
 .continue-btn {
     font-family: "rubik";
@@ -147,11 +147,11 @@ export default {
 }
 .suspect {
     margin-right: 47rem;
-    width: 10rem;
+    width: 15rem;
 }
 .continue-btn {
     margin-right: 50rem;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 .finale-exe {
     top: 26rem;

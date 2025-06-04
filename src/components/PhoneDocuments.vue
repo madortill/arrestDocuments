@@ -20,7 +20,7 @@ export default {
 },
   methods: {
     backToTable() {
-        this.$emit("backToTable", "suspect");
+        this.$emit("backToTable", "cop");
     }
   },
 };
@@ -30,7 +30,7 @@ export default {
 #phone-document {
   width: 100%;
   height: 100%;
-  background-color: #846363;
+  background-color: #7B736E;
   overflow: hidden;
 }
 .part1 {

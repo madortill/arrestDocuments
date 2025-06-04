@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="1037.38" cy="626.39" fx="1159.11" fy="-23.64" r="854.89" gradientTransform="translate(-5.18 -10.41) scale(.93 .88)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4b495a"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </radialGradient>
+  </defs>
+  <g id="_רקע_שחור" data-name="רקע שחור">
+    <rect class="cls-1" x="-2.39" y="-9.95" width="1924.78" height="1099.91"/>
+  </g>
+  <g id="_חלקים" data-name="חלקים">
+    <image id="_מסמכים" data-name="מסמכים" width="3840" height="2160" transform="translate(-193.86 -251.85) scale(.61)" xlink:href="../interrogationRoom/table.png"/>
+    <image id="_קריפ" data-name="קריפ" width="3840" height="2160" transform="translate(-193.86 -251.85) scale(.61)" xlink:href="../interrogationRoom/ecreep.png"/>
+    <image id="_שוטר" data-name="שוטר" width="3840" height="2160" transform="translate(-193.86 -251.85) scale(.61)" xlink:href="../interrogationRoom/policeman.png"/>
+    <image id="_טלפון_על_שולחן" data-name="טלפון על שולחן" width="3840" height="2160" transform="translate(-199.25 -299.2) scale(.61)" xlink:href="../interrogationRoom/phone-on-table.png"/>
+    <image id="_נייר" data-name="נייר" width="3840" height="2160" transform="translate(-56.52 -191.98) scale(.61)" xlink:href="../interrogationRoom/papers.png"/>
+  </g>
+</svg>

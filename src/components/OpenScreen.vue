@@ -92,8 +92,8 @@ export default {
   transition: background-color 0.3s ease;
   background-color: #e10202;
   border-radius: 150px;
-  width: 2%;
-  height: 4%;
+  width: 2rem;
+  height: 2.2rem;
   cursor: pointer;
   left: 2.9%;
   top: 19%;
@@ -105,7 +105,7 @@ export default {
 .div-about {
   position: absolute;
   width: 12%;
-  height: 40%;
+  height: 43%;
   left: 10%;
   top: 8%;
   font-family: "rubik";

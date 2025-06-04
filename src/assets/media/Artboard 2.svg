@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_רקע_שחור_2" data-name="רקע שחור 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="1004.59" cy="621.8" fx="1126.32" fy="-28.23" r="854.89" gradientTransform="translate(-5.7 -7.1) scale(.94 .88)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4b495a"/>
+      <stop offset="1" stop-color="#231f20"/>
+    </radialGradient>
+  </defs>
+  <rect class="cls-1" x="-33.84" y="-10.68" width="1953.84" height="1101.36"/>
+</svg>

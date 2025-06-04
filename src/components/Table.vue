@@ -1,52 +1,169 @@
 <template>
-<svg width="1394" height="1003" viewBox="0 0 1394 1003" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect y="259.546" width="1262.1" height="767.983" transform="rotate(-11.8674 0 259.546)" fill="#846363"/>
-<rect x="346.677" y="695" width="145.203" height="199.266" transform="rotate(6.24503 346.677 695)" fill="#E8E8E8"/>
-<rect x="358.677" y="683" width="145.203" height="199.266" transform="rotate(6.24503 358.677 683)" fill="white" :class="{'glow' : time === 0}"/>
-<line x1="373.284" y1="732.512" x2="478.785" y2="742.787" stroke="black" stroke-width="5"/>
-<line x1="369.904" y1="767.217" x2="475.405" y2="777.493" stroke="black" stroke-width="5"/>
-<line x1="362.242" y1="845.882" x2="467.743" y2="856.158" stroke="black" stroke-width="5"/>
-<line x1="366.298" y1="804.236" x2="471.799" y2="814.511" stroke="black" stroke-width="5"/>
-<rect x="173" y="347.574" width="90.3566" height="157.44" transform="rotate(-15.1237 173 347.574)" fill="black" :class="{'glow' : time === 1}"/>
-<rect x="182" y="351.515" width="74.7973" height="145.071" transform="rotate(-15.1237 182 351.515)" fill="#D9D9D9" :disabled="time != 1" @click="moveToPhone"  :class="{'mouse': time === 1, 'disabled': time !== 1}"/>
-<rect x="358.335" y="683" width="145.718" height="199.285" transform="rotate(5.75106 358.335 683)" fill="white" fill-opacity="0.08"  @click="zoomDocuments" :class="{'mouse' : time === 0, 'disabled': time !== 0}" />
-</svg>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    viewBox="0 0 1920 1080"
+    class="full-svg"
+  >
+    <defs>
+      <radialGradient
+        id="radial-gradient"
+        cx="977"
+        cy="542.91"
+        fx="1098.73"
+        fy="-107.12"
+        r="854.89"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0" stop-color="#4b495a" />
+        <stop offset="1" stop-color="#231f20" />
+      </radialGradient>
+      <linearGradient
+        id="linear-gradient"
+        x1="960"
+        y1="0"
+        x2="960"
+        y2="1080"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop offset="0" stop-color="#fff" />
+        <stop offset="1" stop-color="#231f20" />
+      </linearGradient>
+    </defs>
 
-
+    <g class="cls-4">
+      <g id="_חלקים" data-name="חלקים">
+        <image
+          :xlink:href="tableImg"
+          width="3840"
+          height="2160"
+          transform="translate(-193.86 -251.85) scale(.61)"
+        />
+        <image
+        :href="papersImg"
+          width="3840"
+          height="2160"
+          transform="translate(-56.52 -191.98) scale(.61)"
+          @click="bla"
+          :style="{ pointerEvents: 'auto', cursor: 'pointer' }"
+        />
+        <image
+          :xlink:href="ecreepImg"
+          width="3840"
+          height="2160"
+          transform="translate(-193.86 -251.85) scale(.61)"
+          class="papa"
+        />
+        <image
+          :xlink:href="policemanImg"
+          width="3840"
+          height="2160"
+          transform="translate(-193.86 -251.85) scale(.61)"
+          @click="moveToCop"
+          :class="{ glow: time === 1 }"
+           :style="{ pointerEvents: 'auto', cursor: 'pointer' }"
+        />
+        <image
+          :xlink:href="phoneImg"
+          width="3840"
+          height="2160"
+          transform="translate(-193.86 -251.85) scale(.61)"
+          class="mouse"
+          :class="{ glow: time === 1, mouse: time === 1, disabled: time != 1 }"
+          :disabled="time != 1"
+          @click="moveToPhone"
+        />
+      </g>
+    </g>
+  </svg>
 </template>
 
 <script>
+import tableImg from "@/assets/media/interrogationRoom/table.png";
+import papersImg from "@/assets/media/interrogationRoom/papers.png";
+import ecreepImg from "@/assets/media/interrogationRoom/ecreep.png";
+import policemanImg from "@/assets/media/interrogationRoom/policeman.png";
+import phoneImg from "@/assets/media/interrogationRoom/phone-on-table.png";
+
 export default {
   name: "table",
   data() {
-     return {
-      time: 1,
-     };
+    return {
+      tableImg,
+      papersImg,
+      ecreepImg,
+      policemanImg,
+      phoneImg,
+      time: 0,
+    };
   },
   methods: {
-    zoomDocuments () {
-        this.$emit("zoom");
-        this.time = 1;
+    zoomDocuments() {
+      console.log("hi");
+      this.$emit("zoom");
+      this.time = 1;
+      console.log("hi");
     },
     moveToPhone() {
-      this.$emit("phone");
-      
+      console.log("hiii");
+      this.$emit("move");
+      this.time = 2;
+    },
+    bla() {
+      console.log("hii");
+    },
+    moveToCop() {
+      this.$emit("move");
     }
-  }
-}
-
+  },
+};
 </script>
 
 <style scoped>
-  .mouse {
-    cursor: pointer;
-  }
-  .glow {
-    filter: drop-shadow(0 0 8px #00e5ff);
-    transition: all 0.3s ease;
-  }
-  .disabled {
-    pointer-events: none; /* מונע כל לחיצה */
-  }
+.full-svg {
+  width: 100%;
+  height: 90vh;
+  display: block;
+  margin-top: 3rem;
+}
+.mouse {
+  cursor: pointer;
+}
+.glow {
+  filter: drop-shadow(0 0 20px #00e5ff);
+  transition: all 0.3s ease;
+}
+.disabled {
+  pointer-events: none;
+}
 
+.cls-1 {
+  opacity: 0.75;
+}
+
+.cls-2 {
+  fill: url(#linear-gradient);
+  mix-blend-mode: darken;
+  opacity: 0.35;
+}
+
+.cls-3 {
+  fill: url(#radial-gradient);
+}
+
+.cls-4 {
+  isolation: isolate;
+}
+
+.cls-5 {
+  mix-blend-mode: color-dodge;
+  opacity: 0.72;
+}
+
+.cls-6 {
+  opacity: 0.69;
+}
+.papa {
+  pointer-events: none;
+}
 </style>

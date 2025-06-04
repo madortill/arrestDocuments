@@ -25,7 +25,7 @@ export default {
   },
   data() {
     return {
-      doc: 2,
+      doc: 1,
       isOpen: false,
     };
   },
@@ -45,7 +45,7 @@ export default {
 #basic-documents {
   width: 100%;
   height: 100%;
-  background-color: #846363;
+  background-color: #7B736E;
   overflow: hidden;
 }
 

@@ -227,12 +227,12 @@
         id="signature"
         @click="sign"
         :class="{
-          'chosen': signed,
+          chosen: signed,
         }"
       />
     </div>
 
-    <button @click="nextDoc" class="button-next">לעמוד הבא</button>
+    <button @click="nextDoc" class="button-next" :disabled="!validateAllFields()" :class="{ 'disabled-btn': !validateAllFields() }">לעמוד הבא</button>
 
     <!-- <p class="detailBtn" @click="isOpen = !isOpen">פרטי העצור</p>
     <img
@@ -254,7 +254,7 @@ export default {
       userAnswers: Array(7).fill(""),
       userInfo: ["8859963", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
       page: 1,
-      ranks: ["טוראי", 'רב"ט', "סמל", "סמ'ר"],
+      ranks: ["טוראי", 'רב"ט', "סמל", 'סמ"ר'],  
       forses: [
         "היבשה",
         "האוויר",
@@ -339,6 +339,8 @@ export default {
   methods: {
     validateAllFields() {
       return (
+        this.signed &&
+        this.chosen &&
         this.userInput11.trim() !== "" &&
         this.selectedRan1k &&
         this.userInput12.trim() !== "" &&
@@ -357,22 +359,21 @@ export default {
     nextDoc() {
       let rightAns = 0;
 
-  
-  if (!this.signed && !this.chosen) {
-    alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם")
-} else {
-  rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
-}
+      if (!this.signed && !this.chosen) {
+        alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
+      } else {
+        rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
+      }
       const isValidID = this.checkInput(this.userInput11);
       const isValidName1 = !this.containsNumber(this.userInput12);
       const isValidName2 = !this.containsNumber(this.userInput13);
       const isValidRoom = !this.containsNumber(this.userInput41);
       const allFilled = this.validateAllFields();
 
-      if (!allFilled) {
-        alert("תמלאו את כל השדות כדי להמשיך.");
-        return;
-      }
+      // if (!allFilled) {
+      //   alert("תמלאו את כל השדות כדי להמשיך.");
+      //   return;
+      // }
 
       if (!isValidID || !isValidName1 || !isValidName2 || !isValidRoom) {
         alert("יש למלא את כל השדות בצורה תקינה לפני המשך.");
@@ -504,7 +505,7 @@ export default {
     },
     sign() {
       this.signed = true;
-      console.log(this.signed)
+      console.log(this.signed);
     },
 
     // פונקציה לבדיקה אם המחרוזת מכילה מספר
@@ -682,20 +683,34 @@ export default {
   background-color: #0e2c8e;
   cursor: pointer;
 }
-/* @media (max-width: 1470px) {
+.disabled-btn {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+@media (max-width: 1455px) {
     .input4 {
-      margin-top: 1.5rem;
+      margin-top: 2rem;
+    }
+    .input5 {
+      margin-top: 2.3rem;
+    }
+    .signature {
+      top: -16.5rem;
     }
     #text4 {
       top: -11.4rem;
     }
 }
-@media (max-width: 1230px) {
+@media (max-width: 870px) {
     .input4 {
-      margin-top: 1.1rem;
+      margin-top: 1.7rem;
+    }
+    .input5 {
+      margin-top: 2rem;
     }
     #text4 {
       top: -11.4rem;
     }
-} */
+}
 </style>

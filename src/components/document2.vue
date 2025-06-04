@@ -67,11 +67,15 @@
         }"
       />
     </div>
-    <button class="back-btn" @click="backToMap">בדיקה</button>
+    <button class="back-btn" :disabled="!areAllFieldsFilled()" :class="{ 'disabled-btn': !areAllFieldsFilled()}" @click="backToMap">בדיקה</button>
     <div class="info-container">
       <p class="time-info">הודיעו לי על זכויותיי בשעה 13:04</p>
     </div>
-    <img src="@/assets/media/suspectInfo/suspect.svg" alt="computer" class="suspect">
+    <img
+      src="@/assets/media/suspectInfo/suspect.svg"
+      alt="computer"
+      class="suspect"
+    />
   </div>
 </template>
 
@@ -84,7 +88,6 @@ export default {
       userAnswers: Array(3).fill(""),
       userAnswers2: Array(2).fill(""),
       userAnswers3: Array(5).fill(""),
-      timeOptions: [],
       selectedTime: "",
       checked: false,
       isCorrect: false,
@@ -113,6 +116,16 @@ export default {
         this.signed2 = true;
         console.log(this.signed2);
       }
+    },
+    areAllFieldsFilled() {
+      return (
+        this.userAnswers.every((val) => val.trim() !== "") && // תאריך מולא
+        this.selectedTime.trim() !== "" && // שעה נבחרה
+        this.userAnswers3.every((val) => val.trim() !== "") && // פרטי העצור מולאו
+        this.reasonAnswer.trim() !== "" && // סיבה מולאה
+        this.hourAnswer.trim() !== "" && // שעות מולאו
+        (this.signed1 && this.signed2) // חתימה קיימת
+      );
     },
     backToMap() {
       let rightAns = 0;
@@ -192,31 +205,30 @@ export default {
   background-repeat: no-repeat;
 }
 .info-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: -13rem;
-    margin-right: -15rem;
-    width: 13rem;
-    height: 13rem;
-    background-image: url("@/assets/media/part1documents/talkBubble.svg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: -13rem;
+  margin-right: -15rem;
+  width: 13rem;
+  height: 13rem;
+  background-image: url("@/assets/media/part1documents/talkBubble.svg");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 .time-info {
-    width: 8rem;
-    position: relative;
-    top: 3rem;
-    right: 1rem;
-    font-family: "rubik";
-
+  width: 8rem;
+  position: relative;
+  top: 3rem;
+  right: 1rem;
+  font-family: "rubik";
 }
 
 .suspect {
-    margin-top: -2rem;
-    margin-right: -20rem;
-    width: 7rem;
+  margin-top: -2rem;
+  margin-right: -20rem;
+  width: 7rem;
 }
 .que1-date {
   display: flex;
@@ -306,5 +318,10 @@ export default {
 }
 .back-btn:active {
   background-color: #123199;
+}
+.disabled-btn {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
 }
 </style>

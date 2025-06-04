@@ -231,11 +231,6 @@ export default {
 
     backToTable() {
       let rightAns = 0;
-      if (this.signed && this.chosen) {
-        rightAns++;
-      } else {
-        alert("שימו לב להקיף במקום המתאים ולחתום");
-      }
 
       if (this.isChecked) {
         rightAns++;
@@ -348,7 +343,7 @@ export default {
         alert("הכל נכון כל הכבוד!");
         this.$emit("backToTable");
       } else {
-        alert("קיימים שדות ריקים או שלא כל התשובות נכונות");
+        alert("קיימות תשובות שגויות");
       }
     },
   },
