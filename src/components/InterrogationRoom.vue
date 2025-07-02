@@ -95,8 +95,8 @@
       width: 5rem;
     }
     100% {
-      margin-top: 17rem;
-      width: 28rem;
+      margin-top: 13rem;
+      width: 35rem;
     }
 }
   @-webkit-keyframes zoom {
