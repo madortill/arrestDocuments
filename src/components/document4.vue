@@ -25,51 +25,57 @@
         type="text"
         class="input3"
         :class="{
-            wrong: checked3 && wrongUserAnswers3[i],
+          wrong: checked3 && wrongUserAnswers3[i],
           'last-input3': i === userAnswers3.length - 1,
         }"
         v-model="userAnswers3[i]"
       />
+    </div>
+    <div class="que1-text">
+      <input
+        type="text"
+        class="input4"
+        :class="{ wrong: wrongReason }"
+        v-model="reasonAnswer"
+      />
+    </div>
+    <div class="que2-text">
+      <input
+        type="text"
+        class="input5"
+        :class="{ wrong: wrongTestimony }"
+        v-model="testimonyAnswer"
+      />
+    </div>
+    <img
+      src="@/assets/media/part1documents/signature1.svg"
+      alt="signature"
+      class="signature1"
+      id="signature1"
+      @click="sign"
+      :class="{
+        chosen: signed1,
+      }"
+    />
+    <img
+      src="@/assets/media/part1documents/signature2.svg"
+      alt="signature"
+      class="signature2"
+      id="signature2"
+      @click="sign"
+      :class="{
+        chosen: signed2,
+      }"
+    />
+    <button
+      class="back-btn"
+      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
+      :disabled="!debugMode && !areAllFieldsFilled()"
+      @click="nextDoc"
+    >
+      לעמוד הבא
+    </button>
   </div>
-  <div class="que1-text">
-        <input
-          type="text"
-          class="input4"
-          :class="{ wrong: wrongReason }"
-          v-model="reasonAnswer"
-         
-        />
-      </div>
-      <div class="que2-text">
-        <input
-          type="text"
-          class="input5"
-          :class="{ wrong: wrongTestimony }"
-          v-model="testimonyAnswer"
-        />
-      </div>
-      <img
-        src="@/assets/media/part1documents/signature1.svg"
-        alt="signature"
-        class="signature1"
-        id="signature1"
-        @click="sign"
-        :class="{
-          chosen: signed1,
-        }"
-      />
-      <img
-        src="@/assets/media/part1documents/signature2.svg"
-        alt="signature"
-        class="signature2"
-        id="signature2"
-        @click="sign"
-        :class="{
-          chosen: signed2,
-        }"
-      />
-      <button class="back-btn" :disabled="!areAllFieldsFilled()" :class="{ 'disabled-btn': !areAllFieldsFilled()}" @click="backToMap">בדיקה</button>
-</div>
 </template>
 
 <script>
@@ -81,8 +87,8 @@ export default {
       userAnswers: Array(3).fill(""),
       userAnswers2: Array(2).fill(""),
       userAnswers3: Array(4).fill(""),
-      signed1: '',
-      signed2: '',
+      signed1: "",
+      signed2: "",
       selectedDate: ["25", "06", "05"],
       wrongInputs: [false, false, false],
       selectedTime: "",
@@ -91,13 +97,13 @@ export default {
       userInfo: ["8859963", 'רב"ט', "נועם רייס", 'בא"ח 21'],
       wrongUserAnswers3: [false, false, false, false, false], // לשמירת סטטוס טעויות
       checked3: false,
-      reason: "הטרדה מינית ומעשה מגונה בכוח.",
+      reason: "הטרדה מינית ומעשה מגונה בכוח",
       reasonAnswer: "",
       wrongReason: false,
       testimony: '"אני צריך חולצות, תחתונים וכדורי האלרגיה שלי"',
       wrongTestimony: false,
       testimonyAnswer: "",
-     
+      debugMode: true,
     };
   },
   methods: {
@@ -117,10 +123,15 @@ export default {
         this.userAnswers3.every((val) => val.trim() !== "") && // פרטי העצור מולאו
         this.reasonAnswer.trim() !== "" && // סיבה מולאה
         this.testimonyAnswer.trim() !== "" && // עדות מולאה
-        (this.signed1 && this.signed2) // חתימה קיימת
+        this.signed1 &&
+        this.signed2 // חתימה קיימת
       );
     },
-    backToMap() {
+    nextDoc() {
+      if (this.debugMode) {
+        this.$emit("next-doc");
+        return;
+      }
       let rightAns = 0;
 
       // בדיקת תאריך
@@ -180,12 +191,12 @@ export default {
       // סיכום התוצאה
       if (rightAns === 6) {
         alert("כל התשובות נכונות!");
-        this.$emit("backToTable");
+        this.$emit("next-doc");
       } else {
         alert("צריך לתקן חלק מהתשובות");
       }
     },
-  }
+  },
 };
 </script>
 
@@ -204,9 +215,6 @@ export default {
   margin-top: 8.1rem;
   margin-right: 11.7rem;
   gap: 0.3rem;
-}
-.input1 {
-  width: 0.8rem;
 }
 .input1 {
   width: 0.8rem;
@@ -230,7 +238,7 @@ export default {
   right: 8.8rem;
 }
 .last-input3 {
-  margin-right: 2rem; /* או כל גודל שתרצי */
+  margin-right: 2rem;
 }
 .input4 {
   width: 15rem;
@@ -242,6 +250,7 @@ export default {
   width: 15rem;
   position: relative;
   right: 11rem;
+  top: 0.5rem;
 }
 .signature1 {
   width: 4rem;

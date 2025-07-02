@@ -67,7 +67,14 @@
         }"
       />
     </div>
-    <button class="back-btn" :disabled="!areAllFieldsFilled()" :class="{ 'disabled-btn': !areAllFieldsFilled()}" @click="backToMap">בדיקה</button>
+    <button
+      class="back-btn"
+      :disabled="!debugMode && !areAllFieldsFilled()"
+      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
+      @click="backToMap"
+    >
+      בדיקה
+    </button>
     <div class="info-container">
       <p class="time-info">הודיעו לי על זכויותיי בשעה 13:04</p>
     </div>
@@ -104,6 +111,7 @@ export default {
       hourAnswer: "",
       signed1: false,
       signed2: false,
+      debugMode: true,
     };
   },
 
@@ -124,10 +132,16 @@ export default {
         this.userAnswers3.every((val) => val.trim() !== "") && // פרטי העצור מולאו
         this.reasonAnswer.trim() !== "" && // סיבה מולאה
         this.hourAnswer.trim() !== "" && // שעות מולאו
-        (this.signed1 && this.signed2) // חתימה קיימת
+        this.signed1 &&
+        this.signed2 // חתימה קיימת
       );
     },
+
     backToMap() {
+      if (this.debugMode) {
+        this.$emit("backToTable");
+        return;
+      }
       let rightAns = 0;
 
       // בדיקת תאריך
@@ -226,9 +240,9 @@ export default {
 }
 
 .suspect {
-  margin-top: -2rem;
-  margin-right: -20rem;
-  width: 7rem;
+  margin-top: -5rem;
+  margin-right: -22rem;
+  width: 12rem;
 }
 .que1-date {
   display: flex;

@@ -44,38 +44,79 @@
           width="3840"
           height="2160"
           transform="translate(-56.52 -191.98) scale(.61)"
-          @click="bla"
-          :style="{ pointerEvents: 'auto', cursor: 'pointer' }"
+          :class="{ glow: time === 0, disabled: time != 0 }"
         />
         <image
           :xlink:href="ecreepImg"
           width="3840"
           height="2160"
           transform="translate(-193.86 -251.85) scale(.61)"
-          class="papa"
+          :class="{ glow: time === 2, disabled: time != 2 }"
+          :style="{ pointerEvents: 'none' }"
         />
         <image
           :xlink:href="policemanImg"
           width="3840"
           height="2160"
           transform="translate(-193.86 -251.85) scale(.61)"
-          @click="moveToCop"
-          :class="{ glow: time === 1 }"
-           :style="{ pointerEvents: 'auto', cursor: 'pointer' }"
         />
         <image
           :xlink:href="phoneImg"
           width="3840"
           height="2160"
           transform="translate(-193.86 -251.85) scale(.61)"
-          class="mouse"
-          :class="{ glow: time === 1, mouse: time === 1, disabled: time != 1 }"
-          :disabled="time != 1"
-          @click="moveToPhone"
+          :class="{ glow: time === 1, disabled: time != 1 }"
         />
       </g>
     </g>
+    <!-- לחצן מסמכים -->
+    <rect
+  x="400" y="1170"
+  width="230"
+  height="410"
+  rx="16"
+  fill="none"
+  transform="rotate(-39 130 270)"
+  @click="zoomDocuments"
+  :class="{ mouse: time === 0 }"
+  :style="{
+    pointerEvents: time === 0 ? 'all' : 'none',
+    cursor: time === 0 ? 'pointer' : 'default'
+  }"
+/>
+<!-- לחצן טלפון -->
+<rect
+  x="619" y="770"
+  width="118"
+  height="55"
+  rx="16"
+  fill="none"
+  transform="rotate(-15 13 230)"
+  @click="moveToPhone"
+  :class="{ mouse: time === 1 }"
+  :style="{
+    pointerEvents: time === 1 ? 'all' : 'none',
+    cursor: time === 1 ? 'pointer' : 'default'
+  }"
+/>
+
+<!-- לחצן נחקר -->
+<rect
+  x="920" y="-80"
+  width="530"
+  height="830"
+  rx="100"
+  fill="none"
+  transform="rotate(0 13 230)"
+  @click="moveToPhone"
+  :class="{ mouse: time === 2 }"
+  :style="{
+    pointerEvents: time === 2 ? 'all' : 'none',
+    cursor: time === 2 ? 'pointer' : 'default'
+  }"
+/>
   </svg>
+  
 </template>
 
 <script>
@@ -109,9 +150,6 @@ export default {
       this.$emit("move");
       this.time = 2;
     },
-    bla() {
-      console.log("hii");
-    },
     moveToCop() {
       this.$emit("move");
     }
@@ -125,6 +163,7 @@ export default {
   height: 90vh;
   display: block;
   margin-top: 3rem;
+  z-index: 1;
 }
 .mouse {
   cursor: pointer;

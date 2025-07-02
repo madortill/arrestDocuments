@@ -232,7 +232,14 @@
       />
     </div>
 
-    <button @click="nextDoc" class="button-next" :disabled="!validateAllFields()" :class="{ 'disabled-btn': !validateAllFields() }">לעמוד הבא</button>
+    <button
+      @click="nextDoc"
+      class="button-next"
+      :disabled="!debugMode && !validateAllFields()"
+      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }"
+    >
+      לעמוד הבא
+    </button>
 
     <!-- <p class="detailBtn" @click="isOpen = !isOpen">פרטי העצור</p>
     <img
@@ -254,7 +261,7 @@ export default {
       userAnswers: Array(7).fill(""),
       userInfo: ["8859963", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
       page: 1,
-      ranks: ["טוראי", 'רב"ט', "סמל", 'סמ"ר'],  
+      ranks: ["טוראי", 'רב"ט', "סמל", 'סמ"ר'],
       forses: [
         "היבשה",
         "האוויר",
@@ -328,6 +335,7 @@ export default {
       wrongReason: false,
       wrongRoom: false,
       wrongChosen: false,
+      debugMode: true,
     };
   },
   created() {
@@ -357,6 +365,10 @@ export default {
     },
 
     nextDoc() {
+      if (this.debugMode) {
+        this.$emit("next-doc");
+        return;
+      }
       let rightAns = 0;
 
       if (!this.signed && !this.chosen) {
@@ -689,28 +701,28 @@ export default {
   cursor: not-allowed;
 }
 @media (max-width: 1455px) {
-    .input4 {
-      margin-top: 2rem;
-    }
-    .input5 {
-      margin-top: 2.3rem;
-    }
-    .signature {
-      top: -16.5rem;
-    }
-    #text4 {
-      top: -11.4rem;
-    }
+  .input4 {
+    margin-top: 2rem;
+  }
+  .input5 {
+    margin-top: 2.3rem;
+  }
+  .signature {
+    top: -16.5rem;
+  }
+  #text4 {
+    top: -11.4rem;
+  }
 }
 @media (max-width: 870px) {
-    .input4 {
-      margin-top: 1.7rem;
-    }
-    .input5 {
-      margin-top: 2rem;
-    }
-    #text4 {
-      top: -11.4rem;
-    }
+  .input4 {
+    margin-top: 1.7rem;
+  }
+  .input5 {
+    margin-top: 2rem;
+  }
+  #text4 {
+    top: -11.4rem;
+  }
 }
 </style>

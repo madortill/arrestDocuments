@@ -3,10 +3,10 @@
       <instructions></instructions>
         <basic-documents v-if="page === 1" @backToTable="showTable"></basic-documents>
         <phone-documents v-if="page === 2" @backToTable="showTable"></phone-documents>
-        <cop-documents v-if="page === 3"></cop-documents>
+        <suspect-documents v-if="page === 3"></suspect-documents>
       <div v-show="page === 0" class="table-container">
         <Table v-show="!isClick" class="table" @zoom="zoomDocuments" @move="moveToDoc"></Table>
-        <img src="@/assets/media/interrogationRoom/papers.png" v-show="isClick" class="documents" @click="moveToDoc" alt="documents">
+        <img src="@/assets/media/interrogationRoom/papers.svg" v-show="isClick" class="documents" @click="moveToDoc" alt="documents">
       </div>
     
       
@@ -18,7 +18,7 @@
   import Table from '@/components/Table.vue';
   import BasicDocuments from '@/components/BasicDocuments.vue';
   import PhoneDocuments from '@/components/PhoneDocuments.vue';
-  import CopDocuments from '@/components/CopDocuments.vue';
+  import SuspectDocuments from '@/components/SuspectDocuments.vue';
   
   export default {
     name: "interrogation-room",
@@ -27,14 +27,14 @@
       BasicDocuments,
       PhoneDocuments,
       instructions,
-      CopDocuments
+      SuspectDocuments
     },
     data() {
       return {
         isClick: false,
         isBrown: false,
         page: 0,
-        object: 'cop',
+        object: 'documents',
       };
     },
     methods: {
@@ -84,29 +84,29 @@
   z-index: 2;
   }
   .documents {
-    margin-top: 17rem;
-    width: 8rem;
+    margin-top: 20rem;
+    width: 5rem;
     cursor: pointer;
     animation: zoom 1.5s 0.5s forwards;
   }
   @keyframes zoom {
     0% {
-        margin-top: 17rem;
-        width: 8rem;
+      margin-top: 20rem;
+      width: 5rem;
     }
     100% {
-        width: 24rem;
-        margin-top: 8rem;
+      margin-top: 17rem;
+      width: 28rem;
     }
 }
   @-webkit-keyframes zoom {
     0% {
-        margin-top: 17rem;
-        width: 8rem;
+      margin-top: 20rem;
+      width: 5rem;
     }
     100% {
-        width: 24rem;
-        margin-top: 8rem;
+      margin-top: 17rem;
+      width: 28rem;
     }
   }
   </style>

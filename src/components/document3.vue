@@ -152,8 +152,14 @@
       }"
     />
 
-    <button @click="backToTable" class="back-btn" :class="{ 'disabled-btn': !areAllFieldsFilled() }"
-    :disabled="!areAllFieldsFilled()">בדיקה</button>
+    <button
+      @click="backToTable"
+      class="back-btn"
+      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
+      :disabled="!debugMode && !areAllFieldsFilled()"
+    >
+      בדיקה
+    </button>
   </div>
 </template>
 
@@ -197,6 +203,7 @@ export default {
       publicOfficerArr: ['קפ"צ', "1111"],
       headquarters: ['סג"ם', "אריאל גיל", 'קמב"ץ', "0586695478"],
       escortsArr: ['סג"ם', "שובל מלכה", "קצין ליווים", "098972950"],
+      debugMode: true,
     };
   },
   methods: {
@@ -210,26 +217,30 @@ export default {
     },
 
     areAllFieldsFilled() {
-  return (
-    this.signed &&
-    this.chosen &&
-    this.isChecked &&
-    this.userAnswers11.every(val => val.trim() !== "") &&
-    this.selectedTime1.trim() !== "" &&
-    this.userAnswers12.every(val => val.trim() !== "") &&
-    this.userAnswers21.every(val => val.trim() !== "") &&
-    this.selectedTime2.trim() !== "" &&
-    this.userAnswers22.every(val => val.trim() !== "") &&
-    this.userAnswers31.every(val => val.trim() !== "") &&
-    this.selectedTime3.trim() !== "" &&
-    this.userAnswers32.every(val => val.trim() !== "") &&
-    this.userAnswers41.every(val => val.trim() !== "") &&
-    this.selectedTime4.trim() !== "" &&
-    this.userAnswers42.every(val => val.trim() !== "")
-  );
+      return (
+        this.signed &&
+        this.chosen &&
+        this.isChecked &&
+        this.userAnswers11.every((val) => val.trim() !== "") &&
+        this.selectedTime1.trim() !== "" &&
+        this.userAnswers12.every((val) => val.trim() !== "") &&
+        this.userAnswers21.every((val) => val.trim() !== "") &&
+        this.selectedTime2.trim() !== "" &&
+        this.userAnswers22.every((val) => val.trim() !== "") &&
+        this.userAnswers31.every((val) => val.trim() !== "") &&
+        this.selectedTime3.trim() !== "" &&
+        this.userAnswers32.every((val) => val.trim() !== "") &&
+        this.userAnswers41.every((val) => val.trim() !== "") &&
+        this.selectedTime4.trim() !== "" &&
+        this.userAnswers42.every((val) => val.trim() !== "")
+      );
     },
 
     backToTable() {
+      if (this.debugMode) {
+        this.$emit("backToTable");
+        return;
+      }
       let rightAns = 0;
 
       if (this.isChecked) {
@@ -339,7 +350,7 @@ export default {
         rightAns++;
       }
 
-      if(rightAns === 6) {
+      if (rightAns === 6) {
         alert("הכל נכון כל הכבוד!");
         this.$emit("backToTable");
       } else {
