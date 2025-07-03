@@ -169,8 +169,16 @@ export default {
   cursor: pointer;
 }
 .glow {
-  filter: drop-shadow(0 0 20px #00e5ff);
-  transition: all 0.3s ease;
+  animation: glow-fade 1.5s infinite ease-in-out;
+}
+
+@keyframes glow-fade {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px #00e5ff);
+  }
+  50% {
+    filter: drop-shadow(0 0 30px #00e5ff);
+  }
 }
 .disabled {
   pointer-events: none;

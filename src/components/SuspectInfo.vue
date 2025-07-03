@@ -85,6 +85,7 @@ export default {
     padding: 1rem 2rem;
     border-radius: 1rem;
     margin-right: 70rem;
+    color: white;
     cursor: pointer;
 }
 .continue-btn:hover {

@@ -1,5 +1,6 @@
 <template>
   <div id="part1-documents">
+    <result class="result" :result-from="propsResult"></result>
     <div v-if="page === 1" class="document1">
       <div
         class="marking2"
@@ -252,7 +253,11 @@
 </template>
 
 <script>
+import result from './result.vue';
 export default {
+  components: {
+    result
+  },
   data() {
     return {
       inputs: [],
@@ -336,6 +341,7 @@ export default {
       wrongRoom: false,
       wrongChosen: false,
       debugMode: true,
+      propsResult: '',
     };
   },
   created() {
@@ -464,10 +470,17 @@ export default {
       }
       // שלב 2: בדיקה של התאמת תאריכים
       if (rightAns === 7 && allAnswersFilled) {
-        alert("כל הכבוד! מילאת את כל התשובות נכון!");
-        this.$emit("next-doc");
+        this.propsResult = 'right';
+        setTimeout(()=> {
+          this.$emit("next-doc");
+            } ,2200)
+        
+
       } else {
-        alert("יש למלא את כל השדות ולוודא שכל התשובות נכונות.");
+        this.propsResult = 'wrong';
+        setTimeout(()=> {
+          this.propsResult = '';
+            } ,2200)
       }
     },
 
@@ -549,6 +562,13 @@ export default {
   background-image: url("@/assets/media/part1documents/explainRights.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+}
+.result {
+  position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
 }
 .marking1 {
   position: relative;
@@ -682,7 +702,7 @@ export default {
 .button-next {
   position: absolute;
   bottom: 3rem;
-  left: 0rem;
+  left: -3rem;
   border: none;
   width: 5rem;
   text-align: center;
@@ -694,6 +714,12 @@ export default {
   padding: 1rem;
   background-color: #0e2c8e;
   cursor: pointer;
+}
+.button-next:hover {
+  background-color: #0e277a;
+}
+.button-next:active {
+  background-color: #123199;
 }
 .disabled-btn {
   opacity: 0.5;

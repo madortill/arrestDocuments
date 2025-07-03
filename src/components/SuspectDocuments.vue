@@ -1,7 +1,7 @@
 <template>
     <div id="suspect-documents">
         <document4 v-show="doc === 1" @next-doc="doc = 2" class="part1"></document4>
-        <document5 v-show="doc === 2" class="part1"></document5>
+        <document5 v-show="doc === 2"  @next-doc="doc = 3" class="part1"></document5>
         <document6 v-show="doc === 3" class="part1"></document6>
     </div>
 

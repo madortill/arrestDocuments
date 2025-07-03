@@ -109,8 +109,8 @@
     <button
       class="back-btn"
       @click="nextDoc"
-      :class="{ 'disabled-btn':!areAllFieldsFilled() }"
-      :disabled="!areAllFieldsFilled()"
+      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
+      :disabled="!debugMode && !areAllFieldsFilled()"
     >
       לעמוד הבא
     </button>
@@ -149,6 +149,7 @@ export default {
       isCorrect: false,
       userInfo1: ["גלעד כהן", "0526648512", "13:19"],
       wrongUserAnswers2: [false, false, false],
+      debugMode: true,
     };
   },
   methods: {
@@ -187,6 +188,11 @@ export default {
     },
 
     nextDoc() {
+      if (this.debugMode) {
+        this.$emit("next-doc");
+        return;
+      }
+      
       let rightAns = 0;
 
       // בדיקת פרטי העצור
@@ -255,67 +261,6 @@ export default {
   },
 };
 
-// check1() {
-//   // בדיקת פרטי העצור
-//   this.checked = true;
-//   let allCorrect1 = true;
-//   this.userAnswers.forEach((ans, i) => {
-//     const isCorrect = ans.trim() === this.userInfo[i];
-//     this.wrongUserAnswers[i] = !isCorrect;
-//     if (!isCorrect) {
-//       allCorrect1 = false;
-//     }
-//   });
-//   if (allCorrect1) {
-//     rightAns++;
-//   }
-// },
-// check2() {
-//   // בדיקת תאריך
-//   if (
-//     this.userAnswers1.every(
-//       (val, index) => val === this.selectedDate[index]
-//     )
-//   ) {
-//     console.log("you're right");
-//   }
-//   this.wrongInputs = this.userAnswers1.map(
-//     (val, index) => val !== this.selectedDate[index]
-//   );
-// },
-// check3() {
-//   // סיבה
-//   if (this.reasonAnswer.trim() === this.reason) {
-//     this.wrongUserAnswers1 = false;
-//     console.log("you're right");
-//   } else {
-//     this.wrongUserAnswers1 = true;
-//   }
-// },
-// check4() {
-//   this.checked = true;
-//   this.isCorrect = this.startTime === "13:11";
-//   if (this.isCorrect) {
-//     console.log("you're right");
-//   }
-// },
-// check5() {
-//   this.wrongUserAnswers2.name =
-//     this.nameLawyer.trim() !== this.userInfo1[0];
-//   this.wrongUserAnswers2.phone = this.phoneNum.trim() !== this.userInfo1[1];
-//   this.wrongUserAnswers2.time = this.endTime.trim() !== this.userInfo1[2];
-
-//   const allCorrect =
-//     !this.wrongUserAnswers2.name &&
-//     !this.wrongUserAnswers2.phone &&
-//     !this.wrongUserAnswers2.time;
-
-//   if (allCorrect) {
-//     alert("✔️ כל השדות נכונים!");
-//   } else {
-//     alert("❌ אחד או יותר מהשדות שגויים");
-//   }
-// },
 </script>
 
 <style scoped>
@@ -465,7 +410,7 @@ export default {
 .back-btn {
   position: absolute;
   bottom: 3rem;
-  left: 0rem;
+  left: -3rem;
   border: none;
   width: 5rem;
   text-align: center;
