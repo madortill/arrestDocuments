@@ -107,7 +107,7 @@
       }"
     />
     <button
-      class="back-btn"
+      class="next-btn"
       @click="nextDoc"
       :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
       :disabled="!debugMode && !areAllFieldsFilled()"
@@ -192,7 +192,7 @@ export default {
         this.$emit("next-doc");
         return;
       }
-      
+
       let rightAns = 0;
 
       // בדיקת פרטי העצור
@@ -407,7 +407,7 @@ export default {
   border: 2px solid red;
   background-color: #ffe5e5;
 }
-.back-btn {
+.next-btn {
   position: absolute;
   bottom: 3rem;
   left: -3rem;
@@ -423,10 +423,10 @@ export default {
   background-color: #0e2c8e;
   cursor: pointer;
 }
-.back-btn:hover {
+.next-btn:hover {
   background-color: #0e277a;
 }
-.back-btn:active {
+.next-btn:active {
   background-color: #123199;
 }
 .disabled-btn {

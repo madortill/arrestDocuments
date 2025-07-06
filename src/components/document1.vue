@@ -1,6 +1,6 @@
 <template>
-  <div id="part1-documents">
-    <result class="result" :result-from="propsResult"></result>
+  <div id="part1-documents" :class="background">
+    <result class="result" :resultFrom="propsResult"></result>
     <div v-if="page === 1" class="document1">
       <div
         class="marking2"
@@ -468,13 +468,12 @@ export default {
       } else {
         console.log("לא נכון!!!");
       }
-      // שלב 2: בדיקה של התאמת תאריכים
+      // בדיקה סופית
       if (rightAns === 7 && allAnswersFilled) {
         this.propsResult = 'right';
         setTimeout(()=> {
           this.$emit("next-doc");
             } ,2200)
-        
 
       } else {
         this.propsResult = 'wrong';

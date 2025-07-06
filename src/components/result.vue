@@ -1,9 +1,9 @@
 <template>
     <div id="result">
-        <div v-if="result-from === 'right'" class="container">
+        <div v-if="resultFrom === 'right'" class="container">
             <p class="text right">כל הכבוד ענית נכון על כל השאלות!</p>
         </div>
-        <div v-if="result-from === 'wrong'" class="container">
+        <div v-if="resultFrom === 'wrong'" class="container">
             <p class="text">יש שאלות שצריך לתקן...</p>
         </div>
     </div>
@@ -12,7 +12,7 @@
   <script>
   export default {
     name: "result",
-    props: ['result-from'],
+    props: ['resultFrom'],
     components: {
     },
     data() {
@@ -25,6 +25,9 @@
   </script>
   
   <style scoped>
+  #result {
+    z-index: 8;
+  }
   .container{
     width: 10rem;
     height: 10rem;

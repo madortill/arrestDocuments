@@ -33,7 +33,7 @@
       return {
         isClick: false,
         isBrown: false,
-        page: 0,
+        page: 3,
         object: 'documents',
       };
     },
