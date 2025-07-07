@@ -60,15 +60,19 @@
     >
       בדיקה
     </button>
+    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <information :docNum="doc"></information>
   </div>
 </template>
 
 <script>
+import Information from './Information.vue';
 import result from "./result.vue";
 export default {
   name: "document6",
   components: {
     result,
+    Information
   },
   data() {
     return {
@@ -87,8 +91,9 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: false,
+      debugMode: true,
       propsResult: "",
+      doc: 0,
     };
   },
   methods: {
@@ -106,7 +111,7 @@ export default {
     },
     backToMap() {
       if (this.debugMode) {
-        this.$emit("next-doc");
+        this.$emit("end-practice");
         return;
       }
       let rightAns = 0;
@@ -134,7 +139,7 @@ export default {
           allCorrect1 = false;
         }
       });
-      if (allCorrect) {
+      if (allCorrect1) {
         rightAns++;
       }
 
@@ -157,64 +162,24 @@ export default {
       //   תוצאה סופית
       if (rightAns === 4) {
         this.propsResult = "right";
-        this.$emit("result", true);
         setTimeout(() => {
-          this.$emit("result", false);
-          alert("yayyy");
+          this.propsResult = "";
+          this.$emit("end-practice");
         }, 2200);
       } else {
         this.propsResult = "wrong";
-        this.$emit("result", true);
         setTimeout(() => {
           this.propsResult = "";
-          this.$emit("result", false);
         }, 2200);
       }
     },
-    // check() {
-    //     this.checked = true;
-    //   let allCorrect = true;
-    //   this.userAnswers.forEach((ans, i) => {
-    //     const isCorrect = ans.trim() === this.userInfo1[i];
-    //     this.wrongUserAnswers[i] = !isCorrect;
-    //     if (!isCorrect) {
-    //       allCorrect = false;
-    //     }
-    //   });
-    //   if (allCorrect) {
-    //     console.log("yayyy");
-    //   }
-    // },
-    // check1() {
-    //     this.checked1 = true;
-    //   let allCorrect = true;
-    //   this.userAnswers1.forEach((ans, i) => {
-    //     const isCorrect = ans.trim() === this.userInfo2[i];
-    //     this.wrongUserAnswers1[i] = !isCorrect;
-    //     if (!isCorrect) {
-    //       allCorrect = false;
-    //     }
-    //   });
-    //   if (allCorrect) {
-    //     console.log("yayyy");
-    //   }
-    // },
-    // check2() {
-    //     if (this.reasonAnswer.trim() === this.reason) {
-    //     this.wrongReason = false;
-    //     console.log("yayyy");
-    //   } else {
-    //     this.wrongReason = true;
-    //   }
-    // },
-    // check3() {
-    //     if (this.publicDetails.trim() === this.noPublic) {
-    //     this.wrongNoPublic = false;
-    //     console.log("yayyy");
-    //   } else {
-    //     this.wrongNoPublic = true;
-    //   }
-    // },
+    openInfo() {
+      if(this.doc === 0) {
+        this.doc = 6;
+      } else {
+        this.doc = 0;
+      }
+    },
   },
 };
 </script>
@@ -315,13 +280,29 @@ export default {
   pointer-events: none;
   cursor: not-allowed;
 }
-.result {
-  position: fixed; /* במקום absolute */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 999; /* שיהיה מעל הכול */
-  pointer-events: none; /* רשות: אם אתה לא רוצה לחסום אינטראקציה */
+.infoBtn {
+  position: absolute;
+  bottom: 30rem;
+  left: 40rem;
+  border: none;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  padding: 0.5rem;
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+
+.infoBtn:hover {
+  background-color: #0e277a;
+}
+.infoBtn:active {
+  background-color: #123199;
 }
 
 </style>

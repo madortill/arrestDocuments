@@ -84,19 +84,8 @@ export default {
   border-radius: 1rem;
   font-family: "rubik";
   background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
   cursor: pointer;
-}
-.detailBtn::before {
-  content: "";
-  position: absolute;
-  top: -5px;
-  left: -5px;
-  right: -5px;
-  bottom: -5px;
-  background: rgba(0, 123, 255, 0.4); /* צבע ההילה */
-  filter: blur(8px); /* מטשטש את המסגרת */
-  z-index: -1;
-  border-radius: 30px;
 }
 .detailBtn:hover {
   background-color: #0e277a;
@@ -104,4 +93,5 @@ export default {
 .detailBtn:active {
   background-color: #123199;
 }
+
 </style>

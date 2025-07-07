@@ -1,45 +1,54 @@
 <template>
-    <div id="suspect-info">
-        <div class="container">
-            <div class="finale-exe type-writer">
-      <p
-        v-for="(text, index) in array1"
-        :key="text"
-        :style="{
-          '--delay': `${index * 2.5}s`,
-          '--width': `${text.length}ch`,
-          'font-size':'1.6rem',
-        }"
-        class="text-writer"
-      >
-        {{ text }}
+  <div id="suspect-info">
+    <div class="container">
+      <div class="finale-exe type-writer">
+        <p
+          v-for="(text, index) in array1"
+          :key="text"
+          :style="{
+            '--delay': `${index * 2.5}s`,
+            '--width': `${text.length}ch`,
+            
+          }"
+          class="text-writer"
+        >
+          {{ text }}
+        </p>
+      </div>
+      <img
+        src="@/assets/media/suspectInfo/computer.svg"
+        alt="computer"
+        class="computer"
+      />
+      <img
+        src="@/assets/media/suspectInfo/suspect.svg"
+        alt="computer"
+        class="suspect"
+      />
 
-      </p>
+      <p v-if="showBtn" class="continue-btn" @click="toInterrogation">הבא</p>
     </div>
-            <img src="@/assets/media/suspectInfo/computer.svg" alt="computer" class="computer">
-            <img src="@/assets/media/suspectInfo/suspect.svg" alt="computer" class="suspect">
-
-            <p v-if="showBtn" class="continue-btn" @click = "toInterrogation">הבא</p>
-
-        </div>
-        
-        
-    </div>
-
+  </div>
 </template>
 
 <script>
 export default {
   name: "suspect-info",
-  components: {
-  },
+  components: {},
   data() {
-     return{
-        array1: [
-            "הנחקר רב”ט נועם רייס,","מספר אישי 8859963,","נעצר ב5.6.2025 בשעה 13:00","משרת כטבח בבסיס בח”א 21,",  "חשוד בהטרדה מינית ומעשה מגונה בכוח.", "לאחר מספר שעות של חקירה,"," החשוד הודה בחשדות המיוחסים לו", "והוחלט לעצור אותו."
-        ],
-        showBtn: true,
-     };
+    return {
+      array1: [
+        "הנחקר רב”ט נועם רייס,",
+        "מספר אישי 8859963,",
+        "נעצר ב5.6.2025 בשעה 13:00",
+        "משרת כטבח בבסיס בח”א 21,",
+        "חשוד בהטרדה מינית ומעשה מגונה בכוח.",
+        "לאחר מספר שעות של חקירה,",
+        " החשוד הודה בחשדות המיוחסים לו",
+        "והוחלט לעצור אותו.",
+      ],
+      showBtn: true,
+    };
   },
   mounted() {
     // זמן כולל = מספר שורות * זמן דיליי לכל שורה (3.2s) + זמן אנימציה אחרונה (2s)
@@ -52,11 +61,11 @@ export default {
     }, totalDelay * 1000); // הופך לשניות
   },
   methods: {
-    toInterrogation () {
-        this.$emit("next");
-    }
-  }
-}
+    toInterrogation() {
+      this.$emit("next");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -67,35 +76,35 @@ export default {
   margin-top: -18rem;
 }
 .computer {
-    width: 42rem;
-    align-items: center;
-    margin-top: 3rem;
-    margin-left: 30rem;
+  width: 42rem;
+  align-items: center;
+  margin-top: 3rem;
+  margin-left: 30rem;
 }
 .suspect {
-    margin-top: -39rem;
-    margin-right: 40rem;
-    width: 21rem;
+  margin-top: -39rem;
+  margin-right: 40rem;
+  width: 21rem;
 }
 .continue-btn {
-    font-family: "rubik";
-    font-weight: bold;
-    font-size: 1.5rem;
-    background-color: #BE0000;
-    padding: 1rem 2rem;
-    border-radius: 1rem;
-    margin-right: 70rem;
-    color: white;
-    cursor: pointer;
+  font-family: "rubik";
+  font-weight: bold;
+  font-size: 1.5rem;
+  background-color: #be0000;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  margin-right: 70rem;
+  color: white;
+  cursor: pointer;
 }
 .continue-btn:hover {
-    background-color: #d40000;
+  background-color: #d40000;
 }
 .finale-exe {
-    position: relative;
+  position: relative;
   width: 10%;
   height: 70%;
-    top: 27rem;
+  top: 27rem;
   left: 30rem;
   /* bottom: 20%; */
   /* background: #000000; */
@@ -130,6 +139,7 @@ export default {
   color: white;
   font-family: "alefBold";
   text-align: center;
+  font-size: 1.6rem;
 }
 @keyframes blink {
   to {
@@ -141,28 +151,47 @@ export default {
   }
 }
 @media (max-width: 1444px) {
-    .computer {
+  .computer {
     width: 40rem;
     align-items: center;
     margin-left: 18rem;
-}
-.suspect {
+  }
+  .suspect {
     margin-right: 47rem;
     width: 18rem;
-}
-.continue-btn {
+  }
+  .continue-btn {
     margin-right: 50rem;
     margin-top: 4rem;
-}
-.finale-exe {
+  }
+  .finale-exe {
     top: 26rem;
     left: 23rem;
-}
-    
-
-/* @media (max-width: 940px) {
-
-} */
+  }
 }
 
+@media (max-width: 940px) {
+  .computer {
+    width: 25rem;
+    align-items: center;
+    margin-left: 12rem;
+    margin-top: 10rem;
+  }
+  .suspect {
+    margin-top: -25rem;
+    margin-right: 25rem;
+    width: 13rem;
+  }
+  .continue-btn {
+    margin-right: 25rem;
+    margin-top: 4rem
+  }
+  .finale-exe > p {
+    font-size: 1.1rem;
+  }
+  .finale-exe {
+    top: 25rem;
+    left: 14.5rem;
+  }
+}
 </style>

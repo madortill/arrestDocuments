@@ -3,7 +3,7 @@
       <instructions></instructions>
         <basic-documents v-if="page === 1" @backToTable="showTable"></basic-documents>
         <phone-documents v-if="page === 2" @backToTable="showTable"></phone-documents>
-        <suspect-documents v-if="page === 3"></suspect-documents>
+        <suspect-documents v-if="page === 3" @end-practice="endInvestigation"></suspect-documents>
       <div v-show="page === 0" class="table-container">
         <Table v-show="!isClick" class="table" @zoom="zoomDocuments" @move="moveToDoc"></Table>
         <img src="@/assets/media/interrogationRoom/papers.svg" v-show="isClick" class="documents" @click="moveToDoc" alt="documents">
@@ -33,7 +33,7 @@
       return {
         isClick: false,
         isBrown: false,
-        page: 3,
+        page: 0,
         object: 'documents',
       };
     },
@@ -58,7 +58,10 @@
       this.isClick = false;
       this.isBrown = false;
       this.object = item;
-     }
+     },
+     endInvestigation() {
+        this.$emit("end-practice");
+    },
     },
   };
   </script>

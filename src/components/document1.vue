@@ -241,25 +241,22 @@
     >
       לעמוד הבא
     </button>
-
-    <!-- <p class="detailBtn" @click="isOpen = !isOpen">פרטי העצור</p>
-    <img
-      v-show="isOpen"
-      src="@/assets/media/part1documents/details.svg"
-      alt="details"
-      class="details"
-    /> -->
+    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <information :docNum="doc"></information>
   </div>
 </template>
 
 <script>
+import Information from './Information.vue';
 import result from './result.vue';
 export default {
   components: {
-    result
+    result,
+    Information 
   },
   data() {
-    return {
+ 
+      return {
       inputs: [],
       reasonAnswer: "",
       roomUser: "",
@@ -342,6 +339,7 @@ export default {
       wrongChosen: false,
       debugMode: true,
       propsResult: '',
+      doc: 0,
     };
   },
   created() {
@@ -543,6 +541,13 @@ export default {
       const isSevenDigits = /^\d{7}$/.test(value);
       return isNumber && isSevenDigits;
     },
+    openInfo() {
+      if(this.doc === 0) {
+        this.doc = 1;
+      } else {
+        this.doc = 0;
+      }
+    },
   },
 };
 </script>
@@ -554,6 +559,7 @@ export default {
   background-image: url("@/assets/media/part1documents/arrestReport.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  overflow: hidden;
 }
 .document2 {
   width: 40rem;
@@ -725,6 +731,30 @@ export default {
   pointer-events: none;
   cursor: not-allowed;
 }
+.infoBtn {
+  position: absolute;
+  bottom: 30rem;
+  left: 40rem;
+  border: none;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  padding: 0.5rem;
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+
+.infoBtn:hover {
+  background-color: #0e277a;
+}
+.infoBtn:active {
+  background-color: #123199;
+}
 @media (max-width: 1455px) {
   .input4 {
     margin-top: 2rem;
@@ -749,5 +779,6 @@ export default {
   #text4 {
     top: -11.4rem;
   }
+  
 }
 </style>

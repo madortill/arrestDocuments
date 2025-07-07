@@ -2,10 +2,6 @@
   <div id="open-screen">
     <div class="container">
       <notebook @start="nextPage" class="notebook"></notebook>
-      <!-- <div class="noteBookContainer">
-                <img src="@/assets/media/openingPage/noteBook.svg" alt="">
-            </div> -->
-      <!-- <p class="startBtn">לחצו כדי להתחיל לחקור!</p> -->
     </div>
     <button class="aboutBtn" @click="openAbout">i</button>
     <Transition  name="fade"> 
@@ -66,6 +62,7 @@ export default {
   color: white;
 }
 .noteBookContainer {
+  display: flex;
   flex-direction: column;
   align-items: center;
 }
@@ -136,27 +133,16 @@ export default {
   opacity: 1;
 }
 
-/* @media (max-width: 1444px) {
-    note {
-        width: ;
-    }
-} */
-/* @media (max-width: 940px) {
-    .notebook {
+@media (max-width: 650px) {
+  .notebook {
         width: 30rem;
-        margin-top: 5.5rem;
+        position: relative;
+        top: -5rem;
     }
 }
-@media (max-width: 540px) {
+@media (max-width: 320px) {
     .notebook {
         width: 25rem;
-        margin-top: 5.5rem;
     }
 }
-@media (max-width: 400px) {
-    .notebook {
-        width: 20rem;
-        margin-top: 1rem;
-    }
-} */
 </style>

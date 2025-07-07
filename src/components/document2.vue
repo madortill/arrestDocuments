@@ -83,13 +83,18 @@
       alt="computer"
       class="suspect"
     />
+    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <information :docNum="doc"></information>
   </div>
 </template>
 
 <script>
+import Information from './Information.vue';
 export default {
   name: "document2",
-  components: {},
+  components: {
+    Information
+  },
   data() {
     return {
       userAnswers: Array(3).fill(""),
@@ -112,6 +117,7 @@ export default {
       signed1: false,
       signed2: false,
       debugMode: true,
+      doc: 0,
     };
   },
 
@@ -204,6 +210,13 @@ export default {
         this.$emit("backToTable");
       } else {
         alert("צריך לתקן חלק מהתשובות");
+      }
+    },
+    openInfo() {
+      if(this.doc === 0) {
+        this.doc = 2;
+      } else {
+        this.doc = 0;
       }
     },
   },
@@ -337,5 +350,42 @@ export default {
   opacity: 0.5;
   pointer-events: none;
   cursor: not-allowed;
+}
+.infoBtn {
+  position: absolute;
+  bottom: 40rem;
+  left: 40rem;
+  border: none;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  padding: 0.5rem;
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+
+.infoBtn:hover {
+  background-color: #0e277a;
+}
+.infoBtn:active {
+  background-color: #123199;
+}
+@media (max-width: 1455px) {
+  .input3 {
+  position: relative;
+  top: -8rem;
+}
+.last-input3 {
+  margin-right: 2rem; /* או כל גודל שתרצי */
+}
+}
+@media (max-width: 870px) {
+
+  
 }
 </style>

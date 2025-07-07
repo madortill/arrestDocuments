@@ -1,9 +1,9 @@
 <template>
     <div id="suspect-documents" class="background">
-      <div v-if="result" id="back"></div>
+      
         <document4 v-show="doc === 1" @next-doc="doc = 2" class="part1"></document4>
         <document5 v-show="doc === 2"  @next-doc="doc = 3" class="part1"></document5>
-        <document6 v-show="doc === 3" class="part1" @result="showResult"></document6>
+        <document6 v-show="doc === 3" class="part1" @result="showResult" @end-practice="endInvestigation"></document6>
     </div>
 
 </template>
@@ -26,8 +26,8 @@ export default {
   };
 },
   methods: {
-    backToTable() {
-        this.$emit("backToTable", "suspect");
+    endInvestigation() {
+        this.$emit("end-practice");
     },
     showResult(par) {
       this.result = par;
@@ -50,14 +50,5 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-#back {
-  background-color: #00000080;
-  z-index: 5; /* יותר גבוה מהמסמכים */
-  width: 100vw;
-  height: 100vh;
-  position: fixed; /* חשוב! */
-  top: 0;
-  left: 0;
-    
-}
+
 </style>

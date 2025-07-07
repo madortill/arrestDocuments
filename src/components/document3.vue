@@ -160,13 +160,18 @@
     >
       בדיקה
     </button>
+    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <information :docNum="doc"></information>
   </div>
 </template>
 
 <script>
+import Information from './Information.vue';
 export default {
   name: "document3",
-  components: {},
+  components: {
+    Information
+  },
   data() {
     return {
       isChecked: false,
@@ -204,6 +209,7 @@ export default {
       headquarters: ['סג"ם', "אריאל גיל", 'קמב"ץ', "0586695478"],
       escortsArr: ['סג"ם', "שובל מלכה", "קצין ליווים", "098972950"],
       debugMode: true,
+      doc: 0,
     };
   },
   methods: {
@@ -355,6 +361,13 @@ export default {
         this.$emit("backToTable");
       } else {
         alert("קיימות תשובות שגויות");
+      }
+    },
+    openInfo() {
+      if(this.doc === 0) {
+        this.doc = 3;
+      } else {
+        this.doc = 0;
       }
     },
   },
@@ -558,5 +571,29 @@ export default {
   opacity: 0.5;
   pointer-events: none;
   cursor: not-allowed;
+}
+.infoBtn {
+  position: absolute;
+  bottom: 30rem;
+  left: 40rem;
+  border: none;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  padding: 0.5rem;
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+
+.infoBtn:hover {
+  background-color: #0e277a;
+}
+.infoBtn:active {
+  background-color: #123199;
 }
 </style>

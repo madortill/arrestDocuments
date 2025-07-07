@@ -4,7 +4,8 @@
       <img src="@/assets/media/madorTil.svg" alt="madorTil" class="mador-til">
       <open-screen v-if="page === 0" class="open-screen"  @start="nextPage"></open-screen>
       <suspect-info v-if="page === 1" class="suspect-info" @next="toInterrogation"></suspect-info>
-      <interrogation-room v-if="page === 2"></interrogation-room>
+      <interrogation-room v-if="page === 2" @end-practice="endInvestigation"></interrogation-room>
+      <end-screen v-if="page === 3" @start-over="startAgain"></end-screen>
     </div>
 
 </template>
@@ -13,6 +14,7 @@
 import OpenScreen from '@/components/OpenScreen.vue';
 import SuspectInfo from '@/components/SuspectInfo.vue';
 import InterrogationRoom from '@/components/InterrogationRoom.vue';
+import EndScreen from '@/components/EndScreen.vue';
 
 
 export default {
@@ -21,6 +23,7 @@ export default {
     OpenScreen,
     SuspectInfo,
     InterrogationRoom,
+    EndScreen,
   },
   data() {
       return {
@@ -33,6 +36,12 @@ export default {
     },
     toInterrogation() {
       this.page = 2;
+    },
+    endInvestigation() {
+      this.page = 3;
+    },
+    startAgain() {
+      this.page = 0;
     }
   }
 }
