@@ -378,7 +378,7 @@ export default {
 #document3 {
   width: 40rem;
   height: 43rem;
-  background-image: url("@/assets/media/part2documents/phoneDocument .svg");
+  background-image: url("@/assets/media/part2documents/phoneDocument.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -386,15 +386,15 @@ export default {
   align-items: center;
 }
 .checkBox {
-  margin-top: 4.1rem;
-  margin-left: 22rem;
+  margin-top: 3.7rem;
+  margin-left: 22.2rem;
   cursor: pointer;
   accent-color: #474747;
 }
 .mark {
   width: 1.2rem;
   height: 1rem;
-  margin-top: -1rem;
+  margin-top: -0.9rem;
   margin-left: 1.7rem;
   border: solid 2px #474747;
   border-radius: 20rem;
@@ -404,8 +404,8 @@ export default {
 .signature {
   width: 4rem;
   position: relative;
-  top: 5rem;
-  right: 7rem;
+  top: 3.5rem;
+  right: -4rem;
   cursor: pointer;
   opacity: 0;
 }
@@ -444,9 +444,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 4.5rem;
-  margin-right: -8.6rem;
-  gap: 0.3rem;
+  margin-top: 4.4rem;
+  margin-right: -9.7rem;
+  gap: 0.52rem;
 }
 .input12 {
   width: 0.8rem;
@@ -454,22 +454,22 @@ export default {
 .input22 {
   position: relative;
   width: 2.5rem;
-  right: 1.6rem;
+  right: 1.7rem;
 }
 .public-officer-details {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 0.2rem;
-  margin-right: -1.5rem;
-  gap: 0.5rem;
+  margin-top: 0.3rem;
+  margin-right: -1.6rem;
+  gap: 0.8rem;
   transform: rotate(-0.5deg);
 }
 .input32 {
   width: 3rem;
 }
 .last-input32 {
-  margin-right: 11rem;
+  margin-right: 11.5rem;
   width: 4rem;
 }
 
@@ -478,9 +478,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 3.8rem;
-  margin-right: -8.6rem;
-  gap: 0.3rem;
+  margin-top: 4.5rem;
+  margin-right: -9.5rem;
+  gap: 0.5rem;
 }
 .input13 {
   width: 0.8rem;
@@ -488,15 +488,15 @@ export default {
 .input23 {
   position: relative;
   width: 2.5rem;
-  right: 1.6rem;
+  right: 1.8rem;
 }
 .headquarters-details {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 0.2rem;
-  margin-right: -2.5rem;
-  gap: 0.5rem;
+  margin-top: 0.45rem;
+  margin-right: -2rem;
+  gap: 0.7rem;
   transform: rotate(-0.5deg);
 }
 .input33 {
@@ -508,9 +508,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 3.8rem;
-  margin-right: -8.6rem;
-  gap: 0.3rem;
+  margin-top: 4.5rem;
+  margin-right: -9.5rem;
+  gap: 0.5rem;
 }
 .input14 {
   width: 0.8rem;
@@ -518,15 +518,15 @@ export default {
 .input24 {
   position: relative;
   width: 2.5rem;
-  right: 1.6rem;
+  right: 1.8rem;
 }
 .escorts-details {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 0.2rem;
-  margin-right: -2.5rem;
-  gap: 0.5rem;
+  margin-top: 0.4rem;
+  margin-right: -2rem;
+  gap: 0.7rem;
   transform: rotate(-0.5deg);
 }
 .input34 {
@@ -540,10 +540,10 @@ export default {
   border: 2px solid red;
   background-color: #ffe5e5;
 }
-.checkbox-error {
+/* .checkbox-error {
   outline: 2px solid red;
   box-shadow: 0 0 5px red;
-}
+} */
 
 .back-btn {
   position: absolute;

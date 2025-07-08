@@ -154,7 +154,7 @@ export default {
       isCorrect: false,
       userInfo1: ["גלעד כהן", "0526648512", "13:19"],
       wrongUserAnswers2: [false, false, false],
-      debugMode: true,
+      debugMode: false,
       doc: 0,
     };
   },
@@ -257,11 +257,23 @@ export default {
       }
 
       //   סיכום תוצאה ובדיקה סופית
+      // if (rightAns === 5) {
+      //   alert("כל התשובות נכונות!");
+      //   this.$emit("next-doc");
+      // } else {
+      //   alert("צריך לתקן חלק מהתשובות");
+      // }
       if (rightAns === 5) {
-        alert("כל התשובות נכונות!");
-        this.$emit("next-doc");
+        this.$emit("result", "right");
+        setTimeout(() => {
+          this.$emit("result", "");
+          this.$emit("next-doc");
+        }, 2200);
       } else {
-        alert("צריך לתקן חלק מהתשובות");
+        this.$emit("result", "wrong");
+        setTimeout(() => {
+          this.$emit("result", "");
+        }, 2200);
       }
     },
     openInfo() {

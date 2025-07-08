@@ -1,6 +1,5 @@
 <template>
-  <div id="document6" :class="{ background: propsResult }">
-    <result class="result" :resultFrom="propsResult" />
+  <div id="document6">
     <div class="details1">
       <input
         v-for="(answer, i) in userAnswers"
@@ -66,13 +65,11 @@
 </template>
 
 <script>
-import Information from './Information.vue';
-import result from "./result.vue";
+import Information from "./Information.vue";
 export default {
   name: "document6",
   components: {
-    result,
-    Information
+    Information,
   },
   data() {
     return {
@@ -91,7 +88,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: true,
+      debugMode: false,
       propsResult: "",
       doc: 0,
     };
@@ -160,21 +157,33 @@ export default {
       }
 
       //   תוצאה סופית
+      //   if (rightAns === 4) {
+      //     this.propsResult = "right";
+      //     setTimeout(() => {
+      //       this.propsResult = "";
+      //       this.$emit("end-practice");
+      //     }, 2200);
+      //   } else {
+      //     this.propsResult = "wrong";
+      //     setTimeout(() => {
+      //       this.propsResult = "";
+      //     }, 2200);
+      //   }
       if (rightAns === 4) {
-        this.propsResult = "right";
+        this.$emit("result", "right");
         setTimeout(() => {
-          this.propsResult = "";
+          this.$emit("result", "");
           this.$emit("end-practice");
         }, 2200);
       } else {
-        this.propsResult = "wrong";
+        this.$emit("result", "wrong");
         setTimeout(() => {
-          this.propsResult = "";
+          this.$emit("result", "");
         }, 2200);
       }
     },
     openInfo() {
-      if(this.doc === 0) {
+      if (this.doc === 0) {
         this.doc = 6;
       } else {
         this.doc = 0;
@@ -304,5 +313,7 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
-
+.result {
+  z-index: 5;
+}
 </style>

@@ -52,7 +52,7 @@ export default {
     return {
       isClick: false,
       isBrown: false,
-      page: 0,
+      page: 3,
       showInstruction: true, 
       object: "documents",
     };
@@ -95,7 +95,7 @@ export default {
   overflow: hidden;
 }
 .clicked {
-  background-image: url("@/assets/media/Artboard 2.png");
+  background-image: url("@/assets/media/backGround.png");
   background-size: 100vw 100vh;
   height: 100vh;
   background-position: center;

@@ -28,9 +28,12 @@ export default {
 
 <style scoped>
 #phone-documents {
-  width: 100%;
-  height: 100%;
-  background-color: #7B736E;
+  background-image: url("@/assets/media/backGround.png");
+  background-size: 100vw 100vh;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
 }
 .part1 {
@@ -41,7 +44,7 @@ export default {
   z-index: 2;
 }
 .phone {
-    width: 20rem;
+    width: 15rem;
     position: relative;
     top: 10rem;
     right: 10rem;

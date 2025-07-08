@@ -1,6 +1,5 @@
 <template>
   <div id="result">
-    <!-- <div id="back"></div> -->
     <div v-if="resultFrom === 'right'" class="container">
       <p class="text right">כל הכבוד ענית נכון על כל השאלות!</p>
     </div>

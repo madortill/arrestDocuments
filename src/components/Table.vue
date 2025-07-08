@@ -30,7 +30,6 @@
         <stop offset="1" stop-color="#231f20" />
       </linearGradient>
     </defs>
-
     <g class="cls-4">
       <g id="_חלקים" data-name="חלקים">
         <image

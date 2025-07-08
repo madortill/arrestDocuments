@@ -108,7 +108,7 @@ export default {
       testimony: '"אני צריך חולצות, תחתונים וכדורי האלרגיה שלי"',
       wrongTestimony: false,
       testimonyAnswer: "",
-      debugMode: true,
+      debugMode: false,
       doc: 0,
     };
   },
@@ -196,10 +196,16 @@ export default {
 
       // סיכום התוצאה
       if (rightAns === 6) {
-        alert("כל התשובות נכונות!");
-        this.$emit("next-doc");
+        this.$emit("result", "right");
+        setTimeout(() => {
+          this.$emit("result", "");
+          this.$emit("next-doc");
+        }, 2200);
       } else {
-        alert("צריך לתקן חלק מהתשובות");
+        this.$emit("result", "wrong");
+        setTimeout(() => {
+          this.$emit("result", "");
+        }, 2200);
       }
     },
     openInfo() {

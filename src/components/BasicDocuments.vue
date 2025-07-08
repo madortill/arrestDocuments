@@ -43,7 +43,7 @@ export default {
 
 <style scoped>
 #basic-documents {
-  background-image: url("@/assets/media/Artboard 2.png");
+  background-image: url("@/assets/media/backGround.png");
   background-size: 100vw 100vh;
   height: 100vh;
   background-position: center;
@@ -76,7 +76,7 @@ export default {
   right: 65rem;
   top: 8rem;
   width: 5rem;
-  z-index: 1;
+  z-index: 2;
   padding: 12px 0px;
   background-color: white;
   border-radius: 30%;
