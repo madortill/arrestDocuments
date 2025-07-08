@@ -177,7 +177,15 @@ export default {
     filter: drop-shadow(0 0 10px #00e5ff);
   }
   50% {
-    filter: drop-shadow(0 0 30px #00e5ff);
+    filter: drop-shadow(0 0 50px #00e5ff);
+  }
+}
+@-webkit-keyframe glow-fade {
+  0%, 100% {
+    filter: drop-shadow(0 0 10px #00e5ff);
+  }
+  50% {
+    filter: drop-shadow(0 0 50px #00e5ff);
   }
 }
 .disabled {
