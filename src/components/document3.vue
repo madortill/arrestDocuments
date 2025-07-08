@@ -158,7 +158,7 @@
       :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
       :disabled="!debugMode && !areAllFieldsFilled()"
     >
-      בדיקה
+      לחדר החקירה
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
     <information :docNum="doc"></information>

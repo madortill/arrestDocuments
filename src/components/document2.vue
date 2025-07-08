@@ -73,7 +73,7 @@
       :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
       @click="backToMap"
     >
-      בדיקה
+      לחדר החקירה
     </button>
     <div class="info-container">
       <p class="time-info">הודיעו לי על זכויותיי בשעה 13:04</p>

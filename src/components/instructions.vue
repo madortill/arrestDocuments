@@ -1,25 +1,60 @@
 <template>
-    <div id="instructions">
-        <!-- <p class="inst">הוראות הוראות הוראות הוראות הוראות הוראות</p> -->
-    </div>
-
+  <div id="instructions">
+    <div class="inst">
+    <img src="@/assets/media/interrogationRoom/close.svg" class="closeBtn" @click="closeInstruction" alt="close">
+    <p class="instText">הגעתם לחדר החקירות!</p>
+    <p class="instText">בעזרת המידע שיש ברשותכם אתם תידרשו למלא את מסמכי המעצר השונים.</p>
+    <p class="instText">שימו לב! לא תוכלו לעבור הלאה עד שאתם לא תמלאו את כל השדות במסמך(כולל תיבות סימון והקפה בעיגול בעת הצורך).</p>
+    <p class="instText">במקרה שחלק מתשובותיכם יהיו שגויות הן יסומנו באדום, תצטרכו לתקן אותן ורק אז תוכלו לעבור הלאה.</p>
+    <p class="instText">מאמינים בכם ובטוחים שתמלאו את המסמכים כראוי וכך תעצרו את החשוד במהירות האפשרית!</p>
+    
+</div>
+  </div>
 </template>
 
 <script>
 export default {
-  name: "suspect-info",
-  components: {
-  },
+  name: "instructions",
+  components: {},
   data() {
-     return{
-
-     };
+    return {};
   },
+  methods: {
+    closeInstruction() {
+      this.$emit("close");
+    },
+  }
 };
 </script>
 
 <style scoped>
-    .inst{
-
-    }
+#instructions {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 8; /* שיהיה מעל הכול */
+  overflow: hidden;
+}
+.inst {
+    background-color: #EAEAEA;
+    border: solid #0e2c8e 0.3rem;
+    border-radius: 1.5rem;
+    font-family: "rubik";
+    text-align: center;
+    padding: 1.7rem;
+    z-index: 1;
+}
+.instText {
+    font-family: "rubik";
+    width: 15rem;
+    font-size: 1.1rem;
+    
+}
+.closeBtn {
+    width: 2.5rem;
+    margin-left: 13rem;
+    /* pointer-events: auto; */
+    cursor: pointer;
+}
 </style>

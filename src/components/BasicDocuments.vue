@@ -70,7 +70,7 @@ export default {
 .detailBtn {
   position: relative;
   height: 1rem;
-  right: 78rem;
+  right: 65rem;
   top: 8rem;
   width: 5rem;
   z-index: 1;

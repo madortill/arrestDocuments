@@ -8,18 +8,13 @@
           :style="{
             '--delay': `${index * 2.5}s`,
             '--width': `${text.length}ch`,
-            
           }"
           class="text-writer"
         >
           {{ text }}
         </p>
       </div>
-      <img
-        src="@/assets/media/suspectInfo/computer.svg"
-        alt="computer"
-        class="computer"
-      />
+      <img :src="compImg" alt="computer" class="computer" />
       <img
         src="@/assets/media/suspectInfo/suspect.svg"
         alt="computer"
@@ -32,11 +27,13 @@
 </template>
 
 <script>
+import compImg from "@/assets/media/suspectInfo/computer.svg";
 export default {
   name: "suspect-info",
   components: {},
   data() {
     return {
+      compImg,
       array1: [
         "הנחקר רב”ט נועם רייס,",
         "מספר אישי 8859963,",
@@ -175,7 +172,7 @@ export default {
     width: 25rem;
     align-items: center;
     margin-left: 12rem;
-    margin-top: 10rem;
+    margin-top: 20rem;
   }
   .suspect {
     margin-top: -25rem;
@@ -184,14 +181,42 @@ export default {
   }
   .continue-btn {
     margin-right: 25rem;
-    margin-top: 4rem
+    margin-top: 4rem;
   }
   .finale-exe > p {
     font-size: 1.1rem;
   }
   .finale-exe {
-    top: 25rem;
+    top: 35rem;
     left: 14.5rem;
+  }
+}
+@media (max-width: 470px) {
+  #suspect-info {
+    overflow-x: none;
+
+  }
+  .computer {
+    width: 25rem;
+    align-items: center;
+    margin-left: -0.3rem;
+    margin-top: 15rem;
+  }
+  .suspect {
+    margin-top: -2rem;
+    margin-right: -0.5rem;
+    width: 13rem;
+  }
+  .continue-btn {
+    margin-right: -1rem;
+    margin-top: 2rem;
+  }
+  .finale-exe > p {
+    font-size: 1.1rem;
+  }
+  .finale-exe {
+    top: 29.5rem;
+    left: 9.5rem;
   }
 }
 </style>
