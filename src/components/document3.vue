@@ -378,7 +378,7 @@ export default {
 #document3 {
   width: 40rem;
   height: 43rem;
-  background-image: url("@/assets/media/part2documents/phoneDocument.svg");
+  background-image: url("@/assets/media/part2documents/phoneDocument .svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -386,16 +386,16 @@ export default {
   align-items: center;
 }
 .checkBox {
-  margin-top: 4.6rem;
-  margin-left: 20.2rem;
+  margin-top: 4.1rem;
+  margin-left: 22rem;
   cursor: pointer;
   accent-color: #474747;
 }
 .mark {
   width: 1.2rem;
   height: 1rem;
-  margin-top: -0.9rem;
-  margin-left: 2.2rem;
+  margin-top: -1rem;
+  margin-left: 1.7rem;
   border: solid 2px #474747;
   border-radius: 20rem;
   cursor: pointer;
@@ -416,9 +416,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 1.8rem;
-  margin-right: -9rem;
-  gap: 0.3rem;
+  margin-top: 2.1rem;
+  margin-right: -9.5rem;
+  gap: 0.55rem;
 }
 .input1 {
   width: 0.8rem;
@@ -432,9 +432,9 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 0.1rem;
-  margin-right: -2rem;
-  gap: 0.5rem;
+  margin-top: 0.3rem;
+  margin-right: -1.5rem;
+  gap: 0.6rem;
 }
 .input3 {
   width: 3rem;
@@ -444,7 +444,7 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 3.8rem;
+  margin-top: 4.5rem;
   margin-right: -8.6rem;
   gap: 0.3rem;
 }
@@ -533,7 +533,7 @@ export default {
   width: 3rem;
 }
 .last-input3 {
-  margin-right: 3.2rem;
+  margin-right: 3.8rem;
   width: 4rem;
 }
 .wrong {

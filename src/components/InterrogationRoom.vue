@@ -95,7 +95,13 @@ export default {
   overflow: hidden;
 }
 .clicked {
-  background-color: #7b736e;
+  background-image: url("@/assets/media/Artboard 2.png");
+  background-size: 100vw 100vh;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
 }
 .table-container {
   display: flex;
@@ -140,6 +146,6 @@ export default {
   height: 100vh;
   position: absolute;
   z-index: 2;
-  background-color: rgba(0, 0, 0, 0.527);
+  background-color: rgba(0, 0, 0, 0.623);
 }
 </style>

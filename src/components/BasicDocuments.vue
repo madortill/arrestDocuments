@@ -43,9 +43,12 @@ export default {
 
 <style scoped>
 #basic-documents {
-  width: 100%;
-  height: 100%;
-  background-color: #7B736E;
+  background-image: url("@/assets/media/Artboard 2.png");
+  background-size: 100vw 100vh;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   overflow: hidden;
 }
 
