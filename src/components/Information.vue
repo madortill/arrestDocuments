@@ -73,13 +73,10 @@ export default {
 </script>
 
 <style scoped>
-#information {
-}
 .container {
-  position: fixed;
-  top: 55%;
-  right: -13rem;
-  transform: translateY(-50%);
+  position: absolute;
+  top: 6.5rem;
+  right: -11.5rem;
   height: 15rem;
   background-image: url("@/assets/media/information.svg");
   background-size: 100% 100%;

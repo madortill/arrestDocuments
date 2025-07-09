@@ -1,6 +1,9 @@
 <template>
   <div id="interrogation-room" :class="{ clicked: isBrown }">
-    <instructions v-if="showInstruction" @close="closeInstruction"></instructions>
+    <instructions
+      v-if="showInstruction"
+      @close="closeInstruction"
+    ></instructions>
     <basic-documents
       v-if="page === 1"
       @backToTable="showTable"
@@ -52,8 +55,8 @@ export default {
     return {
       isClick: false,
       isBrown: false,
-      page: 3,
-      showInstruction: true, 
+      page: 0,
+      showInstruction: true,
       object: "documents",
     };
   },
@@ -141,11 +144,39 @@ export default {
     width: 28rem;
   }
 }
+@keyframes zoom1 {
+  0% {
+    margin-top: 20rem;
+    width: 5rem;
+  }
+  100% {
+    margin-top: 23rem;
+    width: 28rem;
+  }
+}
+@-webkit-keyframes zoom1 {
+  0% {
+    margin-top: 20rem;
+    width: 5rem;
+  }
+  100% {
+    margin-top: 13rem;
+    width: 28rem;
+  }
+}
 .blackDiv {
   width: 100vw;
   height: 100vh;
   position: absolute;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.623);
+}
+@media (max-width: 450px) {
+  .table {
+    width: 35rem;
+  }
+  .documents {
+    animation: zoom1 1.5s 0.5s forwards;
+  }
 }
 </style>

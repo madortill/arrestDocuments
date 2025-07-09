@@ -232,7 +232,15 @@
         }"
       />
     </div>
-
+    <div class="contaner-details">
+      <p class="detailBtn" @click="isOpen = !isOpen">עזרה</p>
+      <img
+        v-show="isOpen"
+        src="@/assets/media/part1documents/details.svg"
+        alt="details"
+        class="details"
+      />
+    </div>
     <button
       @click="nextDoc"
       class="button-next"
@@ -242,21 +250,20 @@
       לעמוד הבא
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
-    <information :docNum="doc"></information>
+    <information class="information" :docNum="doc"></information>
   </div>
 </template>
 
 <script>
-import Information from './Information.vue';
-import result from './result.vue';
+import Information from "./Information.vue";
+import result from "./result.vue";
 export default {
   components: {
     result,
-    Information 
+    Information,
   },
   data() {
- 
-      return {
+    return {
       inputs: [],
       reasonAnswer: "",
       roomUser: "",
@@ -338,8 +345,9 @@ export default {
       wrongRoom: false,
       wrongChosen: false,
       debugMode: true,
-      propsResult: '',
+      propsResult: "",
       doc: 0,
+      isOpen: false,
     };
   },
   created() {
@@ -468,16 +476,15 @@ export default {
       }
       // בדיקה סופית
       if (rightAns === 7 && allAnswersFilled) {
-        this.propsResult = 'right';
-        setTimeout(()=> {
+        this.propsResult = "right";
+        setTimeout(() => {
           this.$emit("next-doc");
-            } ,2200)
-
+        }, 2200);
       } else {
-        this.propsResult = 'wrong';
-        setTimeout(()=> {
-          this.propsResult = '';
-            } ,2200)
+        this.propsResult = "wrong";
+        setTimeout(() => {
+          this.propsResult = "";
+        }, 2200);
       }
     },
 
@@ -542,7 +549,7 @@ export default {
       return isNumber && isSevenDigits;
     },
     openInfo() {
-      if(this.doc === 0) {
+      if (this.doc === 0) {
         this.doc = 1;
       } else {
         this.doc = 0;
@@ -570,10 +577,10 @@ export default {
 }
 .result {
   position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
 }
 .marking1 {
   position: relative;
@@ -706,8 +713,8 @@ export default {
 }
 .button-next {
   position: absolute;
-  bottom: 3rem;
-  left: -3rem;
+  bottom: 0.2rem;
+  left: 5rem;
   border: none;
   width: 5rem;
   text-align: center;
@@ -733,8 +740,8 @@ export default {
 }
 .infoBtn {
   position: absolute;
-  bottom: 30rem;
-  left: 40rem;
+  bottom: 41rem;
+  left: 36.5rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -755,6 +762,44 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
+.container-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  width: 16rem;
+  position: absolute;
+  top: 5rem;
+  right: 36rem;
+}
+
+.detailBtn {
+  position: absolute;
+  height: 1rem;
+  right: 36.5rem;
+  top: 1rem;
+  width: 5rem;
+  z-index: 3;
+  padding: 12px 0px;
+  background-color: white;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+.detailBtn:hover {
+  background-color: #0e277a;
+}
+.detailBtn:active {
+  background-color: #123199;
+}
 @media (max-width: 1455px) {
   .input4 {
     margin-top: 2rem;
@@ -769,6 +814,25 @@ export default {
     top: -11.4rem;
   }
 }
+@media (max-width: 930px) {
+  .detailBtn {
+    top: -4.5rem;
+    right: 28rem;
+  }
+  .details {
+    top: -0.5rem;
+    right: 30rem;
+  }
+  .infoBtn {
+    bottom: 45.8rem;
+    left: 23rem;
+  }
+  .information {
+  position: absolute;
+  top: -7rem;
+  right: 8rem;
+}
+}
 @media (max-width: 870px) {
   .input4 {
     margin-top: 1.7rem;
@@ -779,6 +843,19 @@ export default {
   #text4 {
     top: -11.4rem;
   }
-  
+  .information {
+  right: 10rem;
+}
+.details {
+    right: 25rem;
+  }
+}
+@media (max-width: 870px) {
+  .information {
+  right: 16rem;
+}
+.details {
+    right: 20rem;
+  }
 }
 </style>

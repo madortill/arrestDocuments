@@ -326,8 +326,8 @@ export default {
 }
 .back-btn {
   position: absolute;
-  bottom: 3rem;
-  left: -3rem;
+  bottom: 0.2rem;
+  left: 5rem;
   border: none;
   width: 5rem;
   text-align: center;

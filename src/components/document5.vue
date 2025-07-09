@@ -154,7 +154,7 @@ export default {
       isCorrect: false,
       userInfo1: ["גלעד כהן", "0526648512", "13:19"],
       wrongUserAnswers2: [false, false, false],
-      debugMode: false,
+      debugMode: true,
       doc: 0,
     };
   },
@@ -434,8 +434,8 @@ export default {
 }
 .next-btn {
   position: absolute;
-  bottom: 3rem;
-  left: -3rem;
+  bottom: 0.2rem;
+  left: 5rem;
   border: none;
   width: 5rem;
   text-align: center;

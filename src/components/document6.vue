@@ -88,8 +88,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: false,
-      propsResult: "",
+      debugMode: true,
       doc: 0,
     };
   },
@@ -157,18 +156,6 @@ export default {
       }
 
       //   תוצאה סופית
-      //   if (rightAns === 4) {
-      //     this.propsResult = "right";
-      //     setTimeout(() => {
-      //       this.propsResult = "";
-      //       this.$emit("end-practice");
-      //     }, 2200);
-      //   } else {
-      //     this.propsResult = "wrong";
-      //     setTimeout(() => {
-      //       this.propsResult = "";
-      //     }, 2200);
-      //   }
       if (rightAns === 4) {
         this.$emit("result", "right");
         setTimeout(() => {
@@ -264,8 +251,8 @@ export default {
 }
 .back-btn {
   position: absolute;
-  bottom: 3rem;
-  left: -3rem;
+  bottom: 0.2rem;
+  left: 5rem;
   border: none;
   width: 5rem;
   text-align: center;

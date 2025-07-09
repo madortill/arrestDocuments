@@ -84,12 +84,14 @@ html {
     width: 5rem;
     top: 1rem;
     left: 1rem;
+    z-index: 15;
 }
 .mador-til {
     position: fixed;
     bottom: 1rem;
     right: 1%;
     width: 6rem;
+    z-index: 15;
 }
 
 

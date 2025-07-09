@@ -2,15 +2,6 @@
   <div id="basic-documents">
     <document1 v-if="doc === 1" class="part1" @next-doc="nextDoc"></document1>
     <document2 v-if="doc === 2" class="part1" @backToTable="backToTable" ></document2>
-    <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">עזרה</p>
-      <img
-        v-show="isOpen"
-        src="@/assets/media/part1documents/details.svg"
-        alt="details"
-        class="details"
-      />
-    </div>
   </div>
 </template>
 
@@ -26,7 +17,7 @@ export default {
   data() {
     return {
       doc: 1,
-      isOpen: false,
+      
     };
   },
   methods: {
@@ -59,42 +50,6 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-.container-details {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.details {
-  width: 16rem;
-  margin-top: 10rem;
-  margin-right: 70rem;
-}
 
-.detailBtn {
-  position: relative;
-  height: 1rem;
-  right: 65rem;
-  top: 8rem;
-  width: 5rem;
-  z-index: 2;
-  padding: 12px 0px;
-  background-color: white;
-  border-radius: 30%;
-  text-align: center;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  font-family: "rubik";
-  background-color: #0e2c8e;
-  filter: drop-shadow(0 0 10px #0051ff);
-  cursor: pointer;
-}
-.detailBtn:hover {
-  background-color: #0e277a;
-}
-.detailBtn:active {
-  background-color: #123199;
-}
 
 </style>
