@@ -233,13 +233,14 @@
       />
     </div>
     <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">עזרה</p>
-      <img
+      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <details-box v-show="isOpen" class="details"></details-box>
+      <!-- <img
         v-show="isOpen"
         src="@/assets/media/part1documents/details.svg"
         alt="details"
         class="details"
-      />
+      /> -->
     </div>
     <button
       @click="nextDoc"
@@ -257,10 +258,12 @@
 <script>
 import Information from "./Information.vue";
 import result from "./result.vue";
+import DetailsBox from "./DetailsBox.vue";
 export default {
   components: {
     result,
     Information,
+    DetailsBox,
   },
   data() {
     return {
@@ -344,7 +347,7 @@ export default {
       wrongReason: false,
       wrongRoom: false,
       wrongChosen: false,
-      debugMode: true,
+      debugMode: false,
       propsResult: "",
       doc: 0,
       isOpen: false,
@@ -832,6 +835,10 @@ export default {
   top: -7rem;
   right: 8rem;
 }
+.input {
+  margin-top: 11.4rem;
+  width: 2.55rem;
+}
 }
 @media (max-width: 870px) {
   .input4 {
@@ -850,12 +857,29 @@ export default {
     right: 25rem;
   }
 }
-@media (max-width: 870px) {
+@media (max-width: 610px) {
   .information {
   right: 16rem;
 }
 .details {
-    right: 20rem;
+    right: 21rem;
   }
+  .input {
+  margin-top: 11.4rem;
+  width: 2.45rem;
+}
+  .input4 {
+    margin-top: 1.4rem;
+  }
+  .input5 {
+    margin-top: 1.5rem;
+  }
+  .input6 {
+    top: -13.5rem;
+  }
+  #text4 {
+    top: -11.4rem;
+  }
+  
 }
 </style>
