@@ -378,6 +378,14 @@ export default {
         )
       );
     },
+    normalizeText(text) {
+      return text
+        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
+        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
+        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
+        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
+        .trim();
+    },
 
     nextDoc() {
       if (this.debugMode) {
@@ -397,18 +405,9 @@ export default {
       const isValidRoom = !this.containsNumber(this.userInput41);
       const allFilled = this.validateAllFields();
 
-      // if (!allFilled) {
-      //   alert("תמלאו את כל השדות כדי להמשיך.");
-      //   return;
-      // }
-
-      if (!isValidID || !isValidName1 || !isValidName2 || !isValidRoom) {
-        alert("יש למלא את כל השדות בצורה תקינה לפני המשך.");
-        return;
-      }
-
       const allCorrect = this.userAnswers.every(
-        (ans, i) => ans.trim() === this.userInfo[i]
+        (ans, i) =>
+          this.normalizeText(ans) === this.normalizeText(this.userInfo[i])
       );
 
       if (allCorrect) {
@@ -432,9 +431,8 @@ export default {
       ].every((ans) => ans.year && ans.month && ans.day && ans.time);
 
       this.wrongUserAnswers = this.userAnswers.map((ans, i) => {
-        return ans.trim() !== this.userInfo[i];
+        return this.normalizeText(ans) !== this.normalizeText(this.userInfo[i]);
       });
-
       this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
       this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
       this.wrongTimes.que6 = this.answers.que6.time !== "05:00";
@@ -831,14 +829,14 @@ export default {
     left: 23rem;
   }
   .information {
-  position: absolute;
-  top: -7rem;
-  right: 8rem;
-}
-.input {
-  margin-top: 11.4rem;
-  width: 2.55rem;
-}
+    position: absolute;
+    top: -7rem;
+    right: 8rem;
+  }
+  .input {
+    margin-top: 11.4rem;
+    width: 2.55rem;
+  }
 }
 @media (max-width: 870px) {
   .input4 {
@@ -851,23 +849,23 @@ export default {
     top: -11.4rem;
   }
   .information {
-  right: 10rem;
-}
-.details {
+    right: 10rem;
+  }
+  .details {
     right: 25rem;
   }
 }
 @media (max-width: 610px) {
   .information {
-  right: 16rem;
-}
-.details {
+    right: 16rem;
+  }
+  .details {
     right: 21rem;
   }
   .input {
-  margin-top: 11.4rem;
-  width: 2.45rem;
-}
+    margin-top: 11.4rem;
+    width: 2.45rem;
+  }
   .input4 {
     margin-top: 1.4rem;
   }
@@ -880,6 +878,5 @@ export default {
   #text4 {
     top: -11.4rem;
   }
-  
 }
 </style>
