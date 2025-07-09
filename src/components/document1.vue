@@ -234,13 +234,7 @@
     </div>
     <div class="contaner-details">
       <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
-      <details-box v-show="isOpen" class="details"></details-box>
-      <!-- <img
-        v-show="isOpen"
-        src="@/assets/media/part1documents/details.svg"
-        alt="details"
-        class="details"
-      /> -->
+      <details-box v-show="isOpen" :note="1" class="details"></details-box>
     </div>
     <button
       @click="nextDoc"
@@ -347,7 +341,7 @@ export default {
       wrongReason: false,
       wrongRoom: false,
       wrongChosen: false,
-      debugMode: false,
+      debugMode: true,
       propsResult: "",
       doc: 0,
       isOpen: false,

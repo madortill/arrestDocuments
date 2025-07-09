@@ -24,7 +24,7 @@ export default {
   },
   data() {
     return {
-      doc: 2,
+      doc: 1,
       propsResult: '',
 
   };

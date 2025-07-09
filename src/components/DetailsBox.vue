@@ -1,9 +1,16 @@
 <template>
   <div id="details-box">
       <img
-        src="@/assets/media/part1documents/details.png"
+      v-show="note === 1"
+        src="@/assets/media/part1documents/details1.png"
         alt="details"
-        class="details"
+        class="details1"
+      />
+      <img
+      v-show="note === 2"
+        src="@/assets/media/part1documents/details2.png"
+        alt="details"
+        class="details2"
       />
   </div>
 </template>
@@ -11,6 +18,7 @@
 <script>
 export default {
   name: "details-box",
+  props: ["note"],
   components: {},
   data() {
     return {};
@@ -20,13 +28,12 @@ export default {
 </script>
 
 <style scoped>
-.details {
+.details1 {
   width: 18rem;
   position: absolute;
 }
-.red {
-  background-color: red;
-  padding: 3rem;
-  font-size: 3rem;
+.details2 {
+  width: 14.5rem;
+  position: absolute;
 }
 </style>

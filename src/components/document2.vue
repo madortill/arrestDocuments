@@ -67,6 +67,10 @@
         }"
       />
     </div>
+    <div class="contaner-details">
+      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <details-box v-show="isOpen" :note="2" class="details"></details-box>
+    </div>
     <button
       class="back-btn"
       :disabled="!debugMode && !areAllFieldsFilled()"
@@ -75,25 +79,27 @@
     >
       לחדר החקירה
     </button>
-    <div class="info-container">
+    <!-- <div class="info-container">
       <p class="time-info">הודיעו לי על זכויותיי בשעה 13:04</p>
     </div>
     <img
       src="@/assets/media/suspectInfo/suspect.svg"
       alt="computer"
       class="suspect"
-    />
+    /> -->
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
-    <information :docNum="doc"></information>
+    <information class="information" :docNum="doc"></information>
   </div>
 </template>
 
 <script>
 import Information from './Information.vue';
+import DetailsBox from "./DetailsBox.vue";
 export default {
   name: "document2",
   components: {
-    Information
+    Information,
+    DetailsBox
   },
   data() {
     return {
@@ -118,6 +124,7 @@ export default {
       signed2: false,
       debugMode: true,
       doc: 0,
+      isOpen: false,
     };
   },
 
@@ -141,6 +148,14 @@ export default {
         this.signed1 &&
         this.signed2 // חתימה קיימת
       );
+    },
+    normalizeText(text) {
+      return text
+        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
+        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
+        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
+        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
+        .trim();
     },
 
     backToMap() {
@@ -353,8 +368,8 @@ export default {
 }
 .infoBtn {
   position: absolute;
-  bottom: 40rem;
-  left: 40rem;
+  bottom: 39rem;
+  left: 36.5rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -375,6 +390,44 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
+.container-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  width: 10rem;
+  position: absolute;
+  top: 5rem;
+  right: 36rem;
+}
+
+.detailBtn {
+  position: absolute;
+  height: 1rem;
+  right: 36.5rem;
+  top: 1rem;
+  width: 5rem;
+  z-index: 3;
+  padding: 12px 0px;
+  background-color: white;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+.detailBtn:hover {
+  background-color: #0e277a;
+}
+.detailBtn:active {
+  background-color: #123199;
+}
 @media (max-width: 1455px) {
   .input3 {
   position: relative;
@@ -384,8 +437,41 @@ export default {
   margin-right: 2rem; /* או כל גודל שתרצי */
 }
 }
+@media (max-width: 930px) {
+  .detailBtn {
+    top: -4.5rem;
+    right: 28rem;
+  }
+  .details {
+    top: -0.5rem;
+    right: 30rem;
+  }
+  .infoBtn {
+    bottom: 44rem;
+    left: 23rem;
+  }
+  .information {
+    position: absolute;
+    top: -7rem;
+    right: 8rem;
+  }
+}
 @media (max-width: 870px) {
-
+  .information {
+    right: 10rem;
+  }
+  .details {
+    right: 25rem;
+  }
+}
+@media (max-width: 610px) {
+  .information {
+    right: 16rem;
+  }
+  .details {
+    right: 21rem;
+  }
   
 }
+
 </style>
