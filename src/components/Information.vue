@@ -82,7 +82,6 @@ export default {
   background-size: 100% 100%;
   background-repeat: no-repeat;
   padding: 2rem;
-  border-radius: 2rem;
 }
 .text {
   font-family: "dana";

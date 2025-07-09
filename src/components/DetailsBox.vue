@@ -1,7 +1,7 @@
 <template>
   <div id="details-box">
       <img
-        src="@/assets/media/part1documents/details1.svg"
+        src="@/assets/media/part1documents/details.png"
         alt="details"
         class="details"
       />
