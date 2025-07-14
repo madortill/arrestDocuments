@@ -298,11 +298,12 @@ export default {
 .input3 {
   width: 3.5rem;
   position: relative;
-  top: -7.9rem;
+  top: -8rem;
   right: 8.8rem;
 }
 .last-input3 {
-  margin-right: 2rem; /* או כל גודל שתרצי */
+  margin-right: 2rem;
+  margin-top: -0.5rem; 
 }
 .input4 {
   width: 15rem;
@@ -314,7 +315,7 @@ export default {
   width: 2rem;
   position: relative;
   top: -3rem;
-  left: 22.5rem;
+  left: 22.8rem;
 }
 .wrong {
   border: 2px solid red;
@@ -428,14 +429,31 @@ export default {
 .detailBtn:active {
   background-color: #123199;
 }
-@media (max-width: 1455px) {
+@media (max-width: 1160px) {
   .input3 {
-  position: relative;
-  top: -8rem;
+  top: -7.8rem;
+  right: 8.8rem;
 }
-.last-input3 {
-  margin-right: 2rem; /* או כל גודל שתרצי */
+.que1-date {
+  margin-top: 7.8rem;
+  margin-right: 11.7rem;
 }
+.input1 {
+  height: 0.7rem;
+}
+.input2 {
+  top: -0.1rem;
+  right: 1.4rem;
+  height: 0.8rem;
+}
+.input5 {
+  top: -3rem;
+  left: 23.3rem;
+}
+.input4 {
+  top: -4.7rem;
+}
+
 }
 @media (max-width: 930px) {
   .detailBtn {
@@ -455,6 +473,11 @@ export default {
     top: -7rem;
     right: 8rem;
   }
+  .input3 {
+  right: 8.8rem;
+  height: 0.8rem;
+
+}
 }
 @media (max-width: 870px) {
   .information {
@@ -463,6 +486,11 @@ export default {
   .details {
     right: 25rem;
   }
+  .input5 {
+  top: -3rem;
+  left: 23.5rem;
+  height: 0.8rem;
+}
 }
 @media (max-width: 610px) {
   .information {

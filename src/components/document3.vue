@@ -161,16 +161,21 @@
       לחדר החקירה
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
-    <information :docNum="doc"></information>
+    <information class="information" :docNum="doc"></information>
+    <img
+      src="@/assets/media/interrogationRoom/phone.svg"
+      class="phone"
+      alt=""
+    />
   </div>
 </template>
 
 <script>
-import Information from './Information.vue';
+import Information from "./Information.vue";
 export default {
   name: "document3",
   components: {
-    Information
+    Information,
   },
   data() {
     return {
@@ -364,7 +369,7 @@ export default {
       }
     },
     openInfo() {
-      if(this.doc === 0) {
+      if (this.doc === 0) {
         this.doc = 3;
       } else {
         this.doc = 0;
@@ -384,6 +389,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 3rem;
 }
 .checkBox {
   margin-top: 3.7rem;
@@ -422,11 +428,13 @@ export default {
 }
 .input1 {
   width: 0.8rem;
+  height: 0.8rem;
 }
 .input2 {
   position: relative;
   width: 2.5rem;
   right: 1.6rem;
+  height: 0.8rem;
 }
 .solider-unit-details {
   display: flex;
@@ -438,6 +446,7 @@ export default {
 }
 .input3 {
   width: 3rem;
+  height: 0.8rem;
 }
 /* שאלה 2 */
 .public-officer-date {
@@ -450,11 +459,13 @@ export default {
 }
 .input12 {
   width: 0.8rem;
+  height: 0.8rem;
 }
 .input22 {
   position: relative;
   width: 2.5rem;
   right: 1.7rem;
+  height: 0.8rem;
 }
 .public-officer-details {
   display: flex;
@@ -467,10 +478,12 @@ export default {
 }
 .input32 {
   width: 3rem;
+  height: 0.8rem;
 }
 .last-input32 {
   margin-right: 11.5rem;
   width: 4rem;
+  height: 0.8rem;
 }
 
 /* שאלה 3 */
@@ -484,11 +497,13 @@ export default {
 }
 .input13 {
   width: 0.8rem;
+  height: 0.8rem;
 }
 .input23 {
   position: relative;
   width: 2.5rem;
   right: 1.8rem;
+  height: 0.8rem;
 }
 .headquarters-details {
   display: flex;
@@ -501,6 +516,7 @@ export default {
 }
 .input33 {
   width: 3rem;
+  height: 0.8rem;
 }
 
 /* שאלה 4 */
@@ -508,17 +524,19 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 4.5rem;
+  margin-top: 4.2rem;
   margin-right: -9.5rem;
   gap: 0.5rem;
 }
 .input14 {
   width: 0.8rem;
+  height: 0.8rem;
 }
 .input24 {
   position: relative;
   width: 2.5rem;
   right: 1.8rem;
+  height: 0.8rem;
 }
 .escorts-details {
   display: flex;
@@ -531,10 +549,12 @@ export default {
 }
 .input34 {
   width: 3rem;
+  height: 0.8rem;
 }
 .last-input3 {
   margin-right: 3.8rem;
   width: 4rem;
+  height: 0.8rem;
 }
 .wrong {
   border: 2px solid red;
@@ -574,8 +594,8 @@ export default {
 }
 .infoBtn {
   position: absolute;
-  bottom: 30rem;
-  left: 40rem;
+  bottom: 39rem;
+  left: 37.5rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -595,5 +615,93 @@ export default {
 }
 .infoBtn:active {
   background-color: #123199;
+}
+.information {
+  z-index: 2;
+}
+.phone {
+  width: 15rem;
+  position: absolute;
+  top: 9rem;
+  right: -18rem;
+}
+@media (max-width: 1780px) {
+  .headquarters-date {
+    margin-top: 4.2rem;
+  }
+}
+@media (max-width: 1630px) {
+  .headquarters-date {
+    margin-top: 4.4rem;
+  }
+  .public-officer-date {
+  margin-top: 4.2rem;
+}
+}
+@media (max-width: 1560px) {
+  .solider-unit-date {
+  margin-top: 1.9rem;
+}
+}
+@media (max-width: 1480px) {
+  .phone {
+    top: 9rem;
+    right: -13rem;
+  }
+  .solider-unit-date {
+  margin-top: 1.8rem;
+}
+/* .headquarters-date {
+    margin-top: 4.1rem;
+  } */
+  /* .escorts-date {
+  margin-top: 4.2rem;
+} */
+}
+@media (max-width: 1130px) {
+  .headquarters-date {
+    margin-top: 4.12rem;
+  }
+
+}
+@media (max-width: 930px) {
+  .solider-unit-date {
+  margin-top: 1.5rem;
+}
+  .infoBtn {
+    bottom: 44rem;
+    left: 23rem;
+  }
+  .information {
+    position: absolute;
+    top: -7rem;
+    right: 8rem;
+  }
+  .phone {
+    top: 45rem;
+    right: 11rem;
+  }
+}
+@media (max-width: 870px) {
+  .solider-unit-date {
+  margin-top: 1.3rem;
+}
+  .information {
+    right: 12rem;
+  }
+  #document3 {
+    width: 46rem;
+    height: 49rem;
+  }
+  .phone {
+    top: 50rem;
+    right: 15rem;
+  }
+}
+@media (max-width: 610px) {
+  .information {
+    right: 16rem;
+  }
+
 }
 </style>
