@@ -3,7 +3,7 @@
     <div class="end-container">
       <p class="endText">סיימתם למלא את כל מסמכי המעצר!</p>
       <p class="endText">בזכותכם עצירת החשוד הושלמה!</p>
-      <button class="againBtn" @click="startAgain">לתרגל שוב!</button>
+      <button class="againBtn" @click="startAgain">לתחילת הלומדה</button>
     </div>
     <div class="graphic">
       <div class="car-container">
@@ -45,7 +45,7 @@ export default {
 
 .car-container {
   position: absolute;
-  top: 13rem; /* שימי לב למיקום מעל הכביש */
+  top: 3rem; /* שימי לב למיקום מעל הכביש */
   left: 100%; /* מתחילה מחוץ למסך מימין */
   width: 35rem;
   animation: drive 10s linear forwards; /* האנימציה */
@@ -70,18 +70,22 @@ export default {
   height: 5rem;
   position: relative;
   z-index: 2;
-  margin-top: 20rem;
+  margin-top: 10rem;
 }
 .end-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 5rem;
+  padding: 2rem;
 }
 .endText {
   font-family: "rubik";
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin: 0.3rem;
+  color: white;
+  font-family: "abraham";
+  text-align: center;
 
 }
 .againBtn {

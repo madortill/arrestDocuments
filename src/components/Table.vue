@@ -167,6 +167,7 @@ export default {
 .mouse {
   cursor: pointer;
 }
+
 .glow {
   animation: glow-fade 1.5s infinite ease-in-out;
 }
