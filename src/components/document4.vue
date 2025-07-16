@@ -105,7 +105,7 @@ export default {
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       reasonAnswer: "",
       wrongReason: false,
-      testimony: '"אני צריך חולצות, תחתונים וכדורי האלרגיה שלי"',
+      testimony: '"אני צריך חולצות, תחתונים ואת כדורי האלרגיה שלי"',
       wrongTestimony: false,
       testimonyAnswer: "",
       debugMode: true,

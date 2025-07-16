@@ -1,28 +1,38 @@
 <template>
   <div id="phone-documents">
-    <document3 class="part1" @backToTable="backToTable"></document3>
-    <!-- <img
-      src="@/assets/media/interrogationRoom/phone.svg"
-      class="phone"
-      alt=""
-    /> -->
+    <result class="result" :resultFrom="propsResult" />
+    <div v-if="propsResult != ''" class="blackDiv"></div>
+    <document3 class="part1" @result="showResult" @backToTable="backToTable"></document3>
   </div>
 </template>
 
 <script>
 import document3 from "@/components/document3.vue";
+import result from "./result.vue";
 export default {
   name: "phone-documents",
   components: {
     document3,
+    result
   },
   data() {
-    return {};
+    return {
+      propsResult: '',
+    };
   },
   methods: {
     backToTable() {
       this.$emit("backToTable", "cop");
     },
+    showResult(par) {
+      if(par === "right") {
+        this.propsResult = "right"
+      } else if (par === "wrong") {
+        this.propsResult = "wrong"
+      } else {
+        this.propsResult = ""
+      }
+    }
   },
 };
 </script>
@@ -45,16 +55,13 @@ export default {
   margin-right: 5rem;
   z-index: 2;
 }
+.blackDiv {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.623);
+  pointer-events: none;
+}
 
-@media (max-width: 1170px) {
-  .phone {
-    top: 14rem;
-    right: 6.5rem;
-  }
-}
-@media (max-width: 930px) {
-.part1 {
-  transform: translate(-50%, -50%);
-}
-}
 </style>

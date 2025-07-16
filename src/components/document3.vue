@@ -360,12 +360,18 @@ export default {
       if (isDateCorrect4 && isTimeCorrect4 && isDetailsCorrect4) {
         rightAns++;
       }
-
-      if (rightAns === 6) {
-        alert("הכל נכון כל הכבוד!");
-        this.$emit("backToTable");
+      // בדיקה סופית
+      if (rightAns === 5) {
+        this.$emit("result", "right");
+        setTimeout(() => {
+          this.$emit("result", "");
+          this.$emit("backToTable");
+        }, 2200);
       } else {
-        alert("קיימות תשובות שגויות");
+        this.$emit("result", "wrong");
+        setTimeout(() => {
+          this.$emit("result", "");
+        }, 2200);
       }
     },
     openInfo() {

@@ -1,6 +1,5 @@
 <template>
   <div id="part1-documents" :class="background">
-    <result class="result" :resultFrom="propsResult"></result>
     <div v-if="page === 1" class="document1">
       <div
         class="marking2"
@@ -251,11 +250,9 @@
 
 <script>
 import Information from "./Information.vue";
-import result from "./result.vue";
 import DetailsBox from "./DetailsBox.vue";
 export default {
   components: {
-    result,
     Information,
     DetailsBox,
   },
@@ -355,21 +352,38 @@ export default {
   },
   methods: {
     validateAllFields() {
+      const isValidID = this.checkInput(this.userInput11);
+      const isValidName1 =
+        !this.containsNumber(this.userInput12) &&
+        this.userInput12.trim() !== "";
+      const isValidName2 =
+        !this.containsNumber(this.userInput13) &&
+        this.userInput13.trim() !== "";
+      const isValidRoom =
+        !this.containsNumber(this.userInput41) &&
+        this.userInput41.trim() !== "";
+      const allAnswersFilled = this.userAnswers.every(
+        (ans) => ans.trim() !== ""
+      );
+      const allDateFieldsFilled = [
+        this.answers.que4,
+        this.answers.que5,
+        this.answers.que6,
+      ].every((ans) => ans.year && ans.month && ans.day && ans.time);
+
       return (
         this.signed &&
         this.chosen &&
-        this.userInput11.trim() !== "" &&
+        isValidID &&
+        isValidName1 &&
+        isValidName2 &&
+        isValidRoom &&
         this.selectedRan1k &&
-        this.userInput12.trim() !== "" &&
-        this.userInput13.trim() !== "" &&
         this.selectedForse1 &&
-        this.userInput41.trim() !== "" &&
         this.reasonAnswer.trim() !== "" &&
         this.roomUser.trim() !== "" &&
-        this.userAnswers.every((ans) => ans.trim() !== "") &&
-        [this.answers.que4, this.answers.que5, this.answers.que6].every(
-          (ans) => ans.year && ans.month && ans.day && ans.time
-        )
+        allAnswersFilled &&
+        allDateFieldsFilled
       );
     },
     normalizeText(text) {
@@ -393,11 +407,6 @@ export default {
       } else {
         rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
       }
-      const isValidID = this.checkInput(this.userInput11);
-      const isValidName1 = !this.containsNumber(this.userInput12);
-      const isValidName2 = !this.containsNumber(this.userInput13);
-      const isValidRoom = !this.containsNumber(this.userInput41);
-      const allFilled = this.validateAllFields();
 
       const allCorrect = this.userAnswers.every(
         (ans, i) =>
@@ -470,15 +479,16 @@ export default {
         console.log("לא נכון!!!");
       }
       // בדיקה סופית
-      if (rightAns === 7 && allAnswersFilled) {
-        this.propsResult = "right";
+      if (rightAns === 7) {
+        this.$emit("result", "right");
         setTimeout(() => {
+          this.$emit("result", "");
           this.$emit("next-doc");
         }, 2200);
       } else {
-        this.propsResult = "wrong";
+        this.$emit("result", "wrong");
         setTimeout(() => {
-          this.propsResult = "";
+          this.$emit("result", "");
         }, 2200);
       }
     },

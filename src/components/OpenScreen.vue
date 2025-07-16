@@ -39,6 +39,15 @@ export default {
 </script>
 
 <style scoped>
+#open-screen {
+  background-image: url("@/assets/media/endScreen/end.png");
+  background-size: 100vw 100vh;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
 .container {
   display: flex;
   flex-direction: column;

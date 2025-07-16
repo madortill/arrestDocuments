@@ -221,10 +221,16 @@ export default {
 
       // סיכום התוצאה
       if (rightAns === 6) {
-        alert("כל התשובות נכונות!");
-        this.$emit("backToTable");
+        this.$emit("result", "right");
+        setTimeout(() => {
+          this.$emit("result", "");
+          this.$emit("backToTable");
+        }, 2200);
       } else {
-        alert("צריך לתקן חלק מהתשובות");
+        this.$emit("result", "wrong");
+        setTimeout(() => {
+          this.$emit("result", "");
+        }, 2200);
       }
     },
     openInfo() {

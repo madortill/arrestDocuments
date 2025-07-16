@@ -1,22 +1,27 @@
 <template>
   <div id="basic-documents">
-    <document1 v-if="doc === 1" class="part1" @next-doc="nextDoc"></document1>
-    <document2 v-if="doc === 2" class="part1" @backToTable="backToTable" ></document2>
+    <result class="result" :resultFrom="propsResult" />
+    <div v-if="propsResult != ''" class="blackDiv"></div>
+    <document1 v-if="doc === 1" class="part1" @result="showResult" @next-doc="nextDoc"></document1>
+    <document2 v-if="doc === 2" class="part1" @result="showResult" @backToTable="backToTable" ></document2>
   </div>
 </template>
 
 <script>
 import document1 from "@/components/document1.vue";
 import document2 from "@/components/document2.vue";
+import result from "./result.vue";
 export default {
   name: "basic-documents",
   components: {
     document1,
     document2,
+    result
   },
   data() {
     return {
       doc: 1,
+      propsResult: '',
       
     };
   },
@@ -26,7 +31,16 @@ export default {
   },
   backToTable() {
     this.$emit("backToTable", "phone");
-  }
+  },
+  showResult(par) {
+      if(par === "right") {
+        this.propsResult = "right"
+      } else if (par === "wrong") {
+        this.propsResult = "wrong"
+      } else {
+        this.propsResult = ""
+      }
+    },
 
   },
 };
@@ -50,6 +64,13 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-
+.blackDiv {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.623);
+  pointer-events: none;
+}
 
 </style>
