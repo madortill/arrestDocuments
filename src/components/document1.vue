@@ -566,9 +566,9 @@ export default {
 
 <style scoped>
 .document1 {
-  width: 40rem;
-  height: 45rem;
-  background-image: url("@/assets/media/part1documents/arrestReport.svg");
+  width: 31rem;
+  height: 44rem;
+  background-image: url("@/assets/media/part1documents/arrestReport.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;

@@ -162,20 +162,24 @@
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
     <information class="information" :docNum="doc"></information>
-    <img
-      src="@/assets/media/interrogationRoom/phone.svg"
+    <Phone class="phone"></Phone>
+    <!-- <img
+      src="@/assets/media/part2documents/phone.png"
       class="phone"
       alt=""
-    />
+    /> -->
   </div>
 </template>
 
 <script>
 import Information from "./Information.vue";
+import Phone from "@/components/Phone.vue";
+
 export default {
   name: "document3",
   components: {
     Information,
+    Phone
   },
   data() {
     return {
@@ -626,10 +630,11 @@ export default {
   z-index: 2;
 }
 .phone {
-  width: 15rem;
+  width: 52rem;
   position: absolute;
-  top: 9rem;
-  right: -18rem;
+  /* top: rem; */
+  right: -36.5rem;
+  z-index: -1;
 }
 @media (max-width: 1780px) {
   .headquarters-date {
