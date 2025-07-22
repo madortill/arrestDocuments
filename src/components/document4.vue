@@ -67,6 +67,10 @@
         chosen: signed2,
       }"
     />
+    <div class="container-details">
+      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <details-box v-show="isOpen" :note="4" class="details"></details-box>
+    </div>
     <button
       class="next-btn"
       :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
@@ -83,10 +87,12 @@
 
 <script>
 import Information from './Information.vue';
+import DetailsBox from "./DetailsBox.vue";
 export default {
   name: "document2",
   components: {
-    Information
+    Information,
+    DetailsBox
   },
   data() {
     return {
@@ -367,5 +373,43 @@ export default {
 }
 .continue-btn:hover {
   background-color: #d40000;
+}
+.container-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  width: 10rem;
+  position: absolute;
+  top: 5rem;
+  right: 36rem;
+}
+
+.detailBtn {
+  position: absolute;
+  height: 1rem;
+  right: 36.5rem;
+  top: 1rem;
+  width: 5rem;
+  z-index: 3;
+  padding: 12px 0px;
+  background-color: white;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+.detailBtn:hover {
+  background-color: #0e277a;
+}
+.detailBtn:active {
+  background-color: #123199;
 }
 </style>

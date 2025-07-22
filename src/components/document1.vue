@@ -876,4 +876,7 @@ export default {
     top: -11.4rem;
   }
 }
+@media (max-width: 400px) {
+
+}
 </style>

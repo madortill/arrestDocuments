@@ -2,13 +2,31 @@
   <div id="details-box">
       <img
       v-show="note === 1"
-        src="@/assets/media/part1documents/details1.png"
+        src="@/assets/media/details/details1.png"
         alt="details"
         class="details1"
       />
       <img
       v-show="note === 2"
-        src="@/assets/media/part1documents/details2.png"
+        src="@/assets/media/details/details2.png"
+        alt="details"
+        class="details2"
+      />
+      <img
+      v-show="note === 4"
+        src="@/assets/media/details/details4.png"
+        alt="details"
+        class="details2"
+      />
+      <img
+      v-show="note === 5"
+        src="@/assets/media/details/details5.png"
+        alt="details"
+        class="details2"
+      />
+      <img
+      v-show="note === 6"
+        src="@/assets/media/details/details6.png"
         alt="details"
         class="details2"
       />
