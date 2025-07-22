@@ -61,6 +61,7 @@
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
     <information :docNum="doc"></information>
+    <p class="continue-btn" @click="backToDetails">חזרה לשיחה</p>
   </div>
 </template>
 
@@ -90,6 +91,7 @@ export default {
       noPublic: "כלל חומרי החקירה",
       debugMode: true,
       doc: 0,
+      DOC_NUM: 3,
     };
   },
   methods: {
@@ -176,6 +178,9 @@ export default {
         this.doc = 0;
       }
     },
+    backToDetails() {
+      this.$emit('to-details', this.DOC_NUM);
+    }
   },
 };
 </script>
@@ -302,5 +307,23 @@ export default {
 }
 .result {
   z-index: 5;
+}
+.continue-btn {
+  font-family: "rubik";
+  font-weight: bold;
+  font-size: 1.1rem;
+  background-color: #be0000;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  color: white;
+  width: 7rem;
+  text-align: center;
+  position: relative;
+  top: 10rem;
+  left: 10rem;
+  cursor: pointer;
+}
+.continue-btn:hover {
+  background-color: #d40000;
 }
 </style>
