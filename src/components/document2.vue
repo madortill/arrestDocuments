@@ -246,9 +246,9 @@ export default {
 
 <style scoped>
 #document2 {
-  width: 40rem;
+  width: 30rem;
   height: 43rem;
-  background-image: url("@/assets/media/part1documents/explainRights.svg");
+  /* background-image: url("@/assets/media/part1documents/explainRights.png"); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
@@ -283,7 +283,7 @@ export default {
   flex-direction: row;
   align-items: center;
   margin-top: 8rem;
-  margin-right: 11.9rem;
+  margin-right: 7rem;
   gap: 0.3rem;
 }
 .input1 {
@@ -299,6 +299,7 @@ export default {
   flex-direction: row;
   align-items: center;
   margin-top: 7rem;
+  margin-right: -4.8rem;
   gap: 0.5rem;
 }
 .input3 {
@@ -349,7 +350,7 @@ export default {
 .back-btn {
   position: absolute;
   bottom: 0.2rem;
-  left: 5rem;
+  left: 0.5rem;
   border: none;
   width: 5rem;
   text-align: center;
@@ -441,8 +442,8 @@ export default {
   right: 8.8rem;
 }
 .que1-date {
-  margin-top: 7.8rem;
-  margin-right: 11.7rem;
+  margin-top: 7.9rem;
+  margin-right: 6.8rem;
 }
 .input1 {
   height: 0.7rem;

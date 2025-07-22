@@ -198,12 +198,12 @@
     <g v-show="currentMsg === 2">
       <rect class="cls-4" x="285.87" y="316.24" width="125.31" height="40.34" rx="3.91" ry="3.91"/>
       <text class="cls-12" transform="translate(321.71 332.63)"><tspan x="70" y="0">098972950</tspan></text>
-      <text class="cls-13" transform="translate(366.42 348.81)"><tspan x="30" y="0">13:30 - 13:38</tspan></text>
+      <text class="cls-13" transform="translate(366.42 348.81)"><tspan x="30" y="0">13:38 - 13:30</tspan></text>
     </g>
     <g v-show="currentMsg === 4">
       <rect class="cls-4" x="245.67" y="418.28" width="125.31" height="40.34" rx="3.91" ry="3.91"/>
       <text class="cls-12" transform="translate(272.68 434.67)"><tspan x="75" y="0">0586695478</tspan></text>
-      <text class="cls-13" transform="translate(326.78 450.85)"><tspan x="30" y="0">13:22 - 13:26</tspan></text>
+      <text class="cls-13" transform="translate(326.78 450.85)"><tspan x="30" y="0">13:26 - 13:22</tspan></text>
     </g>
     <g v-show="currentMsg === 1">
       <rect class="cls-4" x="691.66" y="276.87" width="125.31" height="40.34" rx="3.91" ry="3.91"/>

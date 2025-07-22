@@ -393,7 +393,7 @@ export default {
 #document3 {
   width: 40rem;
   height: 43rem;
-  background-image: url("@/assets/media/part2documents/phoneDocument.svg");
+  /* background-image: url("@/assets/media/part2documents/phoneDocument.svg"); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;
@@ -656,8 +656,9 @@ export default {
 }
 @media (max-width: 1480px) {
   .phone {
-    top: 9rem;
-    right: -13rem;
+    width: 48rem;
+    top: 1rem;
+    right: -29rem;
   }
   .solider-unit-date {
   margin-top: 1.8rem;
@@ -699,10 +700,6 @@ export default {
 }
   .information {
     right: 12rem;
-  }
-  #document3 {
-    width: 46rem;
-    height: 49rem;
   }
   .phone {
     top: 50rem;
