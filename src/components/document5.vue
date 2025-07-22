@@ -297,7 +297,7 @@ export default {
 #document5 {
   width: 40rem;
   height: 45rem;
-  /* background-image: url("@/assets/media/part3documents/rights.svg"); */
+  background-image: url("@/assets/media/part3documents/rights.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

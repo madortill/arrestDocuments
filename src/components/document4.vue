@@ -228,7 +228,7 @@ export default {
 #document4 {
   width: 40rem;
   height: 45rem;
-  /* background-image: url("@/assets/media/part3documents/arrestHearing.svg"); */
+  background-image: url("@/assets/media/part3documents/arrestHearing.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

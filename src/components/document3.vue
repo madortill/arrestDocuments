@@ -393,7 +393,7 @@ export default {
 #document3 {
   width: 40rem;
   height: 43rem;
-  /* background-image: url("@/assets/media/part2documents/phoneDocument.svg"); */
+  background-image: url("@/assets/media/part2documents/phoneDocument.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: flex;

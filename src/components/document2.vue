@@ -248,7 +248,7 @@ export default {
 #document2 {
   width: 30rem;
   height: 43rem;
-  /* background-image: url("@/assets/media/part1documents/explainRights.png"); */
+  background-image: url("@/assets/media/part1documents/explainRights.png");
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }

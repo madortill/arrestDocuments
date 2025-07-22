@@ -568,17 +568,10 @@ export default {
 .document1 {
   width: 40rem;
   height: 45rem;
-  /* background-image: url("@/assets/media/part1documents/arrestReport.svg"); */
+  background-image: url("@/assets/media/part1documents/arrestReport.svg");
   background-size: 100% 100%;
   background-repeat: no-repeat;
   overflow: hidden;
-}
-.document2 {
-  width: 40rem;
-  height: 43rem;
-  /* background-image: url("@/assets/media/part1documents/explainRights.svg"); */
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
 }
 .result {
   position: absolute;

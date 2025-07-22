@@ -49,7 +49,7 @@ export default {
 
 <style>
 #app {
-  background-image: url("@/assets/media/Artboard 2.svg");
+  background-image: url("@/assets/media/Artboard.png");
   background-size: 100vw 100vh;
   height: 100vh;
   background-position: center;
