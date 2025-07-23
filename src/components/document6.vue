@@ -196,7 +196,7 @@ export default {
 #document6 {
   width: 40rem;
   height: 45rem;
-  background-image: url("@/assets/media/part3documents/publication.svg");
+  /* background-image: url("@/assets/media/part3documents/publication.svg"); */
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
