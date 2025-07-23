@@ -15,11 +15,11 @@
         </p>
       </div>
       <img :src="compImg" alt="computer" class="computer" />
-      <!-- <img
+      <img
         src="@/assets/media/suspectInfo/suspect.svg"
         alt="computer"
         class="suspect"
-      /> -->
+      />
 
       <p v-if="showBtn" class="continue-btn" @click="toInterrogation">הבא</p>
     </div>
