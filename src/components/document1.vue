@@ -875,8 +875,19 @@ export default {
   #text4 {
     top: -11.4rem;
   }
+  .signature {
+    top: -15.8rem;
+  }
 }
-@media (max-width: 400px) {
-
+@media (max-width: 420px) {
+  .que2 {
+  margin-top: -7rem;
 }
+.input4 {
+    margin-top: 1.6rem;
+  }
+}
+.signature {
+    top: -16.5rem;
+  }
 </style>
