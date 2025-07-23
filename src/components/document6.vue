@@ -51,7 +51,7 @@
         chosen: signed,
       }"
     />
-    \<div class="contaner-details">
+    <div class="contaner-details">
       <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
       <details-box v-show="isOpen" :note="6" class="details"></details-box>
     </div>
@@ -98,6 +98,7 @@ export default {
       debugMode: true,
       doc: 0,
       DOC_NUM: 3,
+      isOpen: false,
     };
   },
   methods: {

@@ -90,7 +90,7 @@ html {
     position: fixed;
     bottom: 1rem;
     right: 1%;
-    width: 6rem;
+    width: 5rem;
     z-index: 15;
 }
 

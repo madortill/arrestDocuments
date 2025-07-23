@@ -878,6 +878,12 @@ export default {
   .signature {
     top: -15.8rem;
   }
+  .detailBtn {
+    right: 18rem;
+  }
+  .infoBtn {
+    left: 16rem;
+  }
 }
 @media (max-width: 420px) {
   .que2 {

@@ -1,6 +1,6 @@
 <template>
     <div id="suspect-words">
-      <div>
+      <div >
         <div class="bubble-img-container">
           <p class="text">
             <template v-if="currentSentence === 1">
@@ -154,5 +154,30 @@
     cursor: pointer;
     pointer-events: all;
   }
+  @media (max-width: 880px) {
+    .discussion-img {
+    width: 50rem;
+    height: 30rem;
+  }
+  .bubble-img-container {
+    width: 18rem;
+    height: 13rem;
+    top: 8rem;
+    right: 12rem;
+  }
+  .text {
+    width: 12rem;
+    top: 1.3rem;
+    right: 1.5rem;
+    font-size: 1rem;
+  }
+  .left-arrow {
+    right: 14rem;
+  }
+  .continue-btn {
+    top: -10.2rem;
+    right: 23rem;
+  }
+}
   </style>
   

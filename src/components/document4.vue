@@ -80,7 +80,7 @@
       לעמוד הבא
     </button>
     <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
-    <information :docNum="doc"></information>
+    <information class="information" :docNum="doc"></information>
     <p class="continue-btn" @click="backToDetails">חזרה לשיחה</p>
   </div>
 </template>
@@ -118,6 +118,7 @@ export default {
       debugMode: true,
       doc: 0,
       DOC_NUM: 1,
+      isOpen: false,
     };
   },
   methods: {
@@ -334,8 +335,8 @@ export default {
 }
 .infoBtn {
   position: absolute;
-  bottom: 30rem;
-  left: 40rem;
+  bottom: 41rem;
+  left: 36.5rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -411,5 +412,63 @@ export default {
 }
 .detailBtn:active {
   background-color: #123199;
+}
+@media (max-width: 1350px) {
+  .que1-date {
+  margin-top: 7.8rem;
+  margin-right: 11.5rem;
+}
+}
+@media (max-width: 930px) {
+  .detailBtn {
+    top: -4.5rem;
+    right: 30rem;
+  }
+  .details {
+    top: -0.5rem;
+    right: 25rem;
+  }
+  .infoBtn {
+    bottom: 46rem;
+    left: 25rem;
+  }
+  .information {
+    position: absolute;
+    top: -7rem;
+    right: 8rem;
+  }
+
+}
+@media (max-width: 870px) {
+  .information {
+    right: 11rem;
+  }
+  .details {
+    right: 25rem;
+  }
+  .que1-date {
+  margin-right: 11.4rem;
+}
+.input1 {
+  height: 0.8rem;
+}
+.input2 {
+  height: 0.8rem;
+}
+}
+@media (max-width: 610px) {
+  .information {
+    right: 11.5rem;
+  }
+  .details {
+    right: 16rem;
+  }
+  .detailBtn {
+    right: 22rem;
+  }
+  .infoBtn {
+    left: 20rem;
+  }
+  
 }
 </style>

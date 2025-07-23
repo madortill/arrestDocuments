@@ -674,6 +674,10 @@ export default {
   .headquarters-date {
     margin-top: 4.12rem;
   }
+  .mark {
+  position: relative;
+  top: -0.3rem;
+}
 
 }
 @media (max-width: 930px) {
@@ -693,10 +697,13 @@ export default {
     top: 45rem;
     right: 11rem;
   }
+  #document3 {
+    margin-left: 3.2rem;
+  }
 }
 @media (max-width: 870px) {
   .solider-unit-date {
-  margin-top: 1.3rem;
+  margin-top: 1.4rem;
 }
   .information {
     right: 12rem;
@@ -706,10 +713,36 @@ export default {
     right: 15rem;
   }
 }
-@media (max-width: 610px) {
+@media (max-width: 700px) {
   .information {
     right: 16rem;
   }
+  .headquarters-date {
+    margin-top: 3.8rem;
+  }
+
+}
+@media (max-width: 550px) {
+  .headquarters-date {
+    margin-top: 4rem;
+  }
+  .public-officer-date {
+  margin-top: 3.9rem;
+}
+  .escorts-date {
+  margin-top: 4rem;
+}
+.escorts-details {
+  margin-top: 0.2rem;
+}
+.mark {
+  position: relative;
+  top: -0.5rem;
+}
+.solider-unit-details {
+  position: relative;
+  top: -0.3rem;
+}
 
 }
 </style>

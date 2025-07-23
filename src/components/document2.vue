@@ -377,7 +377,7 @@ export default {
 .infoBtn {
   position: absolute;
   bottom: 39rem;
-  left: 36.5rem;
+  left: 32rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -398,6 +398,11 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
+.information {
+    position: absolute;
+    top: -1.5rem;
+    right: -4.5rem;
+  }
 .container-details {
   display: flex;
   flex-direction: column;
@@ -407,13 +412,13 @@ export default {
   width: 10rem;
   position: absolute;
   top: 5rem;
-  right: 36rem;
+  right: 31rem;
 }
 
 .detailBtn {
   position: absolute;
   height: 1rem;
-  right: 36.5rem;
+  right: 32rem;
   top: 1rem;
   width: 5rem;
   z-index: 3;
@@ -465,20 +470,20 @@ export default {
 @media (max-width: 930px) {
   .detailBtn {
     top: -4.5rem;
-    right: 28rem;
+    right: 25rem;
   }
   .details {
     top: -0.5rem;
-    right: 30rem;
+    right: 25rem;
   }
   .infoBtn {
     bottom: 44rem;
-    left: 23rem;
+    left: 20rem;
   }
   .information {
     position: absolute;
     top: -7rem;
-    right: 8rem;
+    right: 5rem;
   }
   .input3 {
   right: 8.8rem;
@@ -491,7 +496,7 @@ export default {
     right: 10rem;
   }
   .details {
-    right: 25rem;
+    right: 20rem;
   }
   .input5 {
   top: -3rem;
@@ -501,10 +506,16 @@ export default {
 }
 @media (max-width: 610px) {
   .information {
-    right: 16rem;
+    right: 11.5rem;
   }
   .details {
-    right: 21rem;
+    right: 16rem;
+  }
+  .detailBtn {
+    right: 18rem;
+  }
+  .infoBtn {
+    left: 16rem;
   }
   
 }

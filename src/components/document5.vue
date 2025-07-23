@@ -164,6 +164,7 @@ export default {
       debugMode: true,
       doc: 0,
       DOC_NUM: 2,
+      isOpen: false,
     };
   },
   methods: {
