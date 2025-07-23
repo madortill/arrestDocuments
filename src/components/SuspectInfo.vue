@@ -15,11 +15,11 @@
         </p>
       </div>
       <img :src="compImg" alt="computer" class="computer" />
-      <img
+      <!-- <img
         src="@/assets/media/suspectInfo/suspect.svg"
         alt="computer"
         class="suspect"
-      />
+      /> -->
 
       <p v-if="showBtn" class="continue-btn" @click="toInterrogation">הבא</p>
     </div>
@@ -27,7 +27,7 @@
 </template>
 
 <script>
-import compImg from "@/assets/media/suspectInfo/computer.svg";
+import compImg from "@/assets/media/suspectInfo/computer.png";
 export default {
   name: "suspect-info",
   components: {},
@@ -73,14 +73,14 @@ export default {
   margin-top: -18rem;
 }
 .computer {
-  width: 42rem;
+  width: 95rem;
   align-items: center;
-  margin-top: 3rem;
-  margin-left: 30rem;
+  margin-top: -0.3rem;
+  margin-left: 55rem;
 }
 .suspect {
-  margin-top: -39rem;
-  margin-right: 40rem;
+  margin-top: -55rem;
+  margin-right: 38rem;
   width: 21rem;
 }
 .continue-btn {
@@ -90,7 +90,7 @@ export default {
   background-color: #be0000;
   padding: 1rem 2rem;
   border-radius: 1rem;
-  margin-right: 70rem;
+  margin-right: 68rem;
   color: white;
   cursor: pointer;
 }
@@ -149,13 +149,14 @@ export default {
 }
 @media (max-width: 1444px) {
   .computer {
-    width: 40rem;
+    width: 93rem;
     align-items: center;
-    margin-left: 18rem;
+    margin-top: -0.5rem;
+    margin-left: 37rem;
   }
   .suspect {
-    margin-right: 47rem;
-    width: 18rem;
+    margin-right: 45rem;
+    width: 20rem;
   }
   .continue-btn {
     margin-right: 50rem;
@@ -169,14 +170,14 @@ export default {
 
 @media (max-width: 940px) {
   .computer {
-    width: 25rem;
+    width: 60rem;
     align-items: center;
-    margin-left: 12rem;
-    margin-top: 20rem;
+    margin-left: 25rem;
+    margin-top: 17.2rem;
   }
   .suspect {
-    margin-top: -25rem;
-    margin-right: 25rem;
+    margin-top: -35rem;
+    margin-right: 27rem;
     width: 13rem;
   }
   .continue-btn {
@@ -197,13 +198,13 @@ export default {
 
   }
   .computer {
-    width: 25rem;
+    width: 60rem;
     align-items: center;
-    margin-left: -0.3rem;
-    margin-top: 15rem;
+    margin-left: 13rem;
+    margin-top: 12rem;
   }
   .suspect {
-    margin-top: -2rem;
+    margin-top: -12rem;
     margin-right: -0.5rem;
     width: 13rem;
   }
