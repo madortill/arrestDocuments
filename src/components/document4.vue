@@ -86,13 +86,13 @@
 </template>
 
 <script>
-import Information from './Information.vue';
+import Information from "./Information.vue";
 import DetailsBox from "./DetailsBox.vue";
 export default {
   name: "document2",
   components: {
     Information,
-    DetailsBox
+    DetailsBox,
   },
   data() {
     return {
@@ -218,15 +218,15 @@ export default {
       }
     },
     openInfo() {
-      if(this.doc === 0) {
+      if (this.doc === 0) {
         this.doc = 4;
       } else {
         this.doc = 0;
       }
     },
     backToDetails() {
-      this.$emit('to-details', this.DOC_NUM);
-    }
+      this.$emit("to-details", this.DOC_NUM);
+    },
   },
 };
 </script>
@@ -368,8 +368,8 @@ export default {
   width: 7rem;
   text-align: center;
   position: relative;
-  top: 10rem;
-  left: 10rem;
+  top: 7rem;
+  left: -5rem;
   cursor: pointer;
 }
 .continue-btn:hover {
@@ -415,9 +415,9 @@ export default {
 }
 @media (max-width: 1350px) {
   .que1-date {
-  margin-top: 7.8rem;
-  margin-right: 11.5rem;
-}
+    margin-top: 7.8rem;
+    margin-right: 11.5rem;
+  }
 }
 @media (max-width: 930px) {
   .detailBtn {
@@ -426,7 +426,7 @@ export default {
   }
   .details {
     top: -0.5rem;
-    right: 25rem;
+    right: 27rem;
   }
   .infoBtn {
     bottom: 46rem;
@@ -437,31 +437,30 @@ export default {
     top: -7rem;
     right: 8rem;
   }
-
+  .que1-date {
+    margin-right: 11.3rem;
+  }
+  .input1 {
+    height: 0.8rem;
+  }
+  .input2 {
+    height: 0.8rem;
+  }
 }
 @media (max-width: 870px) {
   .information {
-    right: 11rem;
+    right: 13rem;
   }
   .details {
     right: 25rem;
   }
-  .que1-date {
-  margin-right: 11.4rem;
-}
-.input1 {
-  height: 0.8rem;
-}
-.input2 {
-  height: 0.8rem;
-}
 }
 @media (max-width: 610px) {
   .information {
-    right: 11.5rem;
+    right: 15.5rem;
   }
   .details {
-    right: 16rem;
+    right: 22rem;
   }
   .detailBtn {
     right: 22rem;
@@ -469,6 +468,9 @@ export default {
   .infoBtn {
     left: 20rem;
   }
-  
+  .input3 {
+    height: 0.8rem;
+    position: relative;
+  }
 }
 </style>
