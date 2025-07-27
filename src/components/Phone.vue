@@ -1,5 +1,5 @@
 <template>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1033.74 852.19">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1033.74 852.19" class="dont-press">
     <defs>
         <linearGradient id="linear-gradient" x1="336.62" y1="444.33" x2="707.72" y2="444.33" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#c7c8ca"/>
@@ -32,7 +32,15 @@
       <line v-show="currentMsg === 5" class="cls-2" x1="650.83" y1="534.39" x2="586.5" y2="483.45"/>
     </g>
   </g>
-  <g id="Layer_4" data-name="Layer 4" class="cls-10">
+  <text v-if="isMobile" y="540" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    <tspan x="480" dy="0">לחצו על השיחות האחרונות</tspan>
+    <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
+  </text>
+  <text v-else y="540" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    <tspan x="480" dy="0">עברו מעל השיחות האחרונות</tspan>
+    <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
+  </text>
+  <g id="Layer_4" data-name="Layer 4" class="cls-10 press" >
     <g>
       <g @click="openNum">
         <polygon class="cls-3" points="635.92 340.92 448.96 338.35 462.11 303.32 646.65 305.8 635.92 340.92"/>
@@ -230,9 +238,17 @@
     name: "table",
     data() {
       return {
-        currentMsg: ''
+        currentMsg: '',
+        isMobile: false
       };
     },
+    mounted() {
+  this.checkMobile();
+  window.addEventListener('resize', this.checkMobile);
+},
+beforeDestroy() {
+  window.removeEventListener('resize', this.checkMobile);
+},
     methods: {
         openNum(event) {
             let num = event.target.id;
@@ -249,8 +265,10 @@
             else if (num === "five") {
                 this.currentMsg = 5;
             }
-            console.log(this.currentMsg)
-        }
+        },
+        checkMobile() {
+    this.isMobile = window.innerWidth <= 1130;
+  },
     },
   };
   </script>
@@ -258,6 +276,9 @@
   <style scoped>
   .dont-press {
     pointer-events: none;
+  }
+  .press {
+    pointer-events: all;
   }
     .cls-1 {
         fill: #f4f4f5;
@@ -277,7 +298,7 @@
       }
 
       .cls-8, .cls-4 {
-        fill: #fff;
+        fill: #ffffff;
       }
 
       .cls-9 {
@@ -285,8 +306,8 @@
       }
 
       .cls-4 {
-        stroke: #ddd;
-        stroke-width: .79px;
+        stroke: #3a6db6;
+        stroke-width: 3px;
       }
 
       .cls-10 {

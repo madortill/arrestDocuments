@@ -232,7 +232,7 @@
       />
     </div>
     <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="1" class="details"></details-box>
     </div>
     <button
@@ -243,7 +243,7 @@
     >
       לעמוד הבא
     </button>
-    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
     <information class="information" :docNum="doc"></information>
   </div>
 </template>
@@ -342,6 +342,7 @@ export default {
       propsResult: "",
       doc: 0,
       isOpen: false,
+      isInfoOpen: false, 
     };
   },
   created() {
@@ -559,6 +560,7 @@ export default {
       } else {
         this.doc = 0;
       }
+      this.isInfoOpen = !this.isInfoOpen;
     },
   },
 };
@@ -595,7 +597,7 @@ export default {
   position: relative;
   top: 8.5rem;
   right: 11.5rem;
-  width: 3rem;
+  width: 3.2rem;
   height: 1rem;
   border: solid 2px rgb(0, 0, 0);
   border-radius: 100%;
@@ -842,6 +844,9 @@ export default {
   .input5 {
     margin-top: 2rem;
   }
+  .input6 {
+    margin-top: 2.2rem;
+  }
   #text4 {
     top: -11.4rem;
   }
@@ -867,22 +872,22 @@ export default {
     margin-top: 1.4rem;
   }
   .input5 {
-    margin-top: 1.5rem;
+    margin-top: 1.8rem;
   }
   .input6 {
-    top: -13.5rem;
+    top: -13.3rem;
   }
   #text4 {
     top: -11.4rem;
   }
   .signature {
-    top: -15.8rem;
+    top: 15rem;
   }
   .detailBtn {
-    right: 18rem;
+    right: 23rem;
   }
   .infoBtn {
-    left: 16rem;
+    left: 20rem;
   }
 }
 @media (max-width: 420px) {

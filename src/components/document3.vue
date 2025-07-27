@@ -160,14 +160,11 @@
     >
       לחדר החקירה
     </button>
-    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
     <information class="information" :docNum="doc"></information>
-    <Phone class="phone"></Phone>
-    <!-- <img
-      src="@/assets/media/part2documents/phone.png"
-      class="phone"
-      alt=""
-    /> -->
+    <Phone class="phone" :class="{'showPhone' : showPhone}"></Phone>
+    <img v-show="!showPhone" src="@/assets/media/part2documents/phoneBtn.png" @click="showPhone = !showPhone" class="phoneBtn" alt="">
+    <img v-show="showPhone" src="@/assets/media/part2documents/phoneBtnClose.png" @click="showPhone = !showPhone" class="phoneBtn" alt="">
   </div>
 </template>
 
@@ -219,6 +216,8 @@ export default {
       escortsArr: ['סג"ם', "שובל מלכה", "קצין ליווים", "098972950"],
       debugMode: true,
       doc: 0,
+      isInfoOpen: false, 
+      showPhone: false
     };
   },
   methods: {
@@ -384,6 +383,7 @@ export default {
       } else {
         this.doc = 0;
       }
+      this.isInfoOpen = !this.isInfoOpen;
     },
   },
 };
@@ -636,6 +636,12 @@ export default {
   right: -36.5rem;
   z-index: -1;
 }
+.phoneBtn {
+  width: 6rem;
+  position: relative;
+  left: 13rem;
+  display: none;
+}
 @media (max-width: 1780px) {
   .headquarters-date {
     margin-top: 4.2rem;
@@ -663,12 +669,6 @@ export default {
   .solider-unit-date {
   margin-top: 1.8rem;
 }
-/* .headquarters-date {
-    margin-top: 4.1rem;
-  } */
-  /* .escorts-date {
-  margin-top: 4.2rem;
-} */
 }
 @media (max-width: 1130px) {
   .headquarters-date {
@@ -678,6 +678,22 @@ export default {
   position: relative;
   top: -0.3rem;
 }
+.phone {
+    width: 57rem;
+    top: -2rem;
+    right: -8rem;
+    z-index: 3;
+    visibility: hidden;
+  }
+  .showPhone {
+  visibility: visible;
+}
+  #document3 {
+    margin-left: 3.2rem;
+  }
+  .phoneBtn {
+    display: inline;
+  }
 
 }
 @media (max-width: 930px) {
@@ -693,13 +709,6 @@ export default {
     top: -7rem;
     right: 8rem;
   }
-  .phone {
-    top: 45rem;
-    right: 11rem;
-  }
-  #document3 {
-    margin-left: 3.2rem;
-  }
 }
 @media (max-width: 870px) {
   .solider-unit-date {
@@ -707,10 +716,6 @@ export default {
 }
   .information {
     right: 12rem;
-  }
-  .phone {
-    top: 50rem;
-    right: 15rem;
   }
 }
 @media (max-width: 700px) {

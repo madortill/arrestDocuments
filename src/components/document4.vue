@@ -68,7 +68,7 @@
       }"
     />
     <div class="container-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="4" class="details"></details-box>
     </div>
     <button
@@ -79,9 +79,9 @@
     >
       לעמוד הבא
     </button>
-    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
     <information class="information" :docNum="doc"></information>
-    <p class="continue-btn" @click="backToDetails">חזרה לשיחה</p>
+    <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p>
   </div>
 </template>
 
@@ -119,6 +119,7 @@ export default {
       doc: 0,
       DOC_NUM: 1,
       isOpen: false,
+      isInfoOpen: false, 
     };
   },
   methods: {
@@ -223,6 +224,7 @@ export default {
       } else {
         this.doc = 0;
       }
+      this.isInfoOpen = !this.isInfoOpen;
     },
     backToDetails() {
       this.$emit("to-details", this.DOC_NUM);
@@ -357,7 +359,7 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
-.continue-btn {
+.conversion-btn {
   font-family: "rubik";
   font-weight: bold;
   font-size: 1.1rem;
@@ -372,7 +374,7 @@ export default {
   left: -5rem;
   cursor: pointer;
 }
-.continue-btn:hover {
+.conversion-btn:hover {
   background-color: #d40000;
 }
 .container-details {

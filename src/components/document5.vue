@@ -107,7 +107,7 @@
       }"
     />
     <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="5" class="details"></details-box>
     </div>
     <button
@@ -118,9 +118,9 @@
     >
       לעמוד הבא
     </button>
-    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
-    <information :docNum="doc"></information>
-    <p class="continue-btn" @click="backToDetails">חזרה לשיחה</p>
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    <information :docNum="doc" class="information"></information>
+    <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p>
   </div>
 </template>
 
@@ -165,6 +165,7 @@ export default {
       doc: 0,
       DOC_NUM: 2,
       isOpen: false,
+      isInfoOpen: false, 
     };
   },
   methods: {
@@ -291,6 +292,7 @@ export default {
       } else {
         this.doc = 0;
       }
+      this.isInfoOpen = !this.isInfoOpen;
     },
     backToDetails() {
       this.$emit('to-details', this.DOC_NUM);
@@ -473,8 +475,8 @@ export default {
 }
 .infoBtn {
   position: absolute;
-  bottom: 30rem;
-  left: 40rem;
+  bottom: 41rem;
+  left: 36.5rem;
   border: none;
   width: 10rem;
   text-align: center;
@@ -495,7 +497,7 @@ export default {
 .infoBtn:active {
   background-color: #123199;
 }
-.continue-btn {
+.conversion-btn {
   font-family: "rubik";
   font-weight: bold;
   font-size: 1.1rem;
@@ -506,11 +508,11 @@ export default {
   width: 7rem;
   text-align: center;
   position: relative;
-  top: 10rem;
-  left: 10rem;
+  top: 3rem;
+  left: -5rem;
   cursor: pointer;
 }
-.continue-btn:hover {
+.conversion-btn:hover {
   background-color: #d40000;
 }
 .container-details {
@@ -550,5 +552,48 @@ export default {
 }
 .detailBtn:active {
   background-color: #123199;
+}
+@media (max-width: 1350px) {
+}
+@media (max-width: 930px) {
+  .detailBtn {
+    top: -4.5rem;
+    right: 30rem;
+  }
+  .details {
+    top: -0.5rem;
+    right: 27rem;
+  }
+  .infoBtn {
+    bottom: 46rem;
+    left: 25rem;
+  }
+  .information {
+    position: absolute;
+    top: -7rem;
+    right: 8rem;
+  }
+}
+@media (max-width: 870px) {
+  .information {
+    right: 13rem;
+  }
+  .details {
+    right: 25rem;
+  }
+}
+@media (max-width: 610px) {
+  .information {
+    right: 15.5rem;
+  }
+  .details {
+    right: 22rem;
+  }
+  .detailBtn {
+    right: 22rem;
+  }
+  .infoBtn {
+    left: 20rem;
+  }
 }
 </style>

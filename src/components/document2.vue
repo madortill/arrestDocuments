@@ -68,7 +68,7 @@
       />
     </div>
     <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">פרטים</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="2" class="details"></details-box>
     </div>
     <button
@@ -79,15 +79,7 @@
     >
       לחדר החקירה
     </button>
-    <!-- <div class="info-container">
-      <p class="time-info">הודיעו לי על זכויותיי בשעה 13:04</p>
-    </div>
-    <img
-      src="@/assets/media/suspectInfo/suspect.svg"
-      alt="computer"
-      class="suspect"
-    /> -->
-    <button class="infoBtn" @click="openInfo">דגשים למילוי המסמך</button>
+    <button class="infoBtn" @click="openInfo"> {{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
     <information class="information" :docNum="doc"></information>
   </div>
 </template>
@@ -125,6 +117,7 @@ export default {
       debugMode: true,
       doc: 0,
       isOpen: false,
+      isInfoOpen: false, 
     };
   },
 
@@ -239,6 +232,7 @@ export default {
       } else {
         this.doc = 0;
       }
+      this.isInfoOpen = !this.isInfoOpen;
     },
   },
 };
