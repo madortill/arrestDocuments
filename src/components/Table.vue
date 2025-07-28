@@ -44,7 +44,7 @@
           width="3840"
           height="2160"
           transform="translate(-56.52 -191.98) scale(.61)"
-          :class="{ 'glow-static': time === 0, disabled: time != 0 }"
+          :class="{ 'glow-iphone': time === 0, disabled: time != 0 }"
         />
         <image
           :xlink:href="ecreepImg"
