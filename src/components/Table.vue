@@ -53,14 +53,14 @@
           width="3840"
           height="2160"
           transform="translate(-56.52 -191.98) scale(.61)"
-           :class="[ time === 0 ? (isIphone ? 'glow-iphone' : 'glow') : 'disabled' ]"
+          :class="[ time === 0 ? (isIphone ? 'glow-iphone' : 'glow') : 'disabled' ]"
         />
         <image
           :xlink:href="ecreepImg"
           width="3840"
           height="2160"
           transform="translate(-193.86 -251.85) scale(.61)"
-          :class="{ glow: time === 2, disabled: time != 2 }"
+          :class="[ time === 2 ? (isIphone ? 'glow-iphone' : 'glow') : 'disabled' ]"
           :style="{ pointerEvents: 'none' }"
         />
         <image
@@ -74,7 +74,7 @@
           width="3840"
           height="2160"
           transform="translate(-193.86 -251.85) scale(.61)"
-          :class="{ glow: time === 1, disabled: time != 1 }"
+           :class="[ time === 1 ? (isIphone ? 'glow-iphone' : 'glow') : 'disabled' ]"
         />
       </g>
     </g>

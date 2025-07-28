@@ -93,6 +93,11 @@ html {
     width: 5rem;
     z-index: 15;
 }
+@media (max-width: 610px) {
+ #app {
+    max-height: 91vh;
+  }
+}
 
 
 </style>
