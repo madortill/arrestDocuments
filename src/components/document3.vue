@@ -151,7 +151,10 @@
         chosen: signed,
       }"
     />
-
+    <div class="contaner-details">
+      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
+      <details-box v-show="isOpen" :note="3" class="details"></details-box>
+    </div>
     <button
       @click="backToTable"
       class="back-btn"
@@ -171,12 +174,13 @@
 <script>
 import Information from "./Information.vue";
 import Phone from "@/components/Phone.vue";
-
+import DetailsBox from "./DetailsBox.vue";
 export default {
   name: "document3",
   components: {
     Information,
-    Phone
+    Phone,
+    DetailsBox
   },
   data() {
     return {
@@ -217,7 +221,8 @@ export default {
       debugMode: true,
       doc: 0,
       isInfoOpen: false, 
-      showPhone: false
+      showPhone: false,
+      isOpen: false,
     };
   },
   methods: {
@@ -629,6 +634,44 @@ export default {
 .information {
   z-index: 2;
 }
+.container-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.details {
+  width: 10rem;
+  position: absolute;
+  top: 5rem;
+  right: 37rem;
+}
+
+.detailBtn {
+  position: absolute;
+  height: 1rem;
+  right: 37.5rem;
+  top: 1rem;
+  width: 5rem;
+  z-index: 3;
+  padding: 12px 0px;
+  background-color: white;
+  border-radius: 30%;
+  text-align: center;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 1rem;
+  font-family: "rubik";
+  background-color: #0e2c8e;
+  filter: drop-shadow(0 0 10px #0051ff);
+  cursor: pointer;
+}
+.detailBtn:hover {
+  background-color: #0e277a;
+}
+.detailBtn:active {
+  background-color: #123199;
+}
 .phone {
   width: 52rem;
   position: absolute;
@@ -702,12 +745,20 @@ export default {
 }
   .infoBtn {
     bottom: 44rem;
-    left: 23rem;
+    left: 21rem;
   }
   .information {
     position: absolute;
     top: -7rem;
     right: 8rem;
+  }
+  .detailBtn {
+    top: -4.5rem;
+    right: 23rem;
+  }
+  .details {
+    top: -0.5rem;
+    right: 30rem;
   }
 }
 @media (max-width: 870px) {
@@ -717,13 +768,19 @@ export default {
   .information {
     right: 12rem;
   }
+  .details {
+    right: 25rem;
+  }
 }
 @media (max-width: 700px) {
   .information {
-    right: 16rem;
+    right: 15.5rem;
   }
   .headquarters-date {
     margin-top: 3.8rem;
+  }
+  .details {
+    right: 21.5rem;
   }
 
 }

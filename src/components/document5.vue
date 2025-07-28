@@ -161,7 +161,7 @@ export default {
       isCorrect: false,
       userInfo1: ["גלעד כהן", "0526648512", "13:19"],
       wrongUserAnswers2: [false, false, false],
-      debugMode: true,
+      debugMode: false,
       doc: 0,
       DOC_NUM: 2,
       isOpen: false,
@@ -202,7 +202,14 @@ export default {
         this.signed2 // חתימה 2
       );
     },
-
+    normalizeText(text) {
+      return text
+        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
+        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
+        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
+        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
+        .trim();
+    },
     nextDoc() {
       if (this.debugMode) {
         this.$emit("next-doc");

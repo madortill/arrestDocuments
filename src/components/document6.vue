@@ -95,7 +95,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: true,
+      debugMode: false,
       doc: 0,
       DOC_NUM: 3,
       isOpen: false,
@@ -114,6 +114,14 @@ export default {
         this.publicDetails.trim() !== "" && // "לא לפרסם"
         this.signed // חתימה
       );
+    },
+    normalizeText(text) {
+      return text
+        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
+        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
+        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
+        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
+        .trim();
     },
     backToMap() {
       if (this.debugMode) {

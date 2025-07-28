@@ -13,6 +13,12 @@
         class="details2"
       />
       <img
+      v-show="note === 3"
+        src="@/assets/media/details/details3.png"
+        alt="details"
+        class="details2"
+      />
+      <img
       v-show="note === 4"
         src="@/assets/media/details/details4.png"
         alt="details"

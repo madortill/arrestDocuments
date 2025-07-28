@@ -142,14 +142,6 @@ export default {
         this.signed2 // חתימה קיימת
       );
     },
-    normalizeText(text) {
-      return text
-        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
-        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
-        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
-        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
-        .trim();
-    },
 
     backToMap() {
       if (this.debugMode) {
@@ -482,7 +474,12 @@ export default {
   .input3 {
   right: 8.8rem;
   height: 0.8rem;
-
+}
+.signature1{
+  left: 19rem;
+}
+.signature2 {
+  left: 37rem;
 }
 }
 @media (max-width: 870px) {
@@ -511,6 +508,38 @@ export default {
   .infoBtn {
     left: 16rem;
   }
+  
+}
+@media (max-width: 590px) {
+  .input3 {
+  height: 0.6rem;
+  top: -8rem;
+}
+.input5 {
+  top: -3rem;
+  left: 24.1rem;
+  height: 0.8rem;
+}
+.input2 {
+  right: 1rem;
+}
+.input4 {
+  height: 1rem;
+}
+.signature1{
+  left: 20rem;
+}
+.signature2 {
+  left: 38rem;
+}
+}
+@media (max-width: 590px) {
+.input5 {
+  left: 24.4rem;
+
+}
+
+
   
 }
 
