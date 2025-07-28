@@ -553,7 +553,88 @@ export default {
 .detailBtn:active {
   background-color: #123199;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1800px) {
+  .checkBox2-texts {
+  margin-top: -0.7rem;
+}
+.mark {
+  margin-top: -3.3rem;
+}
+}
+@media (max-width: 1660px) {
+  .checkBox2-texts {
+  margin-top: -0.7rem;
+}
+.check-box1 {
+  margin-top: 1rem;
+}
+}
+@media (max-width: 1550px) {
+  .checkBox2-texts {
+  margin-top: -0.9rem;
+  margin-right: -0.2rem;
+}
+.check-box2 {
+  position: relative;
+  top: 2rem;
+}
+.mark {
+  position: relative;
+  right: 0.1rem;
+}
+}
+@media (max-width: 1430px) {
+.check-box1 {
+  margin-top: 0.9rem;
+}
+}
+@media (max-width: 1340px) {
+  .checkBox2-texts {
+  margin-top: -1.1rem;
+  margin-right: -0.2rem;
+}
+}
+@media (max-width: 1270px) {
+.que1-date {
+  margin-top: 0.7rem;
+}
+.check-box2 {
+  position: relative;
+  top: 2.3rem;
+}
+}
+@media (max-width: 1170px) {
+  .checkBox2-texts {
+  margin-top: -1.35rem;
+  /* margin-right: -0.2rem; */
+}
+/* .check-box2 {
+  position: relative;
+  top: 2rem;
+} */
+/* .mark {
+  position: relative;
+  top: 0.2rem;
+} */
+}
+@media (max-width: 1080px) {
+  .check-box1 {
+  margin-top: 0.78rem;
+}
+.que1-details {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 6.5rem;
+  margin-right: 11.7rem;
+  gap: 0.5rem;
+}
+}
+@media (max-width: 1000px) {
+.que1-details {
+  margin-top: 6.3rem;
+
+}
 }
 @media (max-width: 930px) {
   .detailBtn {
@@ -573,6 +654,13 @@ export default {
     top: -7rem;
     right: 8rem;
   }
+  .checkBox2-texts {
+  margin-top: -1.5rem;
+  margin-right: -0.3rem;
+}
+.input4 {
+ height: 0.5rem;
+}
 }
 @media (max-width: 870px) {
   .information {
@@ -581,6 +669,25 @@ export default {
   .details {
     right: 25rem;
   }
+  .checkBox1-text {
+  margin-top: -1rem;
+  margin-right: -0.3rem;
+}
+.checkBox2-texts {
+  margin-top: -0.9rem;
+  margin-right: -0.4rem;
+}
+}
+@media (max-width: 785px) {
+
+.checkBox2-texts {
+  margin-top: -1rem;
+  margin-right: -0.3rem;
+}
+.check-box2 {
+  position: relative;
+  top: 2rem;
+}
 }
 @media (max-width: 610px) {
   .information {

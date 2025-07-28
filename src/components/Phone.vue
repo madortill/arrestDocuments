@@ -1,5 +1,5 @@
 <template>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1033.74 852.19" class="dont-press">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1033.74 852.19" >
     <defs>
         <linearGradient id="linear-gradient" x1="336.62" y1="444.33" x2="707.72" y2="444.33" gradientUnits="userSpaceOnUse">
       <stop offset="0" stop-color="#c7c8ca"/>
@@ -32,14 +32,30 @@
       <line v-show="currentMsg === 5" class="cls-2" x1="650.83" y1="534.39" x2="586.5" y2="483.45"/>
     </g>
   </g>
-  <text v-if="isMobile" y="540" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
-    <tspan x="480" dy="0">לחצו על השיחות האחרונות</tspan>
-    <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
-  </text>
-  <text v-else y="540" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
-    <tspan x="480" dy="0">עברו מעל השיחות האחרונות</tspan>
-    <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
-  </text>
+  <text v-if="isMobile"
+      y="540"
+      text-anchor="middle"
+      font-size="18"
+      font-weight="bold"
+      fill="black"
+      font-family="Rubik"
+      transform="rotate(1 480 540)">
+  <tspan x="480" dy="0">לחצו על השיחות האחרונות</tspan>
+  <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
+</text>
+
+<text v-else
+      y="540"
+      text-anchor="middle"
+      font-size="18"
+      font-weight="bold"
+      fill="black"
+      font-family="Rubik"
+      transform="rotate(1 480 540)">
+  <tspan x="480" dy="0">עברו מעל השיחות האחרונות</tspan>
+  <tspan x="480" dy="1.2rem">כדי לראות את הפרטים</tspan>
+</text>
+
   <g id="Layer_4" data-name="Layer 4" class="cls-10 press" >
     <g>
       <g @click="openNum">
@@ -358,6 +374,9 @@ beforeDestroy() {
       }
       .show {
         opacity: 1;
+      }
+      .background {
+        background-color: rgba(0, 0, 0, 0.473);
       }
 
   </style>

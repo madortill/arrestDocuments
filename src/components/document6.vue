@@ -95,7 +95,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: true,
+      debugMode: false,
       doc: 0,
       DOC_NUM: 3,
       isOpen: false,
@@ -373,7 +373,10 @@ export default {
 .detailBtn:active {
   background-color: #123199;
 }
-@media (max-width: 1350px) {
+@media (max-width: 1200px) {
+  .input1 {
+    height: 0.8rem;
+  }
 }
 @media (max-width: 930px) {
   .detailBtn {
@@ -415,5 +418,9 @@ export default {
   .infoBtn {
     left: 20rem;
   }
+  .details2 {
+  position: relative;
+  top: -0.3rem;
+}
 }
 </style>

@@ -44,7 +44,7 @@
           width="3840"
           height="2160"
           transform="translate(-56.52 -191.98) scale(.61)"
-          :class="{ glow: time === 0, disabled: time != 0 }"
+          :class="{ 'glow-static': time === 0, disabled: time != 0 }"
         />
         <image
           :xlink:href="ecreepImg"
@@ -193,8 +193,24 @@ export default {
   pointer-events: none;
 }
 
+.glow-iphone {
+  animation: pulse-iphone 1.5s infinite ease-in-out;
+  opacity: 1;
+}
+
+@keyframes pulse-iphone {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
 .cls-1 {
   opacity: 0.75;
+}
+.glow-static {
+  filter: drop-shadow(0 0 30px #00e5ff);
 }
 
 .cls-2 {
