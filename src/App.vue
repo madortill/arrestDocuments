@@ -57,6 +57,7 @@ export default {
   background-size: cover;
   direction: rtl;
   overflow-x: hidden;
+  overflow-y: hidden;
 
 }
 html {

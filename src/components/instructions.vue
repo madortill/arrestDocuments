@@ -4,11 +4,11 @@
     <img src="@/assets/media/interrogationRoom/close.svg" class="closeBtn" @click="closeInstruction" alt="close">
     <p class="instText">הגעתם לחדר החקירות!</p>
     <p class="instText">בעזרת המידע שיש ברשותכם אתם תידרשו למלא את מסמכי המעצר השונים.</p>
-    <p class="instText">שימו לב! לא תוכלו לעבור הלאה עד שאתם לא תמלאו את כל השדות במסמך(כולל תיבות סימון והקפה בעיגול בעת הצורך).</p>
+    <p class="instText">שימו לב! לא תוכלו לעבור הלאה עד שאתם לא תמלאו את כל השדות במסמך(כולל תיבות סימון, חתימה והקפה בעיגול בעת הצורך).</p>
     <p class="instText">במקרה שחלק מתשובותיכם יהיו שגויות הן יסומנו באדום, תצטרכו לתקן אותן ורק אז תוכלו לעבור הלאה.</p>
     <p class="instText">מאמינים בכם ובטוחים שתמלאו את המסמכים כראוי וכך תעצרו את החשוד במהירות האפשרית!</p>
-    
 </div>
+<p v-if="isIphone" class="iphone">שימו לב שהמרכאות לאורך הלומדה הן כאלה("") ולא באלכסון(````).</p>
   </div>
 </template>
 
@@ -17,8 +17,14 @@ export default {
   name: "instructions",
   components: {},
   data() {
-    return {};
+    return {
+      isIphone: false,
+    };
   },
+  mounted() {
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  this.isIphone = /iPhone/.test(userAgent);
+},
   methods: {
     closeInstruction() {
       this.$emit("close");
@@ -56,5 +62,17 @@ export default {
     margin-left: 13rem;
     /* pointer-events: auto; */
     cursor: pointer;
+}
+.iphone {
+  position: absolute;
+  top: 1rem;
+  right: 7rem;
+  z-index: 2;
+  color: #ff0000;
+  width: 12rem;
+  font-family: "rubik";
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: bold;
 }
 </style>

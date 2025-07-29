@@ -1,5 +1,6 @@
 <template>
   <div id="document3">
+    <div v-show="showPhone" class="black"></div>
     <input
       type="checkbox"
       class="checkBox"
@@ -675,7 +676,6 @@ export default {
 .phone {
   width: 52rem;
   position: absolute;
-  /* top: rem; */
   right: -36.5rem;
   z-index: -1;
 }
@@ -684,6 +684,7 @@ export default {
   position: relative;
   left: 13rem;
   display: none;
+  z-index: 2;
 }
 @media (max-width: 1780px) {
   .headquarters-date {
@@ -731,11 +732,19 @@ export default {
   .showPhone {
   visibility: visible;
 }
+.black {
+  background-color: #00000085;
+  width: 32rem;
+  height: 43rem;
+  position: absolute;
+  z-index: 2;
+}
   #document3 {
     margin-left: 3.2rem;
   }
   .phoneBtn {
     display: inline;
+    z-index: 4;
   }
 
 }
