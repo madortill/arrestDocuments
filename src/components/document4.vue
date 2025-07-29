@@ -115,7 +115,7 @@ export default {
       testimony: '"אני צריך חולצות, תחתונים ואת כדורי האלרגיה שלי"',
       wrongTestimony: false,
       testimonyAnswer: "",
-      debugMode: false,
+      debugMode: true,
       doc: 0,
       DOC_NUM: 1,
       isOpen: false,
@@ -462,7 +462,7 @@ export default {
     right: 15.5rem;
   }
   .details {
-    right: 22rem;
+    right: 21.3rem;
   }
   .detailBtn {
     right: 22rem;
@@ -474,5 +474,11 @@ export default {
     height: 0.8rem;
     position: relative;
   }
+  .signature1 {
+  top: 15rem;
+}
+.signature2 {
+  top: 14.8rem;
+}
 }
 </style>

@@ -862,7 +862,7 @@ export default {
     right: 16rem;
   }
   .details {
-    right: 21rem;
+    right: 19.5rem;
   }
   .input {
     margin-top: 11.4rem;

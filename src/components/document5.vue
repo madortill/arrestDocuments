@@ -161,7 +161,7 @@ export default {
       isCorrect: false,
       userInfo1: ["גלעד כהן", "0526648512", "13:19"],
       wrongUserAnswers2: [false, false, false],
-      debugMode: false,
+      debugMode: true,
       doc: 0,
       DOC_NUM: 2,
       isOpen: false,
@@ -678,7 +678,10 @@ export default {
 }
 }
 @media (max-width: 785px) {
-
+  #document5 {
+    /* width: 42rem; */
+    height: 49rem;
+  }
 .checkBox2-texts {
   margin-top: -1rem;
   margin-right: -0.3rem;
@@ -687,13 +690,88 @@ export default {
   position: relative;
   top: 2rem;
 }
+.que1-details {
+  margin-top: 7rem;
+  margin-right:11rem;
+  gap: 1rem;
+}
+.que1-date {
+  margin-top: 1rem;
+  margin-right: 15.5rem;
+  /* gap: 1rem; */
+}
+.checkBox2-texts {
+  margin-top: -0.2rem;
+  margin-right: -0.4rem;
+}
+.input1 {
+  width: 2.8rem;
+  height: 0.8rem;
+}
+.input3 {
+  /* width: 2.8rem; */
+  height: 0.8rem;
+}
+.input4 {
+  width: 2rem;
+  position: relative;
+  right: 0.1rem;
+  top: 0.3rem;
+}
+.input5 {
+  width: 3rem;
+  position: relative;
+  right: -0.2rem;
+  top: 0.3rem;
+}
+.input6 {
+  width: 3.35rem;
+  position: relative;
+  right: 1.3rem;
+  top: 0.2rem;
+  font-size: 0.62rem;
+}
+.input7 {
+  width: 1.5rem;
+  position: relative;
+  right: 1.5rem;
+  top: 0.2rem;
+  font-size: 0.62rem;
+}
+.mark {
+  position: relative;
+  top: 0.15rem;
+  right: 0.6rem;
+}
+.check-box1 {
+  margin-top: 0.9rem;
+  margin-right: -2rem;
+}
+.check-box2 {
+  position: relative;
+  top: 2.6rem;
+  right: -1rem;
+}
+.conversion-btn {
+  top: 4rem;
+}
+.signature1 {
+  top: 14rem;
+}
+.signature2 {
+  top: 14rem;
+}
+.infoBtn {
+  bottom: 49.8rem;
+
+  }
 }
 @media (max-width: 610px) {
   .information {
-    right: 15.5rem;
+    right: 15.8rem;
   }
   .details {
-    right: 22rem;
+    right: 21rem;
   }
   .detailBtn {
     right: 22rem;

@@ -17,7 +17,7 @@
       <img :src="compImg" alt="computer" class="computer" />
       <img
         src="@/assets/media/suspectInfo/suspect.svg"
-        alt="computer"
+        alt="suspect"
         class="suspect"
       />
 
@@ -79,9 +79,21 @@ export default {
   margin-left: 55rem;
 }
 .suspect {
+  margin-top: -49rem;
+  margin-right: 38rem;
+  width: 21rem;
+  height: 27rem;
+  background-image: url("@/assets/media/suspectInfo/backSuspect.png");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.suspect-bg {
   margin-top: -55rem;
   margin-right: 38rem;
   width: 21rem;
+  z-index: 1; /* אחורי */
+  pointer-events: none; /* לא יפריע ללחיצות */
 }
 .continue-btn {
   font-family: "rubik";
@@ -152,11 +164,13 @@ export default {
     width: 93rem;
     align-items: center;
     margin-top: -0.5rem;
-    margin-left: 37rem;
+    margin-left: 41rem;
   }
   .suspect {
-    margin-right: 45rem;
+    margin-right: 41rem;
+    margin-top: -48rem;
     width: 20rem;
+    height: 26rem;
   }
   .continue-btn {
     margin-right: 50rem;
@@ -172,13 +186,14 @@ export default {
   .computer {
     width: 60rem;
     align-items: center;
-    margin-left: 25rem;
+    margin-left: 27rem;
     margin-top: 17.2rem;
   }
   .suspect {
-    margin-top: -35rem;
+    margin-top: -32rem;
     margin-right: 27rem;
-    width: 13rem;
+    width: 14rem;
+    height: 18rem;
   }
   .continue-btn {
     margin-right: 25rem;
@@ -192,10 +207,9 @@ export default {
     left: 14.5rem;
   }
 }
-@media (max-width: 470px) {
+@media (max-width: 500px) {
   #suspect-info {
     overflow-x: none;
-
   }
   .computer {
     width: 60rem;
@@ -204,7 +218,7 @@ export default {
     margin-top: 12rem;
   }
   .suspect {
-    margin-top: -12rem;
+    margin-top: -10rem;
     margin-right: -0.5rem;
     width: 13rem;
   }

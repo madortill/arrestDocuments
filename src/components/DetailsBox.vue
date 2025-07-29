@@ -53,7 +53,7 @@ export default {
 
 <style scoped>
 .details1 {
-  width: 18rem;
+  width: 15.5rem;
   position: absolute;
 }
 .details2 {

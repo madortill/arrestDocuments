@@ -95,7 +95,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: false,
+      debugMode: true,
       doc: 0,
       DOC_NUM: 3,
       isOpen: false,
@@ -407,10 +407,10 @@ export default {
 }
 @media (max-width: 610px) {
   .information {
-    right: 15.5rem;
+    right: 16rem;
   }
   .details {
-    right: 22rem;
+    right: 20.8rem;
   }
   .detailBtn {
     right: 22rem;

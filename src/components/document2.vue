@@ -500,7 +500,7 @@ export default {
     right: 11.5rem;
   }
   .details {
-    right: 16rem;
+    right: 1rem;
   }
   .detailBtn {
     right: 18rem;

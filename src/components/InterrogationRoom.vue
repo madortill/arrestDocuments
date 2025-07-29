@@ -24,7 +24,7 @@
         @move="moveToDoc"
       ></Table>
       <img
-        src="@/assets/media/interrogationRoom/papers.svg"
+        src="@/assets/media/interrogationRoom/documents.png"
         v-show="isClick"
         class="documents"
         @click="moveToDoc"

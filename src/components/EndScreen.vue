@@ -76,7 +76,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5rem;
+  margin-top: 6rem;
   padding: 2rem;
 }
 .endText {
