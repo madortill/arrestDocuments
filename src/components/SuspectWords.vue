@@ -106,6 +106,7 @@ export default {
   top: 14rem;
   right: 20rem;
   z-index: 2;
+  
 }
 .text {
   width: 15rem;
@@ -115,12 +116,15 @@ export default {
   text-align: center;
   font-family: "rubik";
   font-size: 1rem;
+  
 }
 .warning-icon {
-  width: 2rem;
+  width: 2.5rem;
   position: relative;
-  top: -3.5rem;
-  transform: rotate(-10deg);
+  top: -4rem;
+  right: -2.8rem;
+  background-color: #ff595981;
+  border-radius: 10rem;
 }
 .right-arrow {
   width: 2rem;
@@ -179,7 +183,7 @@ export default {
   }
   .text {
     width: 12rem;
-    top: 1.3rem;
+    top: 2rem;
     right: 1.5rem;
     font-size: 1rem;
   }
@@ -190,5 +194,9 @@ export default {
     top: -10.2rem;
     right: 23rem;
   }
+  .warning-icon {
+  top: -5rem;
+  right: -0.4rem;
+}
 }
 </style>

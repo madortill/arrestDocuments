@@ -164,7 +164,7 @@
     >
       לחדר החקירה
     </button>
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
     <information class="information" :docNum="doc"></information>
     <Phone class="phone" :class="{'showPhone' : showPhone}"></Phone>
     <img v-show="!showPhone" src="@/assets/media/part2documents/phoneBtn.png" @click="showPhone = !showPhone" class="phoneBtn" alt="">

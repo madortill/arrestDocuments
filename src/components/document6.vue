@@ -55,17 +55,21 @@
       <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="6" class="details"></details-box>
     </div>
-    <button
+    <img src="@/assets/media/part3documents/endBtn.png" @click="backToMap"
+      class="back-btn"
+      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
+      :disabled="!debugMode && !areAllFieldsFilled()" alt="btn">
+    <!-- <button
       @click="backToMap"
       class="back-btn"
       :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
       :disabled="!debugMode && !areAllFieldsFilled()"
     >
       לסיום הלומדה!
-    </button>
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    </button> -->
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
     <information :docNum="doc" class="information"></information>
-    <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p>
+    <img src="@/assets/media/part3documents/talk.png" class="conversion-btn" @click="backToDetails" alt="talk">
   </div>
 </template>
 
@@ -265,25 +269,10 @@ export default {
 }
 .back-btn {
   position: absolute;
-  bottom: 0.2rem;
-  left: 5rem;
-  border: none;
-  width: 5rem;
-  text-align: center;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  font-family: "rubik";
-  padding: 1rem;
-  background-color: #0e2c8e;
+  bottom: 0.5rem;
+  left: 5.5rem;
+  width: 6rem;
   cursor: pointer;
-}
-.back-btn:hover {
-  background-color: #0e277a;
-}
-.back-btn:active {
-  background-color: #123199;
 }
 .disabled-btn {
   opacity: 0.5;
@@ -318,22 +307,12 @@ export default {
   z-index: 5;
 }
 .conversion-btn {
-  font-family: "rubik";
-  font-weight: bold;
-  font-size: 1.1rem;
-  background-color: #be0000;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  color: white;
-  width: 7rem;
+  width: 5rem;
   text-align: center;
   position: relative;
-  top: 9rem;
-  left: -5rem;
+  top:11rem;
+  left: -6.5rem;
   cursor: pointer;
-}
-.conversion-btn:hover {
-  background-color: #d40000;
 }
 .container-details {
   display: flex;
@@ -403,6 +382,9 @@ export default {
   }
   .details {
     right: 25rem;
+  }
+  .signature {
+    top: 17rem;
   }
 }
 @media (max-width: 610px) {

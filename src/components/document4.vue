@@ -71,17 +71,16 @@
       <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="4" class="details"></details-box>
     </div>
-    <button
-      class="next-btn"
-      :class="{ 'disabled-btn': !debugMode && !areAllFieldsFilled() }"
-      :disabled="!debugMode && !areAllFieldsFilled()"
-      @click="nextDoc"
-    >
-      לעמוד הבא
-    </button>
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    <img src="@/assets/media/part1documents/nextBtn.png" @click="nextDoc"
+      class="button-next"
+      :disabled="!debugMode && !validateAllFields()"
+      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }" alt="btn">
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
     <information class="information" :docNum="doc"></information>
-    <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p>
+      <img src="@/assets/media/part3documents/talk.png" class="conversion-btn" @click="backToDetails" alt="talk">
+    
+    
+    <!-- <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p> -->
   </div>
 </template>
 
@@ -120,6 +119,7 @@ export default {
       DOC_NUM: 1,
       isOpen: false,
       isInfoOpen: false, 
+      showRed: false
     };
   },
   methods: {
@@ -308,27 +308,12 @@ export default {
   border: 2px solid red;
   background-color: #ffe5e5;
 }
-.next-btn {
+.button-next {
   position: absolute;
-  bottom: 0.2rem;
-  left: 5rem;
-  border: none;
-  width: 5rem;
-  text-align: center;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  font-family: "rubik";
-  padding: 1rem;
-  background-color: #0e2c8e;
+  bottom: 2rem;
+  left: 6rem;
+  width: 2.2rem;
   cursor: pointer;
-}
-.next-btn:hover {
-  background-color: #0e277a;
-}
-.next-btn:active {
-  background-color: #123199;
 }
 .disabled-btn {
   opacity: 0.5;
@@ -360,22 +345,15 @@ export default {
   background-color: #123199;
 }
 .conversion-btn {
-  font-family: "rubik";
-  font-weight: bold;
-  font-size: 1.1rem;
-  background-color: #be0000;
-  padding: 0.5rem;
-  border-radius: 1rem;
-  color: white;
-  width: 7rem;
+  width: 5rem;
   text-align: center;
   position: relative;
-  top: 7rem;
-  left: -5rem;
+  top: 3rem;
+  left: -6.5rem;
   cursor: pointer;
 }
-.conversion-btn:hover {
-  background-color: #d40000;
+.show {
+  opacity: 1;
 }
 .container-details {
   display: flex;

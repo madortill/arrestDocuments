@@ -79,7 +79,7 @@
     >
       לחדר החקירה
     </button>
-    <button class="infoBtn" @click="openInfo"> {{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    <button class="infoBtn" @click="openInfo"> {{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
     <information class="information" :docNum="doc"></information>
   </div>
 </template>

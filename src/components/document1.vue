@@ -235,15 +235,19 @@
       <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
       <details-box v-show="isOpen" :note="1" class="details"></details-box>
     </div>
-    <button
+    <img src="@/assets/media/part1documents/nextBtn.png" @click="nextDoc"
+      class="button-next"
+      :disabled="!debugMode && !validateAllFields()"
+      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }" alt="btn">
+    <!-- <button
       @click="nextDoc"
       class="button-next"
       :disabled="!debugMode && !validateAllFields()"
       :class="{ 'disabled-btn': !debugMode && !validateAllFields() }"
     >
       לעמוד הבא
-    </button>
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי המסמך' }}</button>
+    </button> -->
+    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
     <information class="information" :docNum="doc"></information>
   </div>
 </template>
@@ -713,25 +717,10 @@ export default {
 }
 .button-next {
   position: absolute;
-  bottom: 0.2rem;
-  left: 5rem;
-  border: none;
-  width: 5rem;
-  text-align: center;
-  color: white;
-  font-size: 1rem;
-  font-weight: bold;
-  border-radius: 1rem;
-  font-family: "rubik";
-  padding: 1rem;
-  background-color: #0e2c8e;
+  bottom: 2rem;
+  left: 7rem;
+  width: 2.2rem;
   cursor: pointer;
-}
-.button-next:hover {
-  background-color: #0e277a;
-}
-.button-next:active {
-  background-color: #123199;
 }
 .disabled-btn {
   opacity: 0.5;

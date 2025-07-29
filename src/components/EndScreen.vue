@@ -12,12 +12,17 @@
       <img src="@/assets/media/endScreen/road.png" class="road" alt="road" />
       <div class="grass"></div>
     </div>
+    <about></about>
   </div>
 </template>
 
 <script>
+import About from "@/components/About.vue";
 export default {
   name: "end-screen",
+  components: {
+    About
+  },
   methods: {
     startAgain() {
       this.$emit("start-over");
