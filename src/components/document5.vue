@@ -741,7 +741,8 @@ export default {
 .mark {
   position: relative;
   top: 0.15rem;
-  right: 0.6rem;
+  right: 0.5rem;
+  width: 2.5rem;
 }
 .check-box1 {
   margin-top: 0.9rem;
@@ -766,6 +767,12 @@ export default {
 
   }
 }
+@media (max-width: 660px) {
+  .mark {
+  position: relative;
+  top: -0.08rem;
+}
+}
 @media (max-width: 610px) {
   .information {
     right: 15.8rem;
@@ -779,5 +786,42 @@ export default {
   .infoBtn {
     left: 20rem;
   }
+  .checkBox2-texts {
+  margin-top: -0.4rem;
+  margin-right: -0.4rem;
+}
+}
+@media (max-width: 520px) {
+  .checkBox2-texts {
+  margin-top: -0.7rem;
+  margin-right: -0.4rem;
+}
+.check-box2 {
+  top: 2.3rem;
+}
+}
+@media (max-width: 450px) {
+  .checkBox2-texts {
+  margin-top: -0.9rem;
+  margin-right: -0.4rem;
+}
+.input7 {
+  right: 1rem;
+}
+}
+@media (max-width: 380px) {
+  .checkBox2-texts {
+  margin-top: -1.1rem;
+  margin-right: -0.4rem;
+}
+.check-box2 {
+  top: 2.1rem;
+}
+}
+@media (max-width: 320px) {
+  .checkBox2-texts {
+  margin-top: -1.2rem;
+  margin-right: -0.5rem;
+}
 }
 </style>
