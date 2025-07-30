@@ -4,9 +4,9 @@
       <Transition  name="fade"> 
         <div v-show="showAbout" class="div-about">
           <h3 class="list-text-about">מפתחת ראשית:</h3>
-          <p class="list-text-about">טור' מאיה מרום</p>
+          <p class="list-text-about">טוראי מאיה מרום</p>
           <h3 class="list-text-about">גרפיקה:</h3>
-          <p class="list-text-about">סמל קריסטינה ברחטוב, טור' מאיה מרום</p>
+          <p class="list-text-about">סמל קריסטינה ברחטוב, טוראי מאיה מרום</p>
           <h3 class="list-text-about">מומחת תוכן:</h3>
           <p class="list-text-about">סגן רעות שגיא</p>
           <h3 class="list-text-about">רמ"ד טי"ל:</h3>

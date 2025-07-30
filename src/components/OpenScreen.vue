@@ -14,7 +14,7 @@ export default {
   name: "open-screen",
   components: {
     Notebook,
-    About
+    About,
   },
   data() {
     return {
@@ -78,7 +78,6 @@ export default {
     margin-top: 7rem;
   }
 }
-
 @media (max-width: 650px) {
   .notebook {
         width: 30rem;
