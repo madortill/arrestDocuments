@@ -8,7 +8,7 @@
     <p class="instText">במקרה שחלק מתשובותיכם יהיו שגויות הן יסומנו באדום, תצטרכו לתקן אותן ורק אז תוכלו לעבור הלאה.</p>
     <p class="instText">מאמינים בכם ובטוחים שתמלאו את המסמכים כראוי וכך תעצרו את החשוד במהירות האפשרית!</p>
 </div>
-<p v-if="isIphone" class="iphone">שימו לב שהמרכאות לאורך הלומדה הן כאלה(") ולא באלכסון(”).</p>
+<p  class="iphone">שימו לב שהמרכאות לאורך הלומדה הן כאלה(") ולא באלכסון(”).</p>
   </div>
 </template>
 
@@ -73,6 +73,6 @@ export default {
   font-family: "rubik";
   font-size: 0.9rem;
   text-align: center;
-  font-weight: bold;
+  /* font-weight: bold; */
 }
 </style>
