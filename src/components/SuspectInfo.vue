@@ -21,7 +21,14 @@
         class="suspect"
       />
 
-      <p v-if="showBtn" class="continue-btn" @click="toInterrogation">הבא</p>
+      <button 
+  class="continue-btn" 
+  :class="{ unable: !showBtn }" 
+  :disabled="!showBtn" 
+  @click="toInterrogation"
+>
+  הבא
+</button>
     </div>
   </div>
 </template>
@@ -105,9 +112,20 @@ export default {
   margin-right: 68rem;
   color: white;
   cursor: pointer;
+  border: none;
 }
 .continue-btn:hover {
   background-color: #d40000;
+}
+continue-btn:disabled,
+.continue-btn.unable {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.continue-btn:disabled:hover,
+.continue-btn.unable:hover {
+  background-color: #be0000; /* נשאר בצבע המקורי */
 }
 .finale-exe {
   position: relative;
@@ -158,6 +176,10 @@ export default {
   from {
     border-left-color: transparent;
   }
+}
+.unable {
+  opacity: 0.5;
+  cursor: auto;
 }
 @media (max-width: 1444px) {
   .computer {
