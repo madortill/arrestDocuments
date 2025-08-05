@@ -4,8 +4,8 @@
       <img src="@/assets/media/madorTil.svg" alt="madorTil" class="mador-til">
       <open-screen v-if="page === 0" class="open-screen"  @start="nextPage"></open-screen>
       <suspect-info v-if="page === 1" class="suspect-info" @next="toInterrogation"></suspect-info>
-      <interrogation-room v-if="page === 2" @end-practice="endInvestigation"></interrogation-room>
-      <end-screen v-if="page === 3" @start-over="startAgain"></end-screen>
+      <interrogation-room v-if="page === 2" @end-practice="endInvestigation" @saveName="saveName"></interrogation-room>
+      <end-screen v-if="page === 3" @start-over="startAgain" :userName="userName"></end-screen>
     </div>
 
 </template>
@@ -28,6 +28,7 @@ export default {
   data() {
       return {
           page: 0,
+          userName: '',
       };
   },
   methods: {
@@ -42,7 +43,10 @@ export default {
     },
     startAgain() {
       this.page = 0;
-    }
+    },
+    saveName(theName) {
+      this.userName = theName;
+    },
   }
 }
 </script>

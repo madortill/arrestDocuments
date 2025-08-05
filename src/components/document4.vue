@@ -126,10 +126,8 @@ export default {
     sign(event) {
       if (event.target.id === "signature1") {
         this.signed1 = true;
-        console.log(this.signed1);
       } else {
         this.signed2 = true;
-        console.log(this.signed2);
       }
     },
     areAllFieldsFilled() {

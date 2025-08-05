@@ -1,8 +1,8 @@
 <template>
   <div id="end-screen">
     <div class="end-container">
-      <p class="endText">סיימתם למלא את כל מסמכי המעצר!</p>
-      <p class="endText">בזכותכם עצירת החשוד הושלמה!</p>
+      <p class="endText"> {{ userName }} סיימת למלא את כל מסמכי המעצר! </p>
+      <p class="endText">בזכותכך עצירת החשוד הושלמה!</p>
       <button class="againBtn" @click="startAgain">לתחילת הלומדה</button>
     </div>
     <div class="graphic">
@@ -20,6 +20,7 @@
 import About from "@/components/About.vue";
 export default {
   name: "end-screen",
+  props: ['userName'],
   components: {
     About
   },

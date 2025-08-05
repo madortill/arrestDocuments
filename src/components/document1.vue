@@ -14,9 +14,9 @@
           type="text"
           ref="0"
           class="input"
-          v-model="userInput11"
+          v-model="pNum"
           @input="updateWrongCount"
-          :class="userInput11 === '' ? '' : { wrong: !checkInput(userInput11) }"
+          :class="pNum === '' ? '' : { wrong: !checkInput(pNum) }"
         />
         <select
           id="rank1"
@@ -33,18 +33,18 @@
           type="text"
           ref="3"
           class="input"
-          v-model="userInput12"
+          v-model="lastName"
           :class="
-            userInput12 === '' ? '' : { wrong: containsNumber(userInput12) }
+            lastName === '' ? '' : { wrong: containsNumber(lastName) }
           "
         />
         <input
           type="text"
           ref="4"
           class="input"
-          v-model="userInput13"
+          v-model="firstName"
           :class="
-            userInput13 === '' ? '' : { wrong: containsNumber(userInput13) }
+            firstName === '' ? '' : { wrong: containsNumber(firstName) }
           "
         />
         <select
@@ -67,10 +67,10 @@
         <input
           type="text"
           ref="7"
-          v-model="userInput41"
+          v-model="role"
           class="input"
           :class="
-            userInput41 === '' ? '' : { wrong: containsNumber(userInput41) }
+            role === '' ? '' : { wrong: containsNumber(role) }
           "
         />
       </div>
@@ -291,13 +291,13 @@ export default {
       ],
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       roomText: 'מצח ב"ש',
-      userInput11: "",
-      userInput12: "",
-      userInput13: "",
+      pNum: "",
+      lastName: "",
+      firstName: "",
       userInput21: "",
       userInput22: "",
       userInput23: "",
-      userInput41: "",
+      role: "",
       classes: [],
       chosen: "",
       signed: false,
@@ -357,16 +357,16 @@ export default {
   },
   methods: {
     validateAllFields() {
-      const isValidID = this.checkInput(this.userInput11);
+      const isValidID = this.checkInput(this.pNum);
       const isValidName1 =
-        !this.containsNumber(this.userInput12) &&
-        this.userInput12.trim() !== "";
+        !this.containsNumber(this.lastName) &&
+        this.lastName.trim() !== "";
       const isValidName2 =
-        !this.containsNumber(this.userInput13) &&
-        this.userInput13.trim() !== "";
+        !this.containsNumber(this.firstName) &&
+        this.firstName.trim() !== "";
       const isValidRoom =
-        !this.containsNumber(this.userInput41) &&
-        this.userInput41.trim() !== "";
+        !this.containsNumber(this.role) &&
+        this.role.trim() !== "";
       const allAnswersFilled = this.userAnswers.every(
         (ans) => ans.trim() !== ""
       );
@@ -471,8 +471,6 @@ export default {
         q6.day === correctDate2.day
       );
 
-      console.log(q4, correctDate1);
-
       // ✅ הוספת ציון רק אם כל התאריכים תקינים
       if (
         !this.wrongDates.que4 &&
@@ -480,9 +478,9 @@ export default {
         !this.wrongDates.que6
       ) {
         rightAns++;
-      } else {
-        console.log("לא נכון!!!");
       }
+      // שמירת השם
+      this.$emit("saveName", this.firstName);
       // בדיקה סופית
       if (rightAns === 7) {
         this.$emit("result", "right");
@@ -544,7 +542,6 @@ export default {
     },
     sign() {
       this.signed = true;
-      console.log(this.signed);
     },
 
     // פונקציה לבדיקה אם המחרוזת מכילה מספר

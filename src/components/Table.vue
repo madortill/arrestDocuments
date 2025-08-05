@@ -170,13 +170,10 @@ export default {
   },
   methods: {
     zoomDocuments() {
-      console.log("hi");
       this.$emit("zoom");
       this.time = 1;
-      console.log("hi");
     },
     moveToPhone() {
-      console.log("hiii");
       this.$emit("move");
       this.time = 2;
     },

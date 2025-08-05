@@ -7,6 +7,7 @@
     <basic-documents
       v-if="page === 1"
       @backToTable="showTable"
+      @saveName="saveName"
     ></basic-documents>
     <phone-documents
       v-if="page === 2"
@@ -85,6 +86,9 @@ export default {
     },
     endInvestigation() {
       this.$emit("end-practice");
+    },
+    saveName(theName) {
+      this.$emit("saveName", theName);
     },
   },
 };

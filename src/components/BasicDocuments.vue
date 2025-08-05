@@ -2,7 +2,7 @@
   <div id="basic-documents">
     <result class="result" :resultFrom="propsResult" />
     <div v-if="propsResult != ''" class="blackDiv"></div>
-    <document1 v-if="doc === 1" class="part1" @result="showResult" @next-doc="nextDoc"></document1>
+    <document1 v-if="doc === 1" class="part1" @result="showResult" @next-doc="nextDoc" @saveName="saveName"></document1>
     <document2 v-if="doc === 2" class="part1" @result="showResult" @backToTable="backToTable" ></document2>
   </div>
 </template>
@@ -40,6 +40,9 @@ export default {
       } else {
         this.propsResult = ""
       }
+    },
+    saveName(theName) {
+      this.$emit("saveName", theName);
     },
 
   },
