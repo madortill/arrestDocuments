@@ -342,7 +342,7 @@ export default {
       wrongReason: false,
       wrongRoom: false,
       wrongChosen: false,
-      debugMode: true,
+      debugMode: false,
       propsResult: "",
       doc: 0,
       isOpen: false,

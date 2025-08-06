@@ -114,7 +114,7 @@ export default {
       testimony: '"אני צריך חולצות, תחתונים ואת כדורי האלרגיה שלי"',
       wrongTestimony: false,
       testimonyAnswer: "",
-      debugMode: true,
+      debugMode: false,
       doc: 0,
       DOC_NUM: 1,
       isOpen: false,
