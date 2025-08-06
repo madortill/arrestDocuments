@@ -290,7 +290,7 @@ export default {
         "הכללי",
       ],
       reason: "הטרדה מינית ומעשה מגונה בכוח",
-      roomText: 'מצח ב"ש',
+      roomText: 'מצ"ח ב"ש',
       pNum: "",
       lastName: "",
       firstName: "",
