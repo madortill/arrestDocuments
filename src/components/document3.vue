@@ -219,7 +219,7 @@ export default {
       publicOfficerArr: ['קפ"צ', "1111"],
       headquarters: ['סג"ם', "אריאל גיל", 'קמב"ץ', "0586695478"],
       escortsArr: ['סג"ם', "שובל מלכה", "קצין ליווים", "098972950"],
-      debugMode: false,
+      debugMode: true,
       doc: 0,
       isInfoOpen: false, 
       showPhone: false,

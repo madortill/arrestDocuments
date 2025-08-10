@@ -114,7 +114,7 @@ export default {
       hourAnswer: "",
       signed1: false,
       signed2: false,
-      debugMode: false,
+      debugMode: true,
       doc: 0,
       isOpen: false,
       isInfoOpen: false, 
