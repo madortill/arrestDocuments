@@ -4,7 +4,7 @@
     <input
       type="checkbox"
       class="checkBox"
-      :class="{ 'checkbox-error': showCheckboxError }"
+      :class="{ 'checkbox-error': showCheckboxError}"
       v-model="isChecked"
     />
     <div
@@ -22,7 +22,7 @@
         :id="'input' + i"
         type="text"
         class="input1"
-        :class="{ wrong: wrongInputs1[i] }"
+        :class="{ wrong: wrongInputs1[i], 'specialMobileClass': isIphone && isSmallScreen }"
         v-model="userAnswers11[i]"
       />
       <input
@@ -224,7 +224,16 @@ export default {
       isInfoOpen: false, 
       showPhone: false,
       isOpen: false,
+      isIphone: /iPhone/i.test(navigator.userAgent),
+      isSmallScreen: window.innerWidth <= 550
     };
+  },
+  mounted() {
+    // מעדכן גם כשמשנים את הגודל
+    window.addEventListener('resize', this.checkScreen);
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.checkScreen);
   },
   methods: {
     // מקיף
@@ -390,6 +399,9 @@ export default {
         this.doc = 0;
       }
       this.isInfoOpen = !this.isInfoOpen;
+    },
+    checkScreen() {
+      this.isSmallScreen = window.innerWidth <= 550;
     },
   },
 };
@@ -686,6 +698,10 @@ export default {
   display: none;
   z-index: 2;
 }
+.specialMobileClass {
+position: relative;
+top: -2rem;
+}
 @media (max-width: 1780px) {
   .headquarters-date {
     margin-top: 4.2rem;
@@ -795,7 +811,7 @@ export default {
 }
 @media (max-width: 550px) {
   .headquarters-date {
-    margin-top: 3rem;
+    margin-top: 4rem;
   }
   .public-officer-date {
   margin-top: 3.9rem;
