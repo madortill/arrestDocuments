@@ -795,7 +795,7 @@ export default {
 }
 @media (max-width: 550px) {
   .headquarters-date {
-    margin-top: 4rem;
+    margin-top: 3rem;
   }
   .public-officer-date {
   margin-top: 3.9rem;
