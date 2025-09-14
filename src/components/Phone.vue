@@ -32,29 +32,23 @@
       <line v-show="currentMsg === 5" class="cls-2" x1="650.83" y1="534.39" x2="586.5" y2="483.45"/>
     </g>
   </g>
-  <text v-if="isMobile"
-      y="540"
-      text-anchor="middle"
-      font-size="18"
-      font-weight="bold"
-      fill="black"
-      font-family="Rubik"
-      transform="rotate(1 480 540)">
-  <tspan x="480" y="545">לחצו על השיחות האחרונות</tspan>
-  <tspan x="480" y="570">כדי לראות את הפרטים </tspan>
-</text>
+<g v-if="isMobile" transform="rotate(1 480 540)">
+  <text x="480" y="545" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    לחצו על השיחות האחרונות
+  </text>
+  <text x="480" y="570" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    כדי לראות את הפרטים
+  </text>
+</g>
 
-<text v-else
-      y="540"
-      text-anchor="middle"
-      font-size="18"
-      font-weight="bold"
-      fill="black"
-      font-family="Rubik"
-      transform="rotate(1 480 540)">
-  <tspan x="480" y="545">עברו מעל השיחות האחרונות</tspan>
-  <tspan x="480" y="570">כדי לראות את הפרטים</tspan>
-</text>
+<g v-else transform="rotate(1 480 540)">
+  <text x="480" y="545" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    עברו מעל השיחות האחרונות
+  </text>
+  <text x="480" y="570" text-anchor="middle" font-size="18" font-weight="bold" fill="black" font-family="Rubik">
+    כדי לראות את הפרטים
+  </text>
+</g>
 
   <g id="Layer_4" data-name="Layer 4" class="cls-10 press" >
     <g>
