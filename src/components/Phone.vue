@@ -40,8 +40,8 @@
       fill="black"
       font-family="Rubik"
       transform="rotate(1 480 540)">
-  <tspan x="480" dy="0">לחצו על השיחות האחרונות</tspan>
-  <tspan x="480" dy="1.2em">כדי לראות את הפרטים</tspan>
+  <tspan x="480" y="545">לחצו על השיחות האחרונות</tspan>
+  <tspan x="480" y="570">כדי לראות את הפרטים</tspan>
 </text>
 
 <text v-else
@@ -52,8 +52,8 @@
       fill="black"
       font-family="Rubik"
       transform="rotate(1 480 540)">
-  <tspan x="480" dy="0">עברו מעל השיחות האחרונות</tspan>
-  <tspan x="480" dy="1.2em">כדי לראות את הפרטים</tspan>
+  <tspan x="480" y="545">עברו מעל השיחות האחרונות</tspan>
+  <tspan x="480" y="570">כדי לראות את הפרטים</tspan>
 </text>
 
   <g id="Layer_4" data-name="Layer 4" class="cls-10 press" >
