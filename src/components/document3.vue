@@ -700,7 +700,7 @@ export default {
 }
 .specialMobileClass {
 position: relative;
-top: -2rem;
+margin-top: -1rem;
 }
 @media (max-width: 1780px) {
   .headquarters-date {
