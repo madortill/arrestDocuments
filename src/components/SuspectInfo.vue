@@ -51,7 +51,7 @@ export default {
         " החשוד הודה בחשדות המיוחסים לו",
         "והוחלט לעצור אותו.",
       ],
-      showBtn: false,
+      showBtn: true,
     };
   },
   mounted() {

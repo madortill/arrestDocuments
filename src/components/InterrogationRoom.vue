@@ -56,7 +56,8 @@ export default {
     return {
       isClick: false,
       isBrown: false,
-      page: 0,
+      page: 0
+      ,
       showInstruction: true,
       object: "documents",
     };

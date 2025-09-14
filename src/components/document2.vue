@@ -276,14 +276,14 @@ export default {
 .input2 {
   position: relative;
   width: 2.5rem;
-  right: 1.5rem;
+  right: 6%;
 }
 .que1-details {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 7rem;
-  margin-right: -4.8rem;
+  margin-top: 23.5%;
+  margin-right: -17%;
   gap: 0.5rem;
 }
 .input3 {
