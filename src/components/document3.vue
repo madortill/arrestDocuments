@@ -837,6 +837,7 @@ margin-top: -1rem;
     }
     .input2 {
       width: 2.3rem;
+      right: 1.5rem;
     }
     .input3 {
   width: 2.8rem;
