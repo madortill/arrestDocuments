@@ -540,18 +540,21 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 590px) {
     .input5 {
-  left: 24.4rem;
+  left: 26rem;
 }
 .que1-date {
   display: flex;
   flex-direction: row;
   align-items: center;
   margin-top: 7.6rem;
-  margin-right: 6rem;
+  margin-right: 6.4rem;
   gap: 0.3rem;
 }
 .input1 {
-  width: 0.5rem;
+  width: 0.4rem;
+}
+.input2 {
+  width: 2.3rem;
 }
   }
   
