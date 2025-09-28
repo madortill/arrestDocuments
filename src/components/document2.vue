@@ -540,7 +540,7 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 590px) {
     .input5 {
-  left: 28rem;
+  left: 27rem;
 }
 .que1-date {
   display: flex;
@@ -555,6 +555,12 @@ export default {
 }
 .input2 {
   width: 2.3rem;
+}
+.signature1{
+  left: 22rem;
+}
+.signature2 {
+  left: 40rem;
 }
   }
   
