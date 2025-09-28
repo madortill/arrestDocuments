@@ -246,7 +246,7 @@ continue-btn:disabled,
   }
   .continue-btn {
     margin-right: -1rem;
-    margin-top: 0rem;
+    margin-top: 1rem;
   }
   .finale-exe > p {
     font-size: 1.1rem;
