@@ -237,16 +237,16 @@ continue-btn:disabled,
     width: 60rem;
     align-items: center;
     margin-left: 13rem;
-    margin-top: 12rem;
+    margin-top: 10rem;
   }
   .suspect {
-    margin-top: -10rem;
+    margin-top: -8rem;
     margin-right: -0.5rem;
     width: 13rem;
   }
   .continue-btn {
     margin-right: -1rem;
-    margin-top: 2rem;
+    margin-top: 0rem;
   }
   .finale-exe > p {
     font-size: 1.1rem;
