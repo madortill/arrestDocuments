@@ -237,16 +237,16 @@ continue-btn:disabled,
     width: 60rem;
     align-items: center;
     margin-left: 13rem;
-    margin-top: 10rem;
+    margin-top: 12rem;
   }
   .suspect {
-    margin-top: -8rem;
+    margin-top: -10rem;
     margin-right: -0.5rem;
     width: 13rem;
   }
   .continue-btn {
     margin-right: -1rem;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   .finale-exe > p {
     font-size: 1.1rem;
@@ -255,5 +255,30 @@ continue-btn:disabled,
     top: 29.5rem;
     left: 9.5rem;
   }
+}
+@supports (-webkit-touch-callout: none) { 
+  @media (max-width: 500px) {
+  #suspect-info {
+    overflow-x: none;
+  }
+  .computer {
+    width: 60rem;
+    align-items: center;
+    margin-left: 13rem;
+    margin-top: 10rem;
+  }
+  .suspect {
+    margin-top: -7rem;
+    margin-right: -0.5rem;
+    width: 13rem;
+  }
+  .continue-btn {
+    margin-right: -1rem;
+    margin-top: 2rem;
+  }
+  .finale-exe {
+    top: 27rem;
+  }
+}
 }
 </style>
