@@ -68,18 +68,30 @@
       }"
     />
     <div class="container-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">
+        {{ isOpen ? "סגירה" : "פרטים" }}
+      </p>
       <details-box v-show="isOpen" :note="4" class="details"></details-box>
     </div>
-    <img src="@/assets/media/part1documents/nextBtn.png" @click="nextDoc"
+    <img
+      src="@/assets/media/part1documents/nextBtn.png"
+      @click="nextDoc"
       class="button-next"
       :disabled="!debugMode && !validateAllFields()"
-      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }" alt="btn">
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
+      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }"
+      alt="btn"
+    />
+    <button class="infoBtn" @click="openInfo">
+      {{ isInfoOpen ? "סגירה" : "דגשים למילוי" }}
+    </button>
     <information class="information" :docNum="doc"></information>
-      <img src="@/assets/media/part3documents/talk.png" class="conversion-btn" @click="backToDetails" alt="talk">
-    
-    
+    <img
+      src="@/assets/media/part3documents/talk.png"
+      class="conversion-btn"
+      @click="backToDetails"
+      alt="talk"
+    />
+
     <!-- <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p> -->
   </div>
 </template>
@@ -118,8 +130,8 @@ export default {
       doc: 0,
       DOC_NUM: 1,
       isOpen: false,
-      isInfoOpen: false, 
-      showRed: false
+      isInfoOpen: false,
+      showRed: false,
     };
   },
   methods: {
@@ -451,32 +463,25 @@ export default {
     position: relative;
   }
   .signature1 {
-  top: 15rem;
-}
-.signature2 {
-  top: 14.8rem;
-}
+    top: 15rem;
+  }
+  .signature2 {
+    top: 14.8rem;
+  }
 }
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 610px) {
     .que1-date {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 8.1rem;
-  margin-right: 11.7rem;
-  gap: 0.3rem;
+      margin-top: 7.8rem;
+    }
+    .input1 {
+      width: 0.6rem;
+    }
+    .input2 {
+      position: relative;
+      width: 2.3rem;
+      right: 1rem;
+    }
+  }
 }
-.input1 {
-  width: 0.6rem;
-}
-.input2 {
-  position: relative;
-  width: 2.3rem;
-  right: 1.2rem;
-}
-}
-}
-
-
 </style>
