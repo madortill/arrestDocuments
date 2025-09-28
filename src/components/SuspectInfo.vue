@@ -268,7 +268,7 @@ continue-btn:disabled,
     margin-top: 10rem;
   }
   .suspect {
-    margin-top: -7rem;
+    margin-top: -12rem;
     margin-right: -0.5rem;
     width: 13rem;
   }
@@ -277,7 +277,7 @@ continue-btn:disabled,
     margin-top: 2rem;
   }
   .finale-exe {
-    top: 27rem;
+    top: 28rem;
   }
 }
 }
