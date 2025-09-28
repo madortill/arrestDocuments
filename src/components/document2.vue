@@ -541,6 +541,7 @@ export default {
   @media (max-width: 590px) {
     .input5 {
   left: 26.5rem;
+  width: 1.8rem;
 }
 .que1-date {
   display: flex;

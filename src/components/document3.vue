@@ -832,7 +832,16 @@ margin-top: -1rem;
 }
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 550px) {
-
+    .input1 {
+      width: 0.7rem;
+    }
+    .input2 {
+      width: 2.3rem;
+    }
+    .input3 {
+  width: 2.8rem;
+  height: 0.7rem;
+}
 }
   }
 
