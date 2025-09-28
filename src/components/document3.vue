@@ -871,6 +871,23 @@ margin-top: -1rem;
   width: 2.8rem;
   height: 0.7rem;
 }
+.input14 {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.input24 {
+  position: relative;
+  width: 2.3rem;
+  right: 1.4rem;
+  height: 0.7rem;
+}
+.input34 {
+  width: 2.8rem;
+  height: 0.7rem;
+}
+.public-officer-date {
+  margin-top: 4.2rem;
+}
 }
   }
 
