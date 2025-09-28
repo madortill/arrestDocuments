@@ -274,7 +274,7 @@ continue-btn:disabled,
   }
   .continue-btn {
     margin-right: -1rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
   .finale-exe {
     top: 28rem;
