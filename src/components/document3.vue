@@ -837,9 +837,37 @@ margin-top: -1rem;
     }
     .input2 {
       width: 2.3rem;
-      right: 1.5rem;
+      right: 1.4rem;
     }
     .input3 {
+  width: 2.8rem;
+  height: 0.7rem;
+}
+.input12 {
+  width: 0.6rem;
+  height: 0.7rem;
+}
+.input22 {
+  position: relative;
+  width: 2.3rem;
+  right: 1.4rem;
+  height: 0.7rem;
+}
+.input32 {
+  width: 2.8rem;
+  height: 0.7rem;
+}
+.input13 {
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.input23 {
+  position: relative;
+  width: 2.3rem;
+  right: 1.4rem;
+  height: 0.7rem;
+}
+.input33 {
   width: 2.8rem;
   height: 0.7rem;
 }
