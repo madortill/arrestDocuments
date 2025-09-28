@@ -886,7 +886,7 @@ margin-top: -1rem;
   height: 0.7rem;
 }
 .public-officer-date {
-  margin-top: 4.2rem;
+  margin-top: 4rem;
 }
 }
   }
