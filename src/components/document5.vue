@@ -809,7 +809,7 @@ export default {
       top: 1rem;
     }
     .checkBox2-texts {
-    margin-top: -1.3rem;
+    margin-top: -1rem;
     margin-right: -0.8rem;
   }
   .checkBox1-text {
