@@ -268,7 +268,7 @@ continue-btn:disabled,
     margin-top: 10rem;
   }
   .suspect {
-    margin-top: -10.6rem;
+    margin-top: -10.4rem;
     margin-right: -0.5rem;
     width: 13rem;
   }
