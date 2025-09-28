@@ -806,11 +806,11 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 450px) {
     .check-box2 {
-      top: 1.8rem;
+      top: 2rem;
     }
     .checkBox2-texts {
-    margin-top: -1.3rem;
-    margin-right: -0.3rem;
+    margin-top: -1.5rem;
+    margin-right: -0.5rem;
   }
   }
 }
