@@ -546,8 +546,8 @@ export default {
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-top: 7rem;
-  margin-right: 9rem;
+  margin-top: 7.5rem;
+  margin-right: 9.5rem;
   gap: 0.3rem;
 }
 .input1 {
