@@ -107,27 +107,40 @@
       }"
     />
     <div class="contaner-details">
-      <p class="detailBtn" @click="isOpen = !isOpen">{{ isOpen ? 'סגירה' : 'פרטים' }}</p>
+      <p class="detailBtn" @click="isOpen = !isOpen">
+        {{ isOpen ? "סגירה" : "פרטים" }}
+      </p>
       <details-box v-show="isOpen" :note="5" class="details"></details-box>
     </div>
-    <img src="@/assets/media/part1documents/nextBtn.png" @click="nextDoc"
+    <img
+      src="@/assets/media/part1documents/nextBtn.png"
+      @click="nextDoc"
       class="button-next"
       :disabled="!debugMode && !validateAllFields()"
-      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }" alt="btn">
-    <button class="infoBtn" @click="openInfo">{{ isInfoOpen ? 'סגירה' : 'דגשים למילוי' }}</button>
+      :class="{ 'disabled-btn': !debugMode && !validateAllFields() }"
+      alt="btn"
+    />
+    <button class="infoBtn" @click="openInfo">
+      {{ isInfoOpen ? "סגירה" : "דגשים למילוי" }}
+    </button>
     <information :docNum="doc" class="information"></information>
-    <img src="@/assets/media/part3documents/talk.png" class="conversion-btn" @click="backToDetails" alt="talk">
+    <img
+      src="@/assets/media/part3documents/talk.png"
+      class="conversion-btn"
+      @click="backToDetails"
+      alt="talk"
+    />
   </div>
 </template>
 
 <script>
-import Information from './Information.vue';
+import Information from "./Information.vue";
 import DetailsBox from "./DetailsBox.vue";
 export default {
   name: "document5",
   components: {
     Information,
-    DetailsBox
+    DetailsBox,
   },
   data() {
     return {
@@ -161,7 +174,7 @@ export default {
       doc: 0,
       DOC_NUM: 2,
       isOpen: false,
-      isInfoOpen: false, 
+      isInfoOpen: false,
     };
   },
   methods: {
@@ -280,7 +293,7 @@ export default {
       }
     },
     openInfo() {
-      if(this.doc === 0) {
+      if (this.doc === 0) {
         this.doc = 5;
       } else {
         this.doc = 0;
@@ -288,11 +301,10 @@ export default {
       this.isInfoOpen = !this.isInfoOpen;
     },
     backToDetails() {
-      this.$emit('to-details', this.DOC_NUM);
-    }
+      this.$emit("to-details", this.DOC_NUM);
+    },
   },
 };
-
 </script>
 
 <style scoped>
@@ -523,86 +535,85 @@ export default {
 }
 @media (max-width: 1800px) {
   .checkBox2-texts {
-  margin-top: -0.7rem;
-}
-.mark {
-  margin-top: -3.3rem;
-}
+    margin-top: -0.7rem;
+  }
+  .mark {
+    margin-top: -3.3rem;
+  }
 }
 @media (max-width: 1660px) {
   .checkBox2-texts {
-  margin-top: -0.7rem;
-}
-.check-box1 {
-  margin-top: 1rem;
-}
+    margin-top: -0.7rem;
+  }
+  .check-box1 {
+    margin-top: 1rem;
+  }
 }
 @media (max-width: 1550px) {
   .checkBox2-texts {
-  margin-top: -0.9rem;
-  margin-right: -0.2rem;
-}
-.check-box2 {
-  position: relative;
-  top: 2rem;
-}
-.mark {
-  position: relative;
-  right: 0.1rem;
-}
+    margin-top: -0.9rem;
+    margin-right: -0.2rem;
+  }
+  .check-box2 {
+    position: relative;
+    top: 2rem;
+  }
+  .mark {
+    position: relative;
+    right: 0.1rem;
+  }
 }
 @media (max-width: 1430px) {
-.check-box1 {
-  margin-top: 0.9rem;
-}
+  .check-box1 {
+    margin-top: 0.9rem;
+  }
 }
 @media (max-width: 1340px) {
   .checkBox2-texts {
-  margin-top: -1.1rem;
-  margin-right: -0.2rem;
-}
+    margin-top: -1.1rem;
+    margin-right: -0.2rem;
+  }
 }
 @media (max-width: 1270px) {
-.que1-date {
-  margin-top: 0.7rem;
-}
-.check-box2 {
-  position: relative;
-  top: 2.3rem;
-}
+  .que1-date {
+    margin-top: 0.7rem;
+  }
+  .check-box2 {
+    position: relative;
+    top: 2.3rem;
+  }
 }
 @media (max-width: 1170px) {
   .checkBox2-texts {
-  margin-top: -1.35rem;
-  /* margin-right: -0.2rem; */
-}
-/* .check-box2 {
+    margin-top: -1.35rem;
+    /* margin-right: -0.2rem; */
+  }
+  /* .check-box2 {
   position: relative;
   top: 2rem;
 } */
-/* .mark {
+  /* .mark {
   position: relative;
   top: 0.2rem;
 } */
 }
 @media (max-width: 1080px) {
   .check-box1 {
-  margin-top: 0.78rem;
-}
-.que1-details {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-top: 6.5rem;
-  margin-right: 11.7rem;
-  gap: 0.5rem;
-}
+    margin-top: 0.78rem;
+  }
+  .que1-details {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 6.5rem;
+    margin-right: 11.7rem;
+    gap: 0.5rem;
+  }
 }
 @media (max-width: 1000px) {
-.que1-details {
-  margin-top: 6.3rem;
-
-}
+  .que1-details {
+    margin-top: 6.3rem;
+  }
 }
 @media (max-width: 930px) {
   .detailBtn {
@@ -623,12 +634,12 @@ export default {
     right: 8rem;
   }
   .checkBox2-texts {
-  margin-top: -1.5rem;
-  margin-right: -0.3rem;
-}
-.input4 {
- height: 0.5rem;
-}
+    margin-top: -1.5rem;
+    margin-right: -0.3rem;
+  }
+  .input4 {
+    height: 0.5rem;
+  }
 }
 @media (max-width: 870px) {
   .information {
@@ -638,109 +649,108 @@ export default {
     right: 25rem;
   }
   .checkBox1-text {
-  margin-top: -1rem;
-  margin-right: -0.3rem;
-}
-.checkBox2-texts {
-  margin-top: -0.9rem;
-  margin-right: -0.4rem;
-}
+    margin-top: -1rem;
+    margin-right: -0.3rem;
+  }
+  .checkBox2-texts {
+    margin-top: -0.9rem;
+    margin-right: -0.4rem;
+  }
 }
 @media (max-width: 785px) {
   #document5 {
     /* width: 42rem; */
     height: 49rem;
   }
-.checkBox2-texts {
-  margin-top: -1rem;
-  margin-right: -0.3rem;
-}
-.check-box2 {
-  position: relative;
-  top: 2rem;
-}
-.que1-details {
-  margin-top: 7rem;
-  margin-right:11rem;
-  gap: 1rem;
-}
-.que1-date {
-  margin-top: 1rem;
-  margin-right: 15.5rem;
-  /* gap: 1rem; */
-}
-.checkBox2-texts {
-  margin-top: -0.2rem;
-  margin-right: -0.4rem;
-}
-.input1 {
-  width: 2.8rem;
-  height: 0.8rem;
-}
-.input3 {
-  /* width: 2.8rem; */
-  height: 0.8rem;
-}
-.input4 {
-  width: 2rem;
-  position: relative;
-  right: 0.1rem;
-  top: 0.3rem;
-}
-.input5 {
-  width: 3rem;
-  position: relative;
-  right: -0.2rem;
-  top: 0.3rem;
-}
-.input6 {
-  width: 3.35rem;
-  position: relative;
-  right: 1.3rem;
-  top: 0.2rem;
-  font-size: 0.62rem;
-}
-.input7 {
-  width: 1.5rem;
-  position: relative;
-  right: 1.5rem;
-  top: 0.2rem;
-  font-size: 0.62rem;
-}
-.mark {
-  position: relative;
-  top: 0.15rem;
-  right: 0.5rem;
-  width: 2.5rem;
-}
-.check-box1 {
-  margin-top: 0.9rem;
-  margin-right: -2rem;
-}
-.check-box2 {
-  position: relative;
-  top: 2.6rem;
-  right: -1rem;
-}
-.conversion-btn {
-  top: 6rem;
-}
-.signature1 {
-  top: 14rem;
-}
-.signature2 {
-  top: 14rem;
-}
-.infoBtn {
-  bottom: 49.8rem;
-
+  .checkBox2-texts {
+    margin-top: -1rem;
+    margin-right: -0.3rem;
+  }
+  .check-box2 {
+    position: relative;
+    top: 2rem;
+  }
+  .que1-details {
+    margin-top: 7rem;
+    margin-right: 11rem;
+    gap: 1rem;
+  }
+  .que1-date {
+    margin-top: 1rem;
+    margin-right: 15.5rem;
+    /* gap: 1rem; */
+  }
+  .checkBox2-texts {
+    margin-top: -0.2rem;
+    margin-right: -0.4rem;
+  }
+  .input1 {
+    width: 2.8rem;
+    height: 0.8rem;
+  }
+  .input3 {
+    /* width: 2.8rem; */
+    height: 0.8rem;
+  }
+  .input4 {
+    width: 2rem;
+    position: relative;
+    right: 0.1rem;
+    top: 0.3rem;
+  }
+  .input5 {
+    width: 3rem;
+    position: relative;
+    right: -0.2rem;
+    top: 0.3rem;
+  }
+  .input6 {
+    width: 3.35rem;
+    position: relative;
+    right: 1.3rem;
+    top: 0.2rem;
+    font-size: 0.62rem;
+  }
+  .input7 {
+    width: 1.5rem;
+    position: relative;
+    right: 1.5rem;
+    top: 0.2rem;
+    font-size: 0.62rem;
+  }
+  .mark {
+    position: relative;
+    top: 0.15rem;
+    right: 0.5rem;
+    width: 2.5rem;
+  }
+  .check-box1 {
+    margin-top: 0.9rem;
+    margin-right: -2rem;
+  }
+  .check-box2 {
+    position: relative;
+    top: 2.6rem;
+    right: -1rem;
+  }
+  .conversion-btn {
+    top: 6rem;
+  }
+  .signature1 {
+    top: 14rem;
+  }
+  .signature2 {
+    top: 14rem;
+  }
+  .infoBtn {
+    bottom: 49.8rem;
   }
 }
 @media (max-width: 660px) {
   .mark {
-  position: relative;
-  top: -0.08rem;
-}
+    position: relative;
+    top: -0.08rem;
+  }
 }
 @media (max-width: 610px) {
   .information {
@@ -756,41 +766,52 @@ export default {
     left: 20rem;
   }
   .checkBox2-texts {
-  margin-top: -0.4rem;
-  margin-right: -0.4rem;
-}
+    margin-top: -0.4rem;
+    margin-right: -0.4rem;
+  }
 }
 @media (max-width: 520px) {
   .checkBox2-texts {
-  margin-top: -0.7rem;
-  margin-right: -0.4rem;
-}
-.check-box2 {
-  top: 2.3rem;
-}
+    margin-top: -0.7rem;
+    margin-right: -0.4rem;
+  }
+  .check-box2 {
+    top: 2.3rem;
+  }
 }
 @media (max-width: 450px) {
   .checkBox2-texts {
-  margin-top: -0.9rem;
-  margin-right: -0.4rem;
-}
-.input7 {
-  right: 1rem;
-}
+    margin-top: -0.9rem;
+    margin-right: -0.4rem;
+  }
+  .input7 {
+    right: 1rem;
+  }
 }
 @media (max-width: 380px) {
   .checkBox2-texts {
-  margin-top: -1.1rem;
-  margin-right: -0.4rem;
-}
-.check-box2 {
-  top: 2.1rem;
-}
+    margin-top: -1.1rem;
+    margin-right: -0.4rem;
+  }
+  .check-box2 {
+    top: 2.1rem;
+  }
 }
 @media (max-width: 320px) {
   .checkBox2-texts {
-  margin-top: -1.2rem;
-  margin-right: -0.5rem;
+    margin-top: -1.2rem;
+    margin-right: -0.5rem;
+  }
 }
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 450px) {
+    .check-box2 {
+      top: 1.8rem;
+    }
+    .checkBox2-texts {
+    margin-top: -1.3rem;
+    margin-right: -0.3rem;
+  }
+  }
 }
 </style>
