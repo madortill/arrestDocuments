@@ -457,4 +457,26 @@ export default {
   top: 14.8rem;
 }
 }
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 610px) {
+    .que1-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8.1rem;
+  margin-right: 11.7rem;
+  gap: 0.3rem;
+}
+.input1 {
+  width: 0.6rem;
+}
+.input2 {
+  position: relative;
+  width: 2.3rem;
+  right: 1.2rem;
+}
+}
+}
+
+
 </style>
