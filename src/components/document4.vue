@@ -472,7 +472,7 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 610px) {
     .que1-date {
-      margin-top: 7.5rem;
+      margin-top: 7.6rem;
       gap: 0.2rem;
     }
     .input1 {
