@@ -472,7 +472,8 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 610px) {
     .que1-date {
-      margin-top: 7.8rem;
+      margin-top: 7.5rem;
+      gap: 0.2rem;
     }
     .input1 {
       width: 0.6rem;
@@ -480,7 +481,7 @@ export default {
     .input2 {
       position: relative;
       width: 2.3rem;
-      right: 1rem;
+      right: 0.8rem;
     }
   }
 }
