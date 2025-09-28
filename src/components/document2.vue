@@ -536,8 +536,24 @@ export default {
   left: 24.4rem;
 
 }
-
-
+}
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 590px) {
+    .input5 {
+  left: 24.4rem;
+}
+.que1-date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 7rem;
+  margin-right: 9rem;
+  gap: 0.3rem;
+}
+.input1 {
+  width: 0.5rem;
+}
+  }
   
 }
 
