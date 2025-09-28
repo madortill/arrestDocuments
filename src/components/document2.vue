@@ -540,7 +540,7 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 590px) {
     .input5 {
-  left: 27rem;
+  left: 26.5rem;
 }
 .que1-date {
   display: flex;

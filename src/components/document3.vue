@@ -420,7 +420,7 @@ export default {
   margin-right: 3rem;
 }
 .checkBox {
-  margin-top: 3.7rem;
+  margin-top: 3.5rem;
   margin-left: 22.2rem;
   cursor: pointer;
   accent-color: #474747;
@@ -830,6 +830,11 @@ margin-top: -1rem;
   position: relative;
   top: -0.3rem;
 }
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 550px) {
+
+}
+  }
 
 }
 </style>
