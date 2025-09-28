@@ -741,7 +741,7 @@ margin-top: -1rem;
 .phone {
     width: 57rem;
     top: -2rem;
-    right: -8rem;
+    right: -7.8rem;
     z-index: 3;
     visibility: hidden;
   }

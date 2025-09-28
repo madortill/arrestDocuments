@@ -86,7 +86,7 @@ html {
 
 .bahad13-icon {
     position: fixed;
-    width: 5rem;
+    width: 4rem;
     top: 1rem;
     left: 1rem;
     z-index: 15;
@@ -95,7 +95,7 @@ html {
     position: fixed;
     bottom: 1rem;
     right: 1%;
-    width: 5rem;
+    width: 4rem;
     z-index: 15;
 }
 @media (max-width: 610px) {
