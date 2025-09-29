@@ -99,7 +99,7 @@ export default {
       wrongNoPublic: "",
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       noPublic: "כלל חומרי החקירה",
-      debugMode: true,
+      debugMode: false,
       doc: 0,
       DOC_NUM: 3,
       isOpen: false,
