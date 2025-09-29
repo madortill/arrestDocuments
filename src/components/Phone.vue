@@ -277,8 +277,15 @@ beforeDestroy() {
             }
         },
         checkMobile() {
-    this.isMobile = window.innerWidth <= 1130;
-  },
+  const ua = navigator.userAgent || navigator.vendor || window.opera;
+
+  const isIOS = /iPad|iPhone|iPod/.test(ua) 
+             || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+  const isAndroid = /android/i.test(ua);
+
+  this.isMobile = isIOS || isAndroid || window.innerWidth <= 1130;
+}
     },
   };
   </script>
