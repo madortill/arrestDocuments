@@ -277,15 +277,18 @@ beforeDestroy() {
             }
         },
         checkMobile() {
-  const ua = navigator.userAgent || navigator.vendor || window.opera;
+  const ua = navigator.userAgent || "";
 
-  const isIOS = /iPad|iPhone|iPod/.test(ua) 
-             || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  // iOS חדש -> יכיל גם "Macintosh" וגם "Mobile"
+  const isIOS = /iPad|iPhone|iPod/.test(ua)
+             || (ua.includes("Macintosh") && ua.includes("Mobile"));
 
   const isAndroid = /android/i.test(ua);
 
   this.isMobile = isIOS || isAndroid || window.innerWidth <= 1130;
-}
+
+  console.log("UA:", ua, "isMobile:", this.isMobile);
+},
     },
   };
   </script>
