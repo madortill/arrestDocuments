@@ -577,37 +577,6 @@ export default {
   }
   
 }
-body.ios-device {
-  @media (max-width: 590px) {
-    .input5 {
-      left: 26.5rem;
-      width: 1.8rem;
-    }
-    .que1-date {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      margin-top: 7.6rem;
-      margin-right: 6.4rem;
-      gap: 0.3rem;
-    }
-    .input1 {
-      width: 0.4rem;
-    }
-    .input2 {
-      width: 2.3rem;
-    }
-    .signature1 {
-      left: 22rem;
-    }
-    .signature2 {
-      left: 40rem;
-    }
-    .last-input3 {
-      margin-right: -1rem;
-    }
-  }
-}
 
 
 </style>
