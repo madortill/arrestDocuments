@@ -547,7 +547,7 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 590px) {
     .input5 {
-  left: 25rem;
+  left: 24.5rem;
   width: 1.8rem;
 }
 .que1-date {
@@ -565,13 +565,13 @@ export default {
   width: 2.3rem;
 }
 .signature1{
-  left: 22rem;
+  left: 20;
 }
 .signature2 {
-  left: 40rem;
+  left: 38rem;
 }
 .last-input3 {
-  margin-right: -0.2rem;
+  margin-right: 0.5rem;
 }
 
   }
