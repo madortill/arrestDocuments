@@ -571,7 +571,7 @@ export default {
   left: 40rem;
 }
 .last-input3 {
-  margin-right: 0.5rem;
+  margin-right: -0.5rem;
 }
 
   }
