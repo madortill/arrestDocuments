@@ -243,6 +243,7 @@
   </template>
   
   <script>
+  
   export default {
     name: "table",
     data() {
@@ -252,73 +253,35 @@
       };
     },
     mounted() {
-      this.checkMobile();
-      window.addEventListener('resize', this.checkMobile);
-      window.addEventListener('orientationchange', this.checkMobile);
-    },
-    // Vue 3
-    beforeUnmount() {
-      window.removeEventListener('resize', this.checkMobile);
-      window.removeEventListener('orientationchange', this.checkMobile);
-    },
-    // Vue 2 compatibility (אם את על Vue 2)
-    beforeDestroy() {
-      window.removeEventListener('resize', this.checkMobile);
-      window.removeEventListener('orientationchange', this.checkMobile);
-    },
+  this.checkMobile();
+  window.addEventListener('resize', this.checkMobile);
+},
+beforeDestroy() {
+  window.removeEventListener('resize', this.checkMobile);
+},
     methods: {
-      openNum(event) {
-        const num = event.target.id;
-        if (num === "one") this.currentMsg = 1;
-        else if (num === "two") this.currentMsg = 2;
-        else if (num === "three") this.currentMsg = 3;
-        else if (num === "four") this.currentMsg = 4;
-        else if (num === "five") this.currentMsg = 5;
-      },
-  
-      checkMobile() {
-        const ua = navigator.userAgent || "";
-        const uaData = navigator.userAgentData || null;
-  
-        // userAgentData (כרגע לא ב־Safari, אבל שימושי בדפדפנים אחרים)
-        const uaDataMobile = uaData && typeof uaData.mobile === "boolean" ? uaData.mobile : false;
-        const uaDataPlatform = uaData && uaData.platform ? uaData.platform : "";
-  
-        // iOS ישן: iPhone / iPad / iPod
-        // iOS חדש (Safari ב־iOS16/17) — עשוי להכיל "Macintosh" אבל גם "Mobile"
-        const isIOS_UA = /iPad|iPhone|iPod/.test(ua) || (ua.includes("Macintosh") && ua.includes("Mobile")) || /iPad|iPhone|iPod/.test(uaDataPlatform);
-  
-        const isAndroid = /Android/i.test(ua) || /Android/i.test(uaDataPlatform);
-  
-        // זיהוי טאץ' / נקודות מגע / media-query
-        const hasTouchPoints = (navigator.maxTouchPoints && navigator.maxTouchPoints > 0) || ('ontouchstart' in window);
-        const pointerCoarse = window.matchMedia && window.matchMedia('(pointer: coarse)').matches;
-  
-        // רוחב כגיבוי
-        const isMobileByWidth = window.innerWidth <= 1130;
-  
-        this.isMobile = !!(isIOS_UA || isAndroid || uaDataMobile || hasTouchPoints || pointerCoarse || isMobileByWidth);
-  
-        // מוסיפים/מסירים class על <html> כדי שתוכלי להדליק זוהר ב־CSS
-        document.documentElement.classList.toggle('is-mobile', this.isMobile);
-  
-        // דיבאג - תראי בקונסול מה התקבל
-        console.log('checkMobile ->', {
-          ua,
-          uaData: uaData ? { mobile: uaData.mobile, platform: uaData.platform } : null,
-          isIOS_UA,
-          isAndroid,
-          uaDataMobile,
-          hasTouchPoints,
-          pointerCoarse,
-          isMobileByWidth,
-          result: this.isMobile
-        });
-      }
-    }
+        openNum(event) {
+            let num = event.target.id;
+            if(num === "one") {
+                this.currentMsg = 1;
+            } else if (num === "two") {
+                this.currentMsg = 2;
+            } else if (num === "three") {
+                this.currentMsg = 3;
+            }
+            else if (num === "four") {
+                this.currentMsg = 4;
+            }
+            else if (num === "five") {
+                this.currentMsg = 5;
+            }
+        },
+        checkMobile() {
+    this.isMobile = window.innerWidth <= 1130;
+  },
+    },
   };
   </script>
-  
   
   <style scoped>
   .dont-press {

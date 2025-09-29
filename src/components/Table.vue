@@ -165,7 +165,9 @@ export default {
       policemanImg,
       phoneImg,
       time: 0,
-      isIphone: /iPhone|iPad|iPod/i.test(navigator.userAgent),
+      isIphone:
+        /iPhone|iPad|iPod/i.test(navigator.userAgent) ||
+        (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1),
     };
   },
   methods: {
