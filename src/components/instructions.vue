@@ -22,8 +22,9 @@ export default {
     };
   },
   mounted() {
-  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-  this.isIphone = /iPhone/.test(userAgent);
+  const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) 
+             || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  this.isIphone = isIOS;
 },
   methods: {
     closeInstruction() {
