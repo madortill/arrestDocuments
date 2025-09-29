@@ -547,7 +547,7 @@ export default {
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 590px) {
     .input5 {
-  left: 24rem;
+  left: 25rem;
   width: 1.8rem;
 }
 .que1-date {
@@ -571,7 +571,7 @@ export default {
   left: 40rem;
 }
 .last-input3 {
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
   }
