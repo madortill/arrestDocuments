@@ -1,7 +1,7 @@
 <template>
     <div id="app">
       <img src="@/assets/media/bahad13icon.svg" alt="bahad13icon" class="bahad13-icon">
-      <img src="@/assets/media/madorTil.png" alt="madorTil" class="mador-til">
+      <img src="@/assets/media/madorTil.svg" alt="madorTil" class="mador-til">
       <open-screen v-if="page === 0" class="open-screen"  @start="nextPage"></open-screen>
       <suspect-info v-if="page === 1" class="suspect-info" @next="toInterrogation"></suspect-info>
       <interrogation-room v-if="page === 2" @end-practice="endInvestigation" @saveName="saveName"></interrogation-room>
@@ -93,10 +93,11 @@ html {
 }
 .mador-til {
     position: fixed;
-    bottom: 1rem;
-    right: 1%;
-    width: 4rem;
+    bottom: -1rem;
+    right: -1%;
+    width: 10rem;
     z-index: 15;
+    
 }
 @media (max-width: 610px) {
  #app {
