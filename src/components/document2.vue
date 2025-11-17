@@ -109,7 +109,7 @@ export default {
       reason: "הטרדה מינית ומעשה מגונה בכוח",
       reasonAnswer: "",
       wrongReason: false,
-      hours: "18",
+      hours: "24",
       wrongHours: false,
       hourAnswer: "",
       signed1: false,
@@ -313,7 +313,7 @@ export default {
   width: 2rem;
   position: relative;
   top: -3rem;
-  left: 22.8rem;
+  left: 22.6rem;
 }
 .wrong {
   border: 2px solid red;

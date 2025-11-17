@@ -195,7 +195,7 @@ export default {
         this.signed2 = true;
       }
     },
-    areAllFieldsFilled() {
+    validateAllFields() {
       return (
         this.userAnswers.every((val) => val.trim() !== "") && // תשובות כלשהן
         this.userAnswers1.every((val) => val.trim() !== "") && // תאריך

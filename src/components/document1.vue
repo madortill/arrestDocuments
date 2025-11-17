@@ -289,8 +289,8 @@ export default {
         "המודיעין",
         "הכללי",
       ],
-      reason: "הטרדה מינית ומעשה מגונה בכוח",
-      roomText: 'מצ"ח ב"ש',
+      reason: "צרכי חקירה",
+      roomText: "כלא 10",
       pNum: "",
       lastName: "",
       firstName: "",
@@ -429,7 +429,7 @@ export default {
         this.answers.que5.time === "13:00"
       )
         rightAns++;
-      if (this.answers.que6.time === "05:00") rightAns++;
+      if (this.answers.que6.time === "07:00") rightAns++;
       if (this.roomUser.trim() === this.roomText) rightAns++;
 
       const allAnswersFilled = [
@@ -443,7 +443,7 @@ export default {
       });
       this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
       this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
-      this.wrongTimes.que6 = this.answers.que6.time !== "05:00";
+      this.wrongTimes.que6 = this.answers.que6.time !== "07:00";
 
       this.wrongReason = this.reasonAnswer.trim() !== this.reason;
       this.wrongRoom = this.roomUser.trim() !== this.roomText;
@@ -583,21 +583,10 @@ export default {
   transform: translate(-50%, -50%);
   z-index: 2;
 }
-.marking1 {
-  position: relative;
-  top: 8.6rem;
-  right: 11.3rem;
-  width: 2rem;
-  height: 1rem;
-  border: solid 2px rgb(0, 0, 0);
-  border-radius: 100%;
-  opacity: 0;
-  cursor: pointer;
-}
 .marking2 {
   position: relative;
-  top: 8.5rem;
-  right: 11.5rem;
+  top: 8.6rem;
+  right: 15.2rem;
   width: 3.2rem;
   height: 1rem;
   border: solid 2px rgb(0, 0, 0);

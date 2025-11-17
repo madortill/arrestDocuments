@@ -232,12 +232,13 @@ continue-btn:disabled,
 @media (max-width: 500px) {
   #suspect-info {
     overflow-x: none;
+    overflow-y: none;
   }
   .computer {
     width: 60rem;
     align-items: center;
     margin-left: 13rem;
-    margin-top: 12rem;
+    margin-top: 9rem;
   }
   .suspect {
     margin-top: -10rem;
@@ -246,13 +247,13 @@ continue-btn:disabled,
   }
   .continue-btn {
     margin-right: -1rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
   }
   .finale-exe > p {
     font-size: 1.1rem;
   }
   .finale-exe {
-    top: 29.5rem;
+    top: 26.5rem;
     left: 9.5rem;
   }
 }
@@ -260,6 +261,7 @@ continue-btn:disabled,
   @media (max-width: 500px) {
   #suspect-info {
     overflow-x: none;
+    overflow-y: auto;
   }
   .computer {
     width: 60rem;

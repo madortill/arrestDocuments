@@ -4,15 +4,15 @@
       <Transition  name="fade"> 
         <div v-show="showAbout" class="div-about">
           <h3 class="list-text-about">מפתחת ראשית:</h3>
-          <p class="list-text-about">טוראי מאיה מרום</p>
+          <p class="list-text-about">רב"ט מאיה מרום</p>
           <h3 class="list-text-about">גרפיקה:</h3>
-          <p class="list-text-about">סמל קריסטינה ברחטוב, טוראי מאיה מרום</p>
-          <h3 class="list-text-about">מומחת תוכן:</h3>
-          <p class="list-text-about">סגן רעות שגיא</p>
+          <p class="list-text-about">סמל קריסטינה ברחטוב, רב"ט מאיה מרום</p>
+          <h3 class="list-text-about">מומחות תוכן:</h3>
+          <p class="list-text-about">סגן רעות שגיא, סגן יהב רייזל</p>
           <h3 class="list-text-about">רמ"ד טי"ל:</h3>
           <p class="list-text-about">רס"מ עדן בן חמו</p>
           <h3 class="list-text-about">גרסה:</h3>
-          <p class="list-text-about">יוני 2025</p>
+          <p class="list-text-about">נובמבר 2025</p>
         </div>
       </Transition>
     </div>
@@ -73,6 +73,7 @@
     box-shadow: 0 15px 20px -20px rgba(0, 0, 0, 0.4);
     text-align: center;
     padding: 1rem;
+    /* color: #0E2C8E; */
   }
   
   .list-text-about {

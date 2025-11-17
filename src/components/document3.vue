@@ -507,9 +507,12 @@ export default {
 .input32 {
   width: 3rem;
   height: 0.8rem;
+  position: relative;
+  right: 4.2rem;
+  
 }
 .last-input32 {
-  margin-right: 11.5rem;
+  margin-right: 3.5rem;
   width: 4rem;
   height: 0.8rem;
 }
