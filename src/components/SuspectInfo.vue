@@ -6,7 +6,7 @@
           v-for="(text, index) in array1"
           :key="text"
           :style="{
-            '--delay': `${index * 2.5}s`,
+            '--delay': `${index * 2}s`,
             '--width': `${text.length}ch`,
           }"
           class="text-writer"
@@ -56,8 +56,8 @@ export default {
   },
   mounted() {
     // זמן כולל = מספר שורות * זמן דיליי לכל שורה (3.2s) + זמן אנימציה אחרונה (2s)
-    const delayPerLine = 2.5;
-    const typingDuration = 2;
+    const delayPerLine = 2;
+    const typingDuration = 1.5;
     const totalDelay = (this.array1.length - 1) * delayPerLine + typingDuration;
 
     setTimeout(() => {

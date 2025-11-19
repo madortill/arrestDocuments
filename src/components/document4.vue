@@ -91,7 +91,7 @@
       @click="backToDetails"
       alt="talk"
     />
-
+    <p class="nextToBtn">*שימו לב יש בשיחה פרטים רלוונטים למילוי המסמך</p>
     <!-- <p class="conversion-btn" @click="backToDetails">חזרה לשיחה</p> -->
   </div>
 </template>
@@ -361,6 +361,15 @@ export default {
   top: 3rem;
   left: -6.5rem;
   cursor: pointer;
+}
+.nextToBtn {
+  width: 10rem;
+  text-align: center;
+  position: relative;
+  top: -3rem;
+  left: -10rem;
+  font-size: 0.8rem;
+  font-family: "rubik";
 }
 .show {
   opacity: 1;

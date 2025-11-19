@@ -130,6 +130,7 @@
       @click="backToDetails"
       alt="talk"
     />
+    <p class="nextToBtn">*שימו לב יש בשיחה פרטים רלוונטים למילוי המסמך</p>
   </div>
 </template>
 
@@ -494,6 +495,15 @@ export default {
   top: 4.5rem;
   left: -6.5rem;
   cursor: pointer;
+}
+.nextToBtn {
+  width: 10rem;
+  text-align: center;
+  position: relative;
+  top: -1.5rem;
+  left: -10rem;
+  font-size: 0.8rem;
+  font-family: "rubik";
 }
 .container-details {
   display: flex;
