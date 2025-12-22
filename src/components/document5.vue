@@ -165,7 +165,7 @@ export default {
       wrongUserAnswers: [false, false, false, false, false],
       selectedDate: ["25", "06", "05"],
       wrongUserAnswers1: [false, false, false],
-      reason: "אני מתבייש",
+      reason: '"אני מתבייש"',
       wrongReason: false,
       checked1: false,
       isCorrect: false,
