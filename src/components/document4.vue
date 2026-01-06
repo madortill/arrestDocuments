@@ -153,81 +153,103 @@ export default {
         this.signed2 // חתימה קיימת
       );
     },
-    nextDoc() {
-      if (this.debugMode) {
-        this.$emit("next-doc");
-        return;
-      }
-      let rightAns = 0;
+    normalize(text) {
+  if (!text) return "";
+  return text
+    .toString()
+    .trim()
+    .replace(/[\"'״”“]/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+},
 
-      // בדיקת תאריך
-      if (
-        this.userAnswers.every((val, index) => val === this.selectedDate[index])
-      ) {
-        rightAns++;
-      }
-      this.wrongInputs = this.userAnswers.map(
-        (val, index) => val !== this.selectedDate[index]
-      );
+isWrong(user, correct) {
+  return this.normalize(user) !== this.normalize(correct);
+},
 
-      // בדיקת שעה
-      this.checked = true;
-      this.isCorrect = this.selectedTime === "13:20";
-      if (this.isCorrect) {
-        rightAns++;
-      }
+isRight(user, correct) {
+  return this.normalize(user) === this.normalize(correct);
+},
+nextDoc() {
+  if (this.debugMode) {
+    this.$emit("next-doc");
+    return;
+  }
 
-      // בדיקת פרטי העצור
-      this.checked3 = true;
-      let allCorrect = true;
-      this.userAnswers3.forEach((ans, i) => {
-        const isCorrect = ans.trim() === this.userInfo[i];
-        this.wrongUserAnswers3[i] = !isCorrect;
-        if (!isCorrect) {
-          allCorrect = false;
-        }
-      });
-      if (allCorrect) {
-        rightAns++;
-      }
+  let rightAns = 0;
 
-      // בדיקת סיבה
-      if (this.reasonAnswer.trim() === this.reason) {
-        this.wrongReason = false;
-        rightAns++;
-      } else {
-        this.wrongReason = true;
-      }
+  // בדיקת תאריך
+  if (
+    this.userAnswers.every((val, index) =>
+      this.isRight(val, this.selectedDate[index])
+    )
+  ) {
+    rightAns++;
+  }
 
-      // בדיקת עדות
-      if (this.testimonyAnswer.trim() === this.testimony) {
-        this.wrongTestimony = false;
-        rightAns++;
-      } else {
-        this.wrongTestimony = true;
-      }
+  this.wrongInputs = this.userAnswers.map((val, index) =>
+    this.isWrong(val, this.selectedDate[index])
+  );
 
-      // בדיקת חתימה
-      if (!this.signed1 && !this.signed2) {
-        alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
-      } else {
-        rightAns++;
-      }
+  // בדיקת שעה
+  this.checked = true;
+  this.isCorrect = this.selectedTime === "13:20";
+  if (this.isCorrect) {
+    rightAns++;
+  }
 
-      // סיכום התוצאה
-      if (rightAns === 6) {
-        this.$emit("result", "right");
-        setTimeout(() => {
-          this.$emit("result", "");
-          this.$emit("next-doc");
-        }, 2200);
-      } else {
-        this.$emit("result", "wrong");
-        setTimeout(() => {
-          this.$emit("result", "");
-        }, 2200);
-      }
-    },
+  // בדיקת פרטי העצור
+  this.checked3 = true;
+  let allCorrect = true;
+
+  this.userAnswers3.forEach((ans, i) => {
+    const isCorrect = this.isRight(ans, this.userInfo[i]);
+    this.wrongUserAnswers3[i] = !isCorrect;
+    if (!isCorrect) allCorrect = false;
+  });
+
+  if (allCorrect) {
+    rightAns++;
+  }
+
+  // בדיקת סיבה
+  if (this.isRight(this.reasonAnswer, this.reason)) {
+    this.wrongReason = false;
+    rightAns++;
+  } else {
+    this.wrongReason = true;
+  }
+
+  // בדיקת עדות
+  if (this.isRight(this.testimonyAnswer, this.testimony)) {
+    this.wrongTestimony = false;
+    rightAns++;
+  } else {
+    this.wrongTestimony = true;
+  }
+
+  // בדיקת חתימה
+  if (!this.signed1 && !this.signed2) {
+    alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
+  } else {
+    rightAns++;
+  }
+
+  // סיכום התוצאה
+  if (rightAns === 6) {
+    this.$emit("result", "right");
+    setTimeout(() => {
+      this.$emit("result", "");
+      this.$emit("next-doc");
+    }, 2200);
+  } else {
+    this.$emit("result", "wrong");
+    setTimeout(() => {
+      this.$emit("result", "");
+    }, 2200);
+  }
+},
+
     openInfo() {
       if (this.doc === 0) {
         this.doc = 4;

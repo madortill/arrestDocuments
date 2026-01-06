@@ -391,110 +391,212 @@ export default {
         allDateFieldsFilled
       );
     },
-    normalizeText(text) {
-      return text
-        .replace(/[\u2018\u2019\u0060\u00B4\u02BC]/g, "'") // אפוסטורופים
-        .replace(/[\u201C\u201D]/g, '"') // גרשיים חכמים
-        .replace(/[\u05F4]/g, '"') // גרשיים בעברית (״)
-        .replace(/["']/g, "'") // המרה אחידה לגרש בודד
-        .trim();
-    },
+    normalize(text) {
+  if (!text) return "";
+  return text
+    .toString()
+    .trim()
+    .replace(/[\"'״”“]/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+},
 
-    nextDoc() {
-      if (this.debugMode) {
-        this.$emit("next-doc");
-        return;
-      }
-      let rightAns = 0;
+isWrong(user, correct) {
+  return this.normalize(user) !== this.normalize(correct);
+},
 
-      if (!this.signed && !this.chosen) {
-        alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
-      } else {
-        rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
-      }
+isRight(user, correct) {
+  return this.normalize(user) === this.normalize(correct);
+},
+nextDoc() {
+  if (this.debugMode) {
+    this.$emit("next-doc");
+    return;
+  }
 
-      const allCorrect = this.userAnswers.every(
-        (ans, i) =>
-          this.normalizeText(ans) === this.normalizeText(this.userInfo[i])
-      );
+  let rightAns = 0;
 
-      if (allCorrect) {
-        rightAns++;
-      }
+  if (!this.signed && !this.chosen) {
+    alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
+  } else {
+    rightAns++;
+  }
 
-      if (this.reasonAnswer.trim() === this.reason) rightAns++;
+  const allCorrect = this.userAnswers.every(
+    (ans, i) => this.isRight(ans, this.userInfo[i])
+  );
 
-      if (
-        this.answers.que4.time === "13:00" &&
-        this.answers.que5.time === "13:00"
-      )
-        rightAns++;
-      if (this.answers.que6.time === "07:00") rightAns++;
-      if (this.roomUser.trim() === this.roomText) rightAns++;
+  if (allCorrect) rightAns++;
 
-      const allAnswersFilled = [
-        this.answers.que4,
-        this.answers.que5,
-        this.answers.que6,
-      ].every((ans) => ans.year && ans.month && ans.day && ans.time);
+  if (this.isRight(this.reasonAnswer, this.reason)) rightAns++;
 
-      this.wrongUserAnswers = this.userAnswers.map((ans, i) => {
-        return this.normalizeText(ans) !== this.normalizeText(this.userInfo[i]);
-      });
-      this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
-      this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
-      this.wrongTimes.que6 = this.answers.que6.time !== "07:00";
+  if (
+    this.answers.que4.time === "13:00" &&
+    this.answers.que5.time === "13:00"
+  ) rightAns++;
 
-      this.wrongReason = this.reasonAnswer.trim() !== this.reason;
-      this.wrongRoom = this.roomUser.trim() !== this.roomText;
+  if (this.answers.que6.time === "07:00") rightAns++;
 
-      const correctDate1 = { year: "2025", month: "06", day: "05" };
-      const correctDate2 = { year: "2025", month: "06", day: "06" };
+  if (this.isRight(this.roomUser, this.roomText)) rightAns++;
 
-      const q4 = this.answers.que4;
-      const q5 = this.answers.que5;
-      const q6 = this.answers.que6;
+  const allAnswersFilled = [
+    this.answers.que4,
+    this.answers.que5,
+    this.answers.que6,
+  ].every(ans => ans.year && ans.month && ans.day && ans.time);
 
-      this.wrongDates.que4 = !(
-        q4.year === correctDate1.year &&
-        q4.month === correctDate1.month &&
-        q4.day === correctDate1.day
-      );
-      this.wrongDates.que5 = !(
-        q5.year === correctDate1.year &&
-        q5.month === correctDate1.month &&
-        q5.day === correctDate1.day
-      );
-      this.wrongDates.que6 = !(
-        q6.year === correctDate2.year &&
-        q6.month === correctDate2.month &&
-        q6.day === correctDate2.day
-      );
+  this.wrongUserAnswers = this.userAnswers.map(
+    (ans, i) => this.isWrong(ans, this.userInfo[i])
+  );
 
-      // ✅ הוספת ציון רק אם כל התאריכים תקינים
-      if (
-        !this.wrongDates.que4 &&
-        !this.wrongDates.que5 &&
-        !this.wrongDates.que6
-      ) {
-        rightAns++;
-      }
-      // שמירת השם
-      this.$emit("saveName", this.firstName);
-      // בדיקה סופית
-      if (rightAns === 7) {
-        this.$emit("result", "right");
-        setTimeout(() => {
-          this.$emit("result", "");
-          this.$emit("next-doc");
-        }, 2200);
-      } else {
-        this.$emit("result", "wrong");
-        setTimeout(() => {
-          this.$emit("result", "");
-        }, 2200);
-      }
-    },
+  this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
+  this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
+  this.wrongTimes.que6 = this.answers.que6.time !== "07:00";
+
+  this.wrongReason = this.isWrong(this.reasonAnswer, this.reason);
+  this.wrongRoom = this.isWrong(this.roomUser, this.roomText);
+
+  const correctDate1 = { year: "2025", month: "06", day: "05" };
+  const correctDate2 = { year: "2025", month: "06", day: "06" };
+
+  const q4 = this.answers.que4;
+  const q5 = this.answers.que5;
+  const q6 = this.answers.que6;
+
+  this.wrongDates.que4 = !(
+    q4.year === correctDate1.year &&
+    q4.month === correctDate1.month &&
+    q4.day === correctDate1.day
+  );
+  this.wrongDates.que5 = !(
+    q5.year === correctDate1.year &&
+    q5.month === correctDate1.month &&
+    q5.day === correctDate1.day
+  );
+  this.wrongDates.que6 = !(
+    q6.year === correctDate2.year &&
+    q6.month === correctDate2.month &&
+    q6.day === correctDate2.day
+  );
+
+  if (
+    !this.wrongDates.que4 &&
+    !this.wrongDates.que5 &&
+    !this.wrongDates.que6
+  ) {
+    rightAns++;
+  }
+
+  this.$emit("saveName", this.firstName);
+
+  if (rightAns === 7) {
+    this.$emit("result", "right");
+    setTimeout(() => {
+      this.$emit("result", "");
+      this.$emit("next-doc");
+    }, 2200);
+  } else {
+    this.$emit("result", "wrong");
+    setTimeout(() => {
+      this.$emit("result", "");
+    }, 2200);
+  }
+},
+    // nextDoc() {
+    //   if (this.debugMode) {
+    //     this.$emit("next-doc");
+    //     return;
+    //   }
+    //   let rightAns = 0;
+
+    //   if (!this.signed && !this.chosen) {
+    //     alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
+    //   } else {
+    //     rightAns++; // ✅ מוסיפים ניקוד רק כשגם חתום וגם נבחר מסמך
+    //   }
+
+    //   const allCorrect = this.userAnswers.every(
+    //     (ans, i) =>
+    //       this.normalizeText(ans) === this.normalizeText(this.userInfo[i])
+    //   );
+
+    //   if (allCorrect) {
+    //     rightAns++;
+    //   }
+
+    //   if (this.reasonAnswer.trim() === this.reason) rightAns++;
+
+    //   if (
+    //     this.answers.que4.time === "13:00" &&
+    //     this.answers.que5.time === "13:00"
+    //   )
+    //     rightAns++;
+    //   if (this.answers.que6.time === "07:00") rightAns++;
+    //   if (this.roomUser.trim() === this.roomText) rightAns++;
+
+    //   const allAnswersFilled = [
+    //     this.answers.que4,
+    //     this.answers.que5,
+    //     this.answers.que6,
+    //   ].every((ans) => ans.year && ans.month && ans.day && ans.time);
+
+    //   this.wrongUserAnswers = this.userAnswers.map((ans, i) => {
+    //     return this.normalizeText(ans) !== this.normalizeText(this.userInfo[i]);
+    //   });
+    //   this.wrongTimes.que4 = this.answers.que4.time !== "13:00";
+    //   this.wrongTimes.que5 = this.answers.que5.time !== "13:00";
+    //   this.wrongTimes.que6 = this.answers.que6.time !== "07:00";
+
+    //   this.wrongReason = this.reasonAnswer.trim() !== this.reason;
+    //   this.wrongRoom = this.roomUser.trim() !== this.roomText;
+
+    //   const correctDate1 = { year: "2025", month: "06", day: "05" };
+    //   const correctDate2 = { year: "2025", month: "06", day: "06" };
+
+    //   const q4 = this.answers.que4;
+    //   const q5 = this.answers.que5;
+    //   const q6 = this.answers.que6;
+
+    //   this.wrongDates.que4 = !(
+    //     q4.year === correctDate1.year &&
+    //     q4.month === correctDate1.month &&
+    //     q4.day === correctDate1.day
+    //   );
+    //   this.wrongDates.que5 = !(
+    //     q5.year === correctDate1.year &&
+    //     q5.month === correctDate1.month &&
+    //     q5.day === correctDate1.day
+    //   );
+    //   this.wrongDates.que6 = !(
+    //     q6.year === correctDate2.year &&
+    //     q6.month === correctDate2.month &&
+    //     q6.day === correctDate2.day
+    //   );
+
+    //   // ✅ הוספת ציון רק אם כל התאריכים תקינים
+    //   if (
+    //     !this.wrongDates.que4 &&
+    //     !this.wrongDates.que5 &&
+    //     !this.wrongDates.que6
+    //   ) {
+    //     rightAns++;
+    //   }
+    //   // שמירת השם
+    //   this.$emit("saveName", this.firstName);
+    //   // בדיקה סופית
+    //   if (rightAns === 7) {
+    //     this.$emit("result", "right");
+    //     setTimeout(() => {
+    //       this.$emit("result", "");
+    //       this.$emit("next-doc");
+    //     }, 2200);
+    //   } else {
+    //     this.$emit("result", "wrong");
+    //     setTimeout(() => {
+    //       this.$emit("result", "");
+    //     }, 2200);
+    //   }
+    // },
 
     // שעות
     generateTimeOptions() {

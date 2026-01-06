@@ -147,82 +147,107 @@ export default {
         this.signed2 // חתימה קיימת
       );
     },
+    normalize(text) {
+  if (!text) return "";
+  return text
+    .toString()
+    .trim()
+    .replace(/[\"'״”“]/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+},
 
-    backToMap() {
-      if (this.debugMode) {
-        this.$emit("backToTable");
-        return;
-      }
-      let rightAns = 0;
+isWrong(user, correct) {
+  return this.normalize(user) !== this.normalize(correct);
+},
 
-      // בדיקת תאריך
-      if (
-        this.userAnswers.every((val, index) => val === this.selectedDate[index])
-      ) {
-        rightAns++;
-      }
-      this.wrongInputs = this.userAnswers.map(
-        (val, index) => val !== this.selectedDate[index]
-      );
+isRight(user, correct) {
+  return this.normalize(user) === this.normalize(correct);
+},
 
-      // בדיקת שעה
-      this.checked = true;
-      this.isCorrect = this.selectedTime === "13:04";
-      if (this.isCorrect) {
-        rightAns++;
-      }
+backToMap() {
+  if (this.debugMode) {
+    this.$emit("backToTable");
+    return;
+  }
 
-      // בדיקת פרטי העצור
-      this.checked3 = true;
-      let allCorrect = true;
-      this.userAnswers3.forEach((ans, i) => {
-        const isCorrect = ans.trim() === this.userInfo[i];
-        this.wrongUserAnswers3[i] = !isCorrect;
-        if (!isCorrect) {
-          allCorrect = false;
-        }
-      });
-      if (allCorrect) {
-        rightAns++;
-      }
+  let rightAns = 0;
 
-      // בדיקת סיבה
-      if (this.reasonAnswer.trim() === this.reason) {
-        this.wrongReason = false;
-        rightAns++;
-      } else {
-        this.wrongReason = true;
-      }
+  // בדיקת תאריך
+  if (
+    this.userAnswers.every(
+      (val, index) => this.isRight(val, this.selectedDate[index])
+    )
+  ) {
+    rightAns++;
+  }
 
-      // בדיקת שעות
-      if (this.hourAnswer.trim() === this.hours) {
-        this.wrongHours = false;
-        rightAns++;
-      } else {
-        this.wrongHours = true;
-      }
+  this.wrongInputs = this.userAnswers.map(
+    (val, index) => this.isWrong(val, this.selectedDate[index])
+  );
 
-      // בדיקת חתימה
-      if (!this.signed1 && !this.signed2) {
-        alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
-      } else {
-        rightAns++;
-      }
+  // בדיקת שעה
+  this.checked = true;
+  this.isCorrect = this.answersTime
+    ? this.isRight(this.selectedTime, "13:04")
+    : this.selectedTime === "13:04";
 
-      // סיכום התוצאה
-      if (rightAns === 6) {
-        this.$emit("result", "right");
-        setTimeout(() => {
-          this.$emit("result", "");
-          this.$emit("backToTable");
-        }, 2200);
-      } else {
-        this.$emit("result", "wrong");
-        setTimeout(() => {
-          this.$emit("result", "");
-        }, 2200);
-      }
-    },
+  if (this.selectedTime === "13:04") {
+    rightAns++;
+  }
+
+  // בדיקת פרטי העצור
+  this.checked3 = true;
+  let allCorrect = true;
+
+  this.userAnswers3.forEach((ans, i) => {
+    const isCorrect = this.isRight(ans, this.userInfo[i]);
+    this.wrongUserAnswers3[i] = !isCorrect;
+    if (!isCorrect) allCorrect = false;
+  });
+
+  if (allCorrect) {
+    rightAns++;
+  }
+
+  // בדיקת סיבה
+  if (this.isRight(this.reasonAnswer, this.reason)) {
+    this.wrongReason = false;
+    rightAns++;
+  } else {
+    this.wrongReason = true;
+  }
+
+  // בדיקת שעות
+  if (this.isRight(this.hourAnswer, this.hours)) {
+    this.wrongHours = false;
+    rightAns++;
+  } else {
+    this.wrongHours = true;
+  }
+
+  // בדיקת חתימה
+  if (!this.signed1 && !this.signed2) {
+    alert("וודאו שהקפתם את אפשרות הנכונה וחתמתם");
+  } else {
+    rightAns++;
+  }
+
+  // סיכום התוצאה
+  if (rightAns === 6) {
+    this.$emit("result", "right");
+    setTimeout(() => {
+      this.$emit("result", "");
+      this.$emit("backToTable");
+    }, 2200);
+  } else {
+    this.$emit("result", "wrong");
+    setTimeout(() => {
+      this.$emit("result", "");
+    }, 2200);
+  }
+},
+
     openInfo() {
       if(this.doc === 0) {
         this.doc = 2;

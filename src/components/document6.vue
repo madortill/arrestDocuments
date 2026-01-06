@@ -119,70 +119,86 @@ export default {
         this.signed // חתימה
       );
     },
-    backToMap() {
-      if (this.debugMode) {
-        this.$emit("end-practice");
-        return;
-      }
-      let rightAns = 0;
-      // פרטי עצור 1
-      this.checked = true;
-      let allCorrect = true;
-      this.userAnswers.forEach((ans, i) => {
-        const isCorrect = ans.trim() === this.userInfo1[i];
-        this.wrongUserAnswers[i] = !isCorrect;
-        if (!isCorrect) {
-          allCorrect = false;
-        }
-      });
-      if (allCorrect) {
-        rightAns++;
-      }
+    normalize(text) {
+  if (!text) return "";
+  return text
+    .toString()
+    .trim()
+    .replace(/[\"'״”“]/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+},
 
-      //   פרטי עצור 2
-      this.checked1 = true;
-      let allCorrect1 = true;
-      this.userAnswers1.forEach((ans, i) => {
-        const isCorrect1 = ans.trim() === this.userInfo2[i];
-        this.wrongUserAnswers1[i] = !isCorrect1;
-        if (!isCorrect1) {
-          allCorrect1 = false;
-        }
-      });
-      if (allCorrect1) {
-        rightAns++;
-      }
+isWrong(user, correct) {
+  return this.normalize(user) !== this.normalize(correct);
+},
 
-      //   סיבה
-      if (this.reasonAnswer.trim() === this.reason) {
-        this.wrongReason = false;
-        rightAns++;
-      } else {
-        this.wrongReason = true;
-      }
+isRight(user, correct) {
+  return this.normalize(user) === this.normalize(correct);
+},
+backToMap() {
+  if (this.debugMode) {
+    this.$emit("end-practice");
+    return;
+  }
 
-      //   לא לפרסם
-      if (this.publicDetails.trim() === this.noPublic) {
-        this.wrongNoPublic = false;
-        rightAns++;
-      } else {
-        this.wrongNoPublic = true;
-      }
+  let rightAns = 0;
 
-      //   תוצאה סופית
-      if (rightAns === 4) {
-        this.$emit("result", "right");
-        setTimeout(() => {
-          this.$emit("result", "");
-          this.$emit("end-practice");
-        }, 2200);
-      } else {
-        this.$emit("result", "wrong");
-        setTimeout(() => {
-          this.$emit("result", "");
-        }, 2200);
-      }
-    },
+  /* -------- פרטי עצור 1 -------- */
+  this.checked = true;
+  let allCorrect = true;
+  this.userAnswers.forEach((ans, i) => {
+    const isCorrect = this.isRight(ans, this.userInfo1[i]);
+    this.wrongUserAnswers[i] = !isCorrect;
+    if (!isCorrect) allCorrect = false;
+  });
+  if (allCorrect) {
+    rightAns++;
+  }
+
+  /* -------- פרטי עצור 2 -------- */
+  this.checked1 = true;
+  let allCorrect1 = true;
+  this.userAnswers1.forEach((ans, i) => {
+    const isCorrect1 = this.isRight(ans, this.userInfo2[i]);
+    this.wrongUserAnswers1[i] = !isCorrect1;
+    if (!isCorrect1) allCorrect1 = false;
+  });
+  if (allCorrect1) {
+    rightAns++;
+  }
+
+  /* -------- סיבה -------- */
+  if (this.isRight(this.reasonAnswer, this.reason)) {
+    this.wrongReason = false;
+    rightAns++;
+  } else {
+    this.wrongReason = true;
+  }
+
+  /* -------- לא לפרסם -------- */
+  if (this.isRight(this.publicDetails, this.noPublic)) {
+    this.wrongNoPublic = false;
+    rightAns++;
+  } else {
+    this.wrongNoPublic = true;
+  }
+
+  /* -------- תוצאה סופית -------- */
+  if (rightAns === 4) {
+    this.$emit("result", "right");
+    setTimeout(() => {
+      this.$emit("result", "");
+      this.$emit("end-practice");
+    }, 2200);
+  } else {
+    this.$emit("result", "wrong");
+    setTimeout(() => {
+      this.$emit("result", "");
+    }, 2200);
+  }
+},
+
     openInfo() {
       if (this.doc === 0) {
         this.doc = 6;

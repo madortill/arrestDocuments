@@ -264,134 +264,134 @@ export default {
         this.userAnswers42.every((val) => val.trim() !== "")
       );
     },
+    normalize(text) {
+  if (!text) return "";
+  return text
+    .toString()
+    .trim()
+    .replace(/[\"'״”“]/g, "")
+    .replace(/\s+/g, " ")
+    .toLowerCase();
+},
 
-    backToTable() {
-      if (this.debugMode) {
-        this.$emit("backToTable");
-        return;
-      }
-      let rightAns = 0;
+isWrong(user, correct) {
+  return this.normalize(user) !== this.normalize(correct);
+},
 
-      if (this.isChecked) {
-        rightAns++;
-        this.showCheckboxError = false;
-      } else {
-        this.showCheckboxError = true;
-      }
-      //   שאלה 1
-      const isDateCorrect = this.userAnswers11.every(
-        (val, index) => val.trim() === this.selectedDate[index]
-      );
-      this.wrongInputs1 = this.userAnswers11.map(
-        (val, index) => val.trim() !== this.selectedDate[index]
-      );
+isRight(user, correct) {
+  return this.normalize(user) === this.normalize(correct);
+},
+backToTable() {
+  if (this.debugMode) {
+    this.$emit("backToTable");
+    return;
+  }
 
-      const isTimeCorrect = this.selectedTime1.trim() === "13:28";
-      this.isTimeWrong = !isTimeCorrect;
+  let rightAns = 0;
 
-      const isDetailsCorrect = this.userAnswers12.every(
-        (val, index) => val.trim() === this.soliderUnitArr[index]
-      );
-      this.wrongInputs12 = this.userAnswers12.map(
-        (val, index) => val.trim() !== this.soliderUnitArr[index]
-      );
+  if (this.isChecked) {
+    rightAns++;
+    this.showCheckboxError = false;
+  } else {
+    this.showCheckboxError = true;
+  }
 
-      if (isDateCorrect && isTimeCorrect && isDetailsCorrect) {
-        rightAns++;
-      }
+  // ---------- שאלה 1 ----------
 
-      //   שאלה 2
-      // בדיקת תאריך
-      this.wrongInputs2 = this.userAnswers21.map(
-        (val, index) => val.trim() !== this.selectedDate[index]
-      );
-      const isDateCorrect2 = this.wrongInputs2.every(
-        (isWrong) => isWrong === false
-      );
+  const isDateCorrect = this.userAnswers11.every(
+    (val, index) => this.isRight(val, this.selectedDate[index])
+  );
+  this.wrongInputs1 = this.userAnswers11.map(
+    (val, index) => this.isWrong(val, this.selectedDate[index])
+  );
 
-      // בדיקת שעה
-      this.isTimeWrong2 = this.selectedTime2.trim() !== "13:18";
-      const isTimeCorrect2 = !this.isTimeWrong2;
+  const isTimeCorrect = this.isRight(this.selectedTime1, "13:28");
+  this.isTimeWrong = !isTimeCorrect;
 
-      // בדיקת פרטים
-      this.wrongInputs22 = this.userAnswers22.map(
-        (val, index) => val.trim() !== this.publicOfficerArr[index]
-      );
-      const isDetailsCorrect2 = this.wrongInputs22.every(
-        (isWrong) => isWrong === false
-      );
+  const isDetailsCorrect = this.userAnswers12.every(
+    (val, index) => this.isRight(val, this.soliderUnitArr[index])
+  );
+  this.wrongInputs12 = this.userAnswers12.map(
+    (val, index) => this.isWrong(val, this.soliderUnitArr[index])
+  );
 
-      // סיכום
-      if (isDateCorrect2 && isTimeCorrect2 && isDetailsCorrect2) {
-        rightAns++;
-      }
+  if (isDateCorrect && isTimeCorrect && isDetailsCorrect) {
+    rightAns++;
+  }
 
-      //   שאלה 3
+  // ---------- שאלה 2 ----------
 
-      // בדיקת תאריך
-      this.wrongInputs3 = this.userAnswers31.map(
-        (val, index) => val.trim() !== this.selectedDate[index]
-      );
-      const isDateCorrect3 = this.wrongInputs3.every(
-        (isWrong) => isWrong === false
-      );
+  this.wrongInputs2 = this.userAnswers21.map(
+    (val, index) => this.isWrong(val, this.selectedDate[index])
+  );
+  const isDateCorrect2 = this.wrongInputs2.every(v => v === false);
 
-      // בדיקת שעה
-      this.isTimeWrong3 = this.selectedTime3.trim() !== "13:22";
-      const isTimeCorrect3 = !this.isTimeWrong3;
+  this.isTimeWrong2 = this.isWrong(this.selectedTime2, "13:18");
+  const isTimeCorrect2 = !this.isTimeWrong2;
 
-      // בדיקת פרטים
-      this.wrongInputs32 = this.userAnswers32.map(
-        (val, index) => val.trim() !== this.headquarters[index]
-      );
-      const isDetailsCorrect3 = this.wrongInputs32.every(
-        (isWrong) => isWrong === false
-      );
+  this.wrongInputs22 = this.userAnswers22.map(
+    (val, index) => this.isWrong(val, this.publicOfficerArr[index])
+  );
+  const isDetailsCorrect2 = this.wrongInputs22.every(v => v === false);
 
-      // סיכום
-      if (isDateCorrect3 && isTimeCorrect3 && isDetailsCorrect3) {
-        rightAns++;
-      }
+  if (isDateCorrect2 && isTimeCorrect2 && isDetailsCorrect2) {
+    rightAns++;
+  }
 
-      //   שאלה 4
-      // בדיקת תאריך
-      this.wrongInputs4 = this.userAnswers41.map(
-        (val, index) => val.trim() !== this.selectedDate[index]
-      );
-      const isDateCorrect4 = this.wrongInputs4.every(
-        (isWrong) => isWrong === false
-      );
+  // ---------- שאלה 3 ----------
 
-      // בדיקת שעה
-      this.isTimeWrong4 = this.selectedTime4.trim() !== "13:30";
-      const isTimeCorrect4 = !this.isTimeWrong4;
+  this.wrongInputs3 = this.userAnswers31.map(
+    (val, index) => this.isWrong(val, this.selectedDate[index])
+  );
+  const isDateCorrect3 = this.wrongInputs3.every(v => v === false);
 
-      // בדיקת פרטים
-      this.wrongInputs42 = this.userAnswers42.map(
-        (val, index) => val.trim() !== this.escortsArr[index]
-      );
-      const isDetailsCorrect4 = this.wrongInputs42.every(
-        (isWrong) => isWrong === false
-      );
+  this.isTimeWrong3 = this.isWrong(this.selectedTime3, "13:22");
+  const isTimeCorrect3 = !this.isTimeWrong3;
 
-      // סיכום
-      if (isDateCorrect4 && isTimeCorrect4 && isDetailsCorrect4) {
-        rightAns++;
-      }
-      // בדיקה סופית
-      if (rightAns === 5) {
-        this.$emit("result", "right");
-        setTimeout(() => {
-          this.$emit("result", "");
-          this.$emit("backToTable");
-        }, 2200);
-      } else {
-        this.$emit("result", "wrong");
-        setTimeout(() => {
-          this.$emit("result", "");
-        }, 2200);
-      }
-    },
+  this.wrongInputs32 = this.userAnswers32.map(
+    (val, index) => this.isWrong(val, this.headquarters[index])
+  );
+  const isDetailsCorrect3 = this.wrongInputs32.every(v => v === false);
+
+  if (isDateCorrect3 && isTimeCorrect3 && isDetailsCorrect3) {
+    rightAns++;
+  }
+
+  // ---------- שאלה 4 ----------
+
+  this.wrongInputs4 = this.userAnswers41.map(
+    (val, index) => this.isWrong(val, this.selectedDate[index])
+  );
+  const isDateCorrect4 = this.wrongInputs4.every(v => v === false);
+
+  this.isTimeWrong4 = this.isWrong(this.selectedTime4, "13:30");
+  const isTimeCorrect4 = !this.isTimeWrong4;
+
+  this.wrongInputs42 = this.userAnswers42.map(
+    (val, index) => this.isWrong(val, this.escortsArr[index])
+  );
+  const isDetailsCorrect4 = this.wrongInputs42.every(v => v === false);
+
+  if (isDateCorrect4 && isTimeCorrect4 && isDetailsCorrect4) {
+    rightAns++;
+  }
+
+  // ---------- סיכום ----------
+
+  if (rightAns === 5) {
+    this.$emit("result", "right");
+    setTimeout(() => {
+      this.$emit("result", "");
+      this.$emit("backToTable");
+    }, 2200);
+  } else {
+    this.$emit("result", "wrong");
+    setTimeout(() => {
+      this.$emit("result", "");
+    }, 2200);
+  }
+},
+
     openInfo() {
       if (this.doc === 0) {
         this.doc = 3;
