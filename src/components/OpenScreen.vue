@@ -3,6 +3,7 @@
     <div class="container">
       <notebook @start="nextPage" class="notebook"></notebook>
     </div>
+    
     <about></about>
   </div>
 </template>
@@ -20,6 +21,8 @@ export default {
     return {
       showAbout: false,
       clickBtn: 0,
+      num1: 8,
+      num2: 1,
     };
   },
   methods: {
@@ -35,6 +38,9 @@ export default {
     //   this.clickBtn++;
     // },
   },
+  makeNine() {
+    this.num2 = this.num1++
+  }
 };
 </script>
 

@@ -266,7 +266,7 @@ export default {
       reasonAnswer: "",
       roomUser: "",
       userAnswers: Array(7).fill(""),
-      userInfo: ["8859963", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
+      userInfo: ["8859975", 'רב"ט', "רייס", "נועם", "האוויר", 'בא"ח 21', "טבח"],
       page: 1,
       ranks: ["טוראי", 'רב"ט', "סמל", 'סמ"ר'],
       forses: [

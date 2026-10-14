@@ -160,7 +160,7 @@ export default {
       endTime: "",
       signed1: false,
       signed2: false,
-      userInfo: ["8859963", 'רב"ט', "נועם רייס", 'בא"ח 21'],
+      userInfo: ["8859975", 'רב"ט', "נועם רייס", 'בא"ח 21'],
       checked: "",
       wrongUserAnswers: [false, false, false, false, false],
       selectedDate: ["25", "06", "05"],

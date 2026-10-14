@@ -117,7 +117,7 @@ export default {
       selectedTime: "",
       checked: false,
       isCorrect: false,
-      userInfo: ["8859963", 'רב"ט', "נועם רייס", 'בא"ח 21'],
+      userInfo: ["8859975", 'רב"ט', "נועם רייס", 'בא"ח 21'],
       wrongUserAnswers3: [false, false, false, false, false], // לשמירת סטטוס טעויות
       checked3: false,
       reason: "הטרדה מינית ומעשה מגונה בכוח",

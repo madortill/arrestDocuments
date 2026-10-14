@@ -90,7 +90,7 @@ export default {
       publicDetails: "",
       signed: false,
       userInfo1: ["נועם", "רייס", "שמואל", "רינת"],
-      userInfo2: ["8859963", "טבח", 'בא"ח 21', "שדרות הערבה 16, בת חן"],
+      userInfo2: ["8859975", "טבח", 'בא"ח 21', "שדרות הערבה 16, בת חן"],
       checked: "",
       checked1: "",
       wrongUserAnswers: [false, false, false, false],
